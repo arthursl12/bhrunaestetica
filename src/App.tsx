@@ -57,6 +57,11 @@ const Hero = () => (
         </h2>
       </FadeIn>
       <FadeIn delay={0.2}>
+        <img 
+          src="/logo.jpg" 
+          alt="Bhruna Azevedo Logo" 
+          className="h-32 md:h-40 mx-auto mb-8 rounded-full shadow-lg border-2 border-brand-200"
+        />
         <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif text-white mb-6">
           Bhruna Azevedo
         </h1>
@@ -339,7 +344,12 @@ const FinalCTA = () => (
 const Footer = () => (
   <footer className="bg-brand-900 text-brand-200 py-12 px-4 text-center md:text-left">
     <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-8 items-center">
-      <div>
+      <div className="flex flex-col items-center md:items-start">
+        <img 
+          src="/logo.jpg" 
+          alt="Bhruna Azevedo Logo" 
+          className="h-16 w-16 rounded-full mb-4 border border-brand-400"
+        />
         <h3 className="font-serif text-2xl text-white mb-2">Bhruna Azevedo</h3>
         <p className="text-brand-300">Estética e Bem Estar</p>
       </div>
