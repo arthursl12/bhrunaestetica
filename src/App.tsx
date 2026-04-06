@@ -19,7 +19,7 @@ import {
   Sparkles
 } from 'lucide-react';
 
-const WHATSAPP_LINK = "https://wa.me/5531XXXXXXXXX";
+const WHATSAPP_LINK = "https://wa.me/553191422212";
 
 const FadeIn = ({ children, delay = 0 }: { children: React.ReactNode, delay?: number }) => (
   <motion.div
