@@ -15,7 +15,8 @@ import {
   Award,
   MapPin,
   Coffee,
-  Instagram
+  Instagram,
+  Sparkles
 } from 'lucide-react';
 
 const WHATSAPP_LINK = "https://wa.me/5531XXXXXXXXX";
@@ -112,7 +113,7 @@ const About = () => (
           <div className="p-6 bg-brand-50 border-l-4 border-brand-400 rounded-r-lg mt-6">
             <h3 className="font-serif text-xl text-brand-800 mb-2">Atendimento Exclusivo em BH</h3>
             <p className="text-brand-900/70">
-              Localizada na <strong>R. Lídia, 38 - Entrada lateral</strong>, bairro Pirajá, Belo Horizonte - MG (CEP 31910-650). Próximo à Estação São Gabriel.
+              Localizada na <strong>Rua Lídia, 38 (Entrada lateral), bairro Pirajá</strong>. Próximo à Estação São Gabriel.
             </p>
           </div>
         </FadeIn>
@@ -125,62 +126,88 @@ const services = [
   {
     title: "Drenagem Linfática",
     description: "Reduz o inchaço, melhora a circulação e elimina toxinas do corpo, promovendo leveza imediata.",
-    icon: Droplets
+    icon: Droplets,
+    image: "https://images.unsplash.com/photo-1544161515-436cefb65794?q=80&w=2070&auto=format&fit=crop"
   },
   {
     title: "Taping Estético",
     description: "Técnica com bandagens adesivas que modela o corpo, reduz medidas e atua no combate à celulite.",
-    icon: Activity
+    icon: Activity,
+    image: "https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?q=80&w=2070&auto=format&fit=crop"
   },
   {
     title: "Ventosaterapia",
     description: "Estimula a circulação sanguínea e alivia tensões musculares profundas através da sucção com ventosas.",
-    icon: Wind
+    icon: Wind,
+    image: "https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?q=80&w=2070&auto=format&fit=crop"
   },
   {
     title: "Massagem Relaxante",
-    description: "Técnicas que aliviam a tensão muscular, reduzem o estresse e promovem uma profunda sensação de paz e relaxamento total",
-    icon: Flame
+    description: "Técnicas que aliviam a tensão muscular, reduzem o estresse e promovem uma profunda sensação de paz e relaxamento total.",
+    icon: Heart,
+    image: "https://images.unsplash.com/photo-1519823551278-64ac92734fb1?q=80&w=2070&auto=format&fit=crop"
   },
   {
     title: "Manta Detox",
     description: "Uso de manta térmica para potencializar tratamentos, ativar o metabolismo e promover relaxamento profundo.",
-    icon: Thermometer
+    icon: Thermometer,
+    image: "https://images.unsplash.com/photo-1515377905703-c4788e51af15?q=80&w=2070&auto=format&fit=crop"
   },
   {
     title: "Limpeza de Pele",
-    description: "Tratamento essencial para desobstruir os poros, controlar a oleosidade e prevenir o envelhecimento precoce, deixando a pele revitalizada",
-    icon: Flame
+    description: "Tratamento essencial para desobstruir os poros, controlar a oleosidade e prevenir o envelhecimento precoce, deixando a pele revitalizada.",
+    icon: Sparkles,
+    image: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?q=80&w=2070&auto=format&fit=crop"
   },
 ];
 
 const Services = () => (
-  <section className="py-24 px-4 bg-brand-50">
-    <div className="max-w-6xl mx-auto">
+  <section className="py-24 bg-brand-50 overflow-hidden">
+    <div className="max-w-7xl mx-auto px-4 mb-16 text-center">
       <FadeIn>
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-serif text-brand-800 mb-4">Meus Serviços</h2>
-          <p className="text-lg text-brand-900/70 max-w-2xl mx-auto">
-            Tratamentos personalizados para atender às suas necessidades únicas de estética e relaxamento.
-          </p>
-        </div>
+        <h2 className="text-4xl md:text-5xl font-serif text-brand-800 mb-4">Meus Serviços</h2>
+        <p className="text-lg text-brand-900/70 max-w-2xl mx-auto">
+          Tratamentos personalizados para atender às suas necessidades únicas de estética e relaxamento.
+        </p>
       </FadeIn>
-      
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {services.map((service, index) => (
-          <FadeIn key={index} delay={index * 0.1}>
-            <div className="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300 h-full border border-brand-100">
-              <div className="w-14 h-14 bg-brand-100 rounded-full flex items-center justify-center mb-6 text-brand-600">
-                <service.icon className="w-7 h-7" strokeWidth={1.5} />
+    </div>
+
+    <div className="flex flex-col md:flex-row w-full h-[600px] md:h-[700px] gap-0">
+      {services.map((service, index) => (
+        <div 
+          key={index}
+          className="group relative flex-1 hover:md:flex-[4] transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] overflow-hidden cursor-pointer border-b md:border-b-0 md:border-r border-white/10"
+        >
+          {/* Background Image */}
+          <div className="absolute inset-0 z-0">
+            <img 
+              src={service.image} 
+              alt={service.title}
+              className="w-full h-full object-cover grayscale-[0.5] group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-brand-900 via-brand-900/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-700" />
+          </div>
+
+          {/* Content */}
+          <div className="absolute inset-0 z-10 p-8 flex flex-col justify-end text-white">
+            <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+              <div className="w-12 h-12 bg-brand-200/20 backdrop-blur-sm rounded-full flex items-center justify-center mb-4 text-brand-200 group-hover:bg-brand-200 group-hover:text-brand-900 transition-colors duration-500">
+                <service.icon className="w-6 h-6" strokeWidth={1.5} />
               </div>
-              <h3 className="text-xl font-serif font-semibold text-brand-800 mb-3">{service.title}</h3>
-              <p className="text-brand-900/70 leading-relaxed">
-                {service.description}
-              </p>
+              
+              <h3 className="text-2xl md:text-3xl font-serif font-medium mb-3 text-brand-50 whitespace-nowrap">
+                {service.title}
+              </h3>
+              
+              <div className="max-h-0 group-hover:max-h-32 opacity-0 group-hover:opacity-100 transition-all duration-700 overflow-hidden">
+                <p className="text-brand-100 leading-relaxed text-sm md:text-base max-w-md">
+                  {service.description}
+                </p>
+              </div>
             </div>
-          </FadeIn>
-        ))}
-      </div>
+          </div>
+        </div>
+      ))}
     </div>
   </section>
 );
