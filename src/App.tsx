@@ -39,9 +39,10 @@ const WhatsAppIcon = ({ className }: { className?: string }) => (
 );
 
 const Hero = () => (
-  <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
+  <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+    {/* Background Image with Overlay */}
     <div className="absolute inset-0 z-0">
-      <div className="absolute inset-0 bg-gradient-to-b from-brand-900/40 to-brand-900/80 z-10" />
+      <div className="absolute inset-0 bg-brand-50/60 backdrop-blur-[1px] z-10" />
       <img 
         src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=2070&auto=format&fit=crop" 
         alt="Spa background" 
@@ -49,36 +50,44 @@ const Hero = () => (
         referrerPolicy="no-referrer"
       />
     </div>
-    
-    <div className="relative z-20 text-center px-4 max-w-4xl mx-auto mt-16">
+
+    <div className="relative z-20 text-center px-4 max-w-4xl mx-auto flex flex-col items-center">
       <FadeIn>
-        <h2 className="text-brand-200 tracking-widest uppercase text-sm md:text-base font-medium mb-4">
-          Estética e Bem Estar
-        </h2>
+        <div className="mb-8 p-1 rounded-full border border-brand-200/50 shadow-sm bg-white/50 backdrop-blur-sm">
+          <img 
+            src="/logo.jpg" 
+            alt="BA Logo" 
+            className="h-28 md:h-36 w-28 md:w-36 rounded-full logo-glow object-cover drop-shadow-lg"
+          />
+        </div>
       </FadeIn>
+      
       <FadeIn delay={0.2}>
-        <img 
-          src="/logo.jpg" 
-          alt="Bhruna Azevedo Logo" 
-          className="h-32 md:h-40 mx-auto mb-8 rounded-full shadow-lg border-2 border-brand-200"
-        />
-        <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif text-white mb-6">
+        <span className="text-brand-300 font-sans tracking-[0.3em] uppercase text-xs md:text-sm font-medium mb-4 block">
+          Estética & Bem Estar
+        </span>
+      </FadeIn>
+
+      <FadeIn delay={0.3}>
+        <h1 className="text-5xl md:text-7xl lg:text-8xl font-playfair text-metallic-bronze mb-6 tracking-tight">
           Bhruna Azevedo
         </h1>
       </FadeIn>
+
       <FadeIn delay={0.4}>
-        <p className="text-xl md:text-2xl text-brand-100 font-light mb-10 max-w-2xl mx-auto">
+        <p className="text-lg md:text-xl text-brand-900/60 font-light mb-12 max-w-2xl mx-auto tracking-wide">
           Cuide do seu corpo. Desperte o melhor de você.
         </p>
       </FadeIn>
-      <FadeIn delay={0.6}>
+
+      <FadeIn delay={0.5}>
         <a 
           href={WHATSAPP_LINK}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center justify-center px-8 py-4 text-lg font-medium text-brand-900 bg-brand-200 rounded-full hover:bg-white transition-colors duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+          className="inline-flex items-center justify-center px-10 py-4 text-lg font-medium text-brand-50 bg-brand-900 rounded-full hover:bg-brand-800 transition-all duration-500 shadow-lg hover:shadow-2xl transform hover:-translate-y-1"
         >
-          <WhatsAppIcon className="w-5 h-5 mr-2" />
+          <WhatsAppIcon className="w-5 h-5 mr-3 text-brand-200" />
           Agende seu horário
         </a>
       </FadeIn>
@@ -87,10 +96,10 @@ const Hero = () => (
 );
 
 const About = () => (
-  <section className="py-24 px-4 bg-white">
-    <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+  <section className="py-24 px-4 bg-white relative overflow-hidden">
+    <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center relative z-20">
       <FadeIn>
-        <div className="aspect-[4/5] rounded-t-full overflow-hidden relative">
+        <div className="aspect-[4/5] rounded-t-full overflow-hidden relative shadow-2xl">
           <div className="absolute inset-0 bg-brand-200/20 mix-blend-multiply z-10" />
           <img 
             src="/bhruna.jpg" 
@@ -114,7 +123,7 @@ const About = () => (
           </p>
         </FadeIn>
         <FadeIn delay={0.4}>
-          <div className="p-6 bg-brand-50 border-l-4 border-brand-400 rounded-r-lg mt-6">
+          <div className="p-6 bg-brand-50 border-l-4 border-brand-400 rounded-r-lg mt-6 shadow-sm">
             <h3 className="font-serif text-xl text-brand-800 mb-2">Atendimento Exclusivo em BH</h3>
             <p className="text-brand-900/70">
               Localizada na <strong>Rua Lídia, 38 (Entrada lateral), bairro Pirajá</strong>. Próximo à Estação São Gabriel.

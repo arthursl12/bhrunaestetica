@@ -3,6 +3,8 @@
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-serif: "Cormorant Garamond", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-playfair: "Playfair Display", ui-serif, Georgia, serif;
+  --font-cinzel: "Cinzel", serif;
   
   --color-brand-50: #fbf8f6;
   --color-brand-100: #f5ede6;
@@ -14,6 +16,32 @@
   --color-brand-700: #994c35;
   --color-brand-800: #7d402f;
   --color-brand-900: #653628;
+  --color-hero-bg: #f5ede6;
+}
+
+@layer utilities {
+  .text-metallic-bronze {
+    background: linear-gradient(to right, #7d402f 0%, #d09471 20%, #ebd6c5 40%, #d09471 60%, #7d402f 80%, #653628 100%);
+    background-size: 200% auto;
+    background-position: 100% center;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0px 1px 1px rgba(255, 255, 255, 0.3);
+    animation: shine 8s linear infinite;
+  }
+
+  @keyframes shine {
+    from {
+      background-position: 100% center;
+    }
+    to {
+      background-position: -100% center;
+    }
+  }
+
+  .logo-glow {
+    filter: drop-shadow(0 0 15px rgba(208, 148, 113, 0.2));
+  }
 }
 
 html {
