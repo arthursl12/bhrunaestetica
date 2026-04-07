@@ -93,10 +93,9 @@ const About = () => (
         <div className="aspect-[4/5] rounded-t-full overflow-hidden relative">
           <div className="absolute inset-0 bg-brand-200/20 mix-blend-multiply z-10" />
           <img 
-            src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?q=80&w=2070&auto=format&fit=crop" 
+            src="/bhruna.jpg" 
             alt="Bhruna Azevedo" 
             className="w-full h-full object-cover"
-            referrerPolicy="no-referrer"
           />
         </div>
       </FadeIn>
@@ -132,31 +131,31 @@ const services = [
     title: "Drenagem Linfática",
     description: "Reduz o inchaço, melhora a circulação e elimina toxinas do corpo, promovendo leveza imediata.",
     icon: Droplets,
-    image: "https://images.unsplash.com/photo-1544161515-436cefb65794?q=80&w=2070&auto=format&fit=crop"
+    image: "/drenagem.jpeg"
   },
   {
     title: "Taping Estético",
     description: "Técnica com bandagens adesivas que modela o corpo, reduz medidas e atua no combate à celulite.",
     icon: Activity,
-    image: "https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?q=80&w=2070&auto=format&fit=crop"
+    image: "/taping.jpeg"
   },
   {
     title: "Ventosaterapia",
     description: "Estimula a circulação sanguínea e alivia tensões musculares profundas através da sucção com ventosas.",
     icon: Wind,
-    image: "https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?q=80&w=2070&auto=format&fit=crop"
+    image: "/ventosa.png"
   },
   {
     title: "Massagem Relaxante",
     description: "Técnicas que aliviam a tensão muscular, reduzem o estresse e promovem uma profunda sensação de paz e relaxamento total.",
     icon: Heart,
-    image: "https://images.unsplash.com/photo-1519823551278-64ac92734fb1?q=80&w=2070&auto=format&fit=crop"
+    image: "/mass_relax.jpeg"
   },
   {
     title: "Manta Detox",
     description: "Uso de manta térmica para potencializar tratamentos, ativar o metabolismo e promover relaxamento profundo.",
     icon: Thermometer,
-    image: "https://images.unsplash.com/photo-1515377905703-c4788e51af15?q=80&w=2070&auto=format&fit=crop"
+    image: "/manta.jpeg"
   },
   {
     title: "Limpeza de Pele",
