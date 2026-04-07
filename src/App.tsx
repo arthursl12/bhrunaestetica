@@ -363,7 +363,12 @@ const Footer = () => (
       </div>
       
       <div className="flex justify-center md:justify-center space-x-6">
-        <a href="#" className="hover:text-white transition-colors">
+        <a 
+          href="https://www.instagram.com/bhrunaazevedoestetica/" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          className="hover:text-white transition-colors"
+        >
           <span className="sr-only">Instagram</span>
           <Instagram className="w-6 h-6" />
         </a>
