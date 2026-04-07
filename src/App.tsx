@@ -3,6 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
+import React, { useEffect } from 'react';
 import { motion } from 'motion/react';
 import { 
   Droplets, 
@@ -16,7 +17,8 @@ import {
   MapPin,
   Coffee,
   Instagram,
-  Sparkles
+  Sparkles,
+  Calendar
 } from 'lucide-react';
 
 const WHATSAPP_LINK = "https://wa.me/553191422212";
@@ -81,15 +83,13 @@ const Hero = () => (
       </FadeIn>
 
       <FadeIn delay={0.5}>
-        <a 
-          href={WHATSAPP_LINK}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center justify-center px-10 py-4 text-lg font-medium text-brand-50 bg-brand-900 rounded-full hover:bg-brand-800 transition-all duration-500 shadow-lg hover:shadow-2xl transform hover:-translate-y-1"
+        <button 
+          onClick={() => document.getElementById('agendamento')?.scrollIntoView({ behavior: 'smooth' })}
+          className="inline-flex items-center justify-center px-10 py-4 text-lg font-medium text-brand-50 bg-brand-900 rounded-full hover:bg-brand-800 transition-all duration-500 shadow-lg hover:shadow-2xl transform hover:-translate-y-1 cursor-pointer"
         >
-          <WhatsAppIcon className="w-5 h-5 mr-3 text-brand-200" />
+          <Calendar className="w-5 h-5 mr-3 text-brand-200" />
           Agende seu horário
-        </a>
+        </button>
       </FadeIn>
     </div>
   </section>
@@ -225,6 +225,42 @@ const Services = () => (
   </section>
 );
 
+const Booking = () => {
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = "https://assets.calendly.com/assets/external/widget.js";
+    script.async = true;
+    document.body.appendChild(script);
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+
+  return (
+    <section id="agendamento" className="py-24 px-4 bg-white overflow-hidden">
+      <div className="max-w-4xl mx-auto text-center mb-12">
+        <FadeIn>
+          <h2 className="text-4xl md:text-5xl font-serif text-brand-800 mb-6">Agende sua Sessão</h2>
+          <p className="text-lg text-brand-900/70 max-w-2xl mx-auto">
+            Selecione o tratamento desejado e escolha o melhor horário para o seu atendimento exclusivo.
+          </p>
+        </FadeIn>
+      </div>
+      
+      <FadeIn delay={0.2}>
+        <div className="max-w-5xl mx-auto rounded-2xl overflow-hidden shadow-2xl border border-brand-100 bg-brand-50/30 backdrop-blur-sm">
+          {/* Calendly Inline Widget */}
+          <div 
+            className="calendly-inline-widget" 
+            data-url="https://calendly.com/bhrunaestetica?hide_landing_page_details=1&hide_gdpr_banner=1&primary_color=d09471" 
+            style={{ minWidth: '320px', height: '900px' }}
+          ></div>
+        </div>
+      </FadeIn>
+    </section>
+  );
+};
+
 const differentials = [
   {
     title: "Atendimento Personalizado",
@@ -331,19 +367,17 @@ const FinalCTA = () => (
       </FadeIn>
       <FadeIn delay={0.2}>
         <p className="text-xl text-brand-900/80 mb-10">
-          Agende sua sessão e descubra os benefícios de um tratamento feito especialmente para você.
+          Escolha o melhor horário para você e inicie sua jornada de bem-estar.
         </p>
       </FadeIn>
       <FadeIn delay={0.4}>
-        <a 
-          href={WHATSAPP_LINK}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center justify-center px-10 py-5 text-xl font-medium text-white bg-brand-800 rounded-full hover:bg-brand-900 transition-colors duration-300 shadow-xl hover:shadow-2xl transform hover:-translate-y-1"
+        <button 
+          onClick={() => document.getElementById('agendamento')?.scrollIntoView({ behavior: 'smooth' })}
+          className="inline-flex items-center justify-center px-10 py-5 text-xl font-medium text-white bg-brand-800 rounded-full hover:bg-brand-900 transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:-translate-y-1 cursor-pointer"
         >
-          <WhatsAppIcon className="w-6 h-6 mr-3" />
-          Agende seu horário
-        </a>
+          <Calendar className="w-6 h-6 mr-3" />
+          Ver horários disponíveis
+        </button>
       </FadeIn>
     </div>
   </section>
@@ -406,6 +440,7 @@ export default function App() {
       <Hero />
       <About />
       <Services />
+      <Booking />
       <Differentials />
       <Location />
       <FinalCTA />
