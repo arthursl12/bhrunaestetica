@@ -257,6 +257,23 @@ const Booking = () => {
           ></div>
         </div>
       </FadeIn>
+
+      <FadeIn delay={0.4}>
+        <div className="mt-12 text-center">
+          <p className="text-brand-900/60 mb-6 font-light italic">
+            Prefere agendar diretamente ou tem alguma dúvida?
+          </p>
+          <a 
+            href={WHATSAPP_LINK}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center px-8 py-4 text-lg font-medium text-white bg-brand-800 rounded-full hover:bg-brand-900 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+          >
+            <WhatsAppIcon className="w-5 h-5 mr-3" />
+            Fale comigo
+          </a>
+        </div>
+      </FadeIn>
     </section>
   );
 };
