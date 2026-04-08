@@ -143,8 +143,8 @@ const services = [
     image: "/drenagem.jpeg"
   },
   {
-    title: "Taping Estético",
-    description: "Técnica com bandagens adesivas que modela o corpo, reduz medidas e atua no combate à celulite.",
+    title: "Taping",
+    description: "Aplicação estratégica de bandagens terapêuticas para diversas necessidades. No estético, auxilia na modelagem e celulite; no pós-operatório, reduz edemas e acelera a cicatrização; e no gestacional, oferece suporte muscular e alívio de dores, garantindo conforto e segurança.",
     icon: Activity,
     image: "/taping.jpeg"
   },
@@ -167,10 +167,10 @@ const services = [
     image: "/manta.jpeg"
   },
   {
-    title: "Limpeza de Pele",
-    description: "Tratamento essencial para desobstruir os poros, controlar a oleosidade e prevenir o envelhecimento precoce, deixando a pele revitalizada.",
+    title: "Spa dos Pés",
+    description: "Uma experiência de relaxamento profundo que vai além da estética. Inclui hidratação intensiva e massagem relaxante nos pontos de tensão, devolvendo a maciez e promovendo um alívio imediato para pés cansados.",
     icon: Sparkles,
-    image: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?q=80&w=2070&auto=format&fit=crop"
+    image: "/spapes.jpeg"
   },
 ];
 
