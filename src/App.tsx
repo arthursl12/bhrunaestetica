@@ -21,6 +21,21 @@ import {
   Calendar
 } from 'lucide-react';
 
+declare global {
+  interface Window {
+    gtag: (...args: any[]) => void;
+  }
+}
+
+const trackEvent = (action: string, category: string, label: string) => {
+  if (typeof window.gtag === 'function') {
+    window.gtag('event', action, {
+      'event_category': category,
+      'event_label': label
+    });
+  }
+};
+
 const WHATSAPP_LINK = "https://wa.me/553191422212";
 
 const FadeIn = ({ children, delay = 0 }: { children: React.ReactNode, delay?: number }) => (
@@ -227,12 +242,24 @@ const Services = () => (
 
 const Booking = () => {
   useEffect(() => {
+    // Calendly script injection
     const script = document.createElement('script');
     script.src = "https://assets.calendly.com/assets/external/widget.js";
     script.async = true;
     document.body.appendChild(script);
+
+    // Event listener for Calendly
+    const handleCalendlyEvent = (e: MessageEvent) => {
+      if (e.data.event && e.data.event === 'calendly.event_scheduled') {
+        trackEvent('schedule_appointment', 'Calendly', 'Success');
+      }
+    };
+
+    window.addEventListener('message', handleCalendlyEvent);
+
     return () => {
       document.body.removeChild(script);
+      window.removeEventListener('message', handleCalendlyEvent);
     };
   }, []);
 
@@ -267,6 +294,7 @@ const Booking = () => {
             href={WHATSAPP_LINK}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackEvent('whatsapp_click', 'WhatsApp', 'Contact')}
             className="inline-flex items-center justify-center px-8 py-4 text-lg font-medium text-white bg-brand-800 rounded-full hover:bg-brand-900 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
           >
             <WhatsAppIcon className="w-5 h-5 mr-3" />
@@ -423,7 +451,11 @@ const Footer = () => (
           <span className="sr-only">Instagram</span>
           <Instagram className="w-6 h-6" />
         </a>
-        <a href={WHATSAPP_LINK} className="hover:text-white transition-colors">
+        <a 
+          href={WHATSAPP_LINK} 
+          onClick={() => trackEvent('whatsapp_click', 'WhatsApp', 'Contact')}
+          className="hover:text-white transition-colors"
+        >
           <span className="sr-only">WhatsApp</span>
           <WhatsAppIcon className="w-6 h-6" />
         </a>
@@ -442,6 +474,7 @@ const FloatingWhatsApp = () => (
     href={WHATSAPP_LINK}
     target="_blank"
     rel="noopener noreferrer"
+    onClick={() => trackEvent('whatsapp_click', 'WhatsApp', 'Contact')}
     className="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform duration-300 flex items-center justify-center group"
     aria-label="Fale conosco no WhatsApp"
   >
