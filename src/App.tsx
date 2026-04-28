@@ -29,10 +29,11 @@ declare global {
 
 const trackEvent = (action: string, category: string, label: string) => {
   if (typeof window.gtag === 'function') {
-    window.gtag('event', action, {
-      'event_category': category,
-      'event_label': label
-    });
+    // window.gtag('event', action, {
+    //   'event_category': category,
+    //   'event_label': label
+    // });
+    window.gtag('event', action);
   }
 };
 
