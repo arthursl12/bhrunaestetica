@@ -5,6 +5,7 @@
 
 import React, { useEffect } from 'react';
 import { motion } from 'motion/react';
+import { Routes, Route } from 'react-router-dom';
 import { 
   Droplets, 
   Activity, 
@@ -485,18 +486,26 @@ const FloatingWhatsApp = () => (
   </a>
 );
 
+const HomePage = () => (
+  <div className="min-h-screen font-sans text-brand-900 bg-brand-50 selection:bg-brand-200 selection:text-brand-900">
+    <Hero />
+    <About />
+    <Services />
+    <Booking />
+    <Differentials />
+    <Location />
+    <FinalCTA />
+    <Footer />
+    <FloatingWhatsApp />
+  </div>
+);
+
 export default function App() {
   return (
-    <div className="min-h-screen font-sans text-brand-900 bg-brand-50 selection:bg-brand-200 selection:text-brand-900">
-      <Hero />
-      <About />
-      <Services />
-      <Booking />
-      <Differentials />
-      <Location />
-      <FinalCTA />
-      <Footer />
-      <FloatingWhatsApp />
-    </div>
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/manta" element={<HomePage />} />
+      <Route path="/drenagem" element={<HomePage />} />
+    </Routes>
   );
 }
