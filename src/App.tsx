@@ -506,6 +506,7 @@ export default function App() {
       <Route path="/" element={<HomePage />} />
       <Route path="/manta" element={<HomePage />} />
       <Route path="/drenagem" element={<HomePage />} />
+      <Route path="/ventosa" element={<HomePage />} />
     </Routes>
   );
 }
