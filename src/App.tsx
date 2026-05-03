@@ -617,7 +617,7 @@ const CorporateMassagePage = () => {
               <div className="absolute -inset-4 bg-brand-100 rounded-2xl blur-2xl opacity-50 group-hover:opacity-75 transition-opacity" />
               <div className="relative overflow-hidden rounded-2xl shadow-2xl">
                 <img 
-                  src="/mass_relax.jpeg" 
+                  src="/quick.jpeg" 
                   alt="Quick Massage Corporativa BH" 
                   className="w-full h-[600px] object-cover"
                 />
