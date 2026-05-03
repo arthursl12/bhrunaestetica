@@ -5,7 +5,7 @@
 
 import React, { useEffect } from 'react';
 import { motion } from 'motion/react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Link } from 'react-router-dom';
 import { 
   Droplets, 
   Activity, 
@@ -19,7 +19,11 @@ import {
   Coffee,
   Instagram,
   Sparkles,
-  Calendar
+  Calendar,
+  Building2,
+  Users,
+  Clock,
+  Briefcase
 } from 'lucide-react';
 
 declare global {
@@ -40,6 +44,21 @@ const trackEvent = (action: string, category: string, label: string) => {
 
 const WHATSAPP_LINK = "https://wa.me/553191422212";
 
+const Navbar = () => (
+  <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-brand-100 px-4 py-3">
+    <div className="max-w-7xl mx-auto flex justify-between items-center">
+      <Link to="/" className="flex items-center gap-2 group">
+        <img src="/logo.jpg" alt="Logo" className="h-10 w-10 rounded-full border border-brand-200 transition-transform group-hover:scale-110" />
+        <span className="font-serif text-brand-900 font-bold text-lg hidden md:block">Bhruna Azevedo</span>
+      </Link>
+      <div className="flex gap-4 md:gap-8">
+        <Link to="/" className="text-brand-800 hover:text-brand-500 font-medium transition-colors text-sm md:text-base">Home</Link>
+        <Link to="/massagemcorporativa" className="text-brand-800 hover:text-brand-500 font-medium transition-colors text-sm md:text-base">Massagem Corporativa</Link>
+      </div>
+    </div>
+  </nav>
+);
+
 const FadeIn = ({ children, delay = 0 }: { children: React.ReactNode, delay?: number }) => (
   <motion.div
     initial={{ opacity: 0, y: 20 }}
@@ -58,7 +77,7 @@ const WhatsAppIcon = ({ className }: { className?: string }) => (
 );
 
 const Hero = () => (
-  <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+  <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
     {/* Background Image with Overlay */}
     <div className="absolute inset-0 z-0">
       <div className="absolute inset-0 bg-brand-50/60 backdrop-blur-[1px] z-10" />
@@ -486,8 +505,104 @@ const FloatingWhatsApp = () => (
   </a>
 );
 
+const CorporateMassagePage = () => (
+  <div className="min-h-screen font-sans text-brand-900 bg-brand-50 selection:bg-brand-200 selection:text-brand-900 pt-16">
+    <Navbar />
+    
+    <section className="relative py-24 px-4 overflow-hidden bg-white">
+      <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+        <FadeIn>
+          <h1 className="text-5xl md:text-7xl font-serif text-brand-800 mb-6">Massagem Corporativa</h1>
+          <p className="text-xl text-brand-900/70 mb-8 leading-relaxed">
+            Leve produtividade, saúde e bem-estar para dentro da sua empresa. A Quick Massage é a solução ideal para aliviar o estresse da equipe em poucos minutos.
+          </p>
+          <div className="space-y-4 mb-10">
+            {[
+              "Aumento da produtividade",
+              "Redução do estresse e ansiedade",
+              "Melhora do clima organizacional",
+              "Prevenção de doenças ocupacionais (LER/DORT)"
+            ].map((benefit, i) => (
+              <div key={i} className="flex items-center gap-3">
+                <div className="w-5 h-5 bg-brand-200 rounded-full flex items-center justify-center">
+                  <Sparkles className="w-3 h-3 text-brand-700" />
+                </div>
+                <span className="text-brand-900/80">{benefit}</span>
+              </div>
+            ))}
+          </div>
+          <a 
+            href={WHATSAPP_LINK}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center px-8 py-4 text-lg font-medium text-white bg-brand-800 rounded-full hover:bg-brand-900 transition-all shadow-lg"
+          >
+            <Briefcase className="w-5 h-5 mr-3" />
+            Solicitar orçamento para minha empresa
+          </a>
+        </FadeIn>
+        
+        <FadeIn delay={0.2}>
+          <div className="relative">
+            <div className="absolute -inset-4 bg-brand-100 rounded-full blur-3xl opacity-50" />
+            <img 
+              src="/mass_relax.jpeg" 
+              alt="Quick Massage Corporativa" 
+              className="relative rounded-2xl shadow-2xl z-10 w-full h-[500px] object-cover"
+            />
+          </div>
+        </FadeIn>
+      </div>
+    </section>
+
+    <section className="py-24 px-4 bg-brand-50">
+      <div className="max-w-6xl mx-auto">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl font-serif text-brand-800 mb-4">Como funciona?</h2>
+          <p className="text-brand-900/60 max-w-2xl mx-auto">
+            Projetamos uma logística eficiente que não interfere na rotina de trabalho.
+          </p>
+        </div>
+        
+        <div className="grid md:grid-cols-3 gap-8">
+          {[
+            {
+              title: "Sessões Rápidas",
+              desc: "Duração de 15 a 20 minutos, focada em costas, pescoço e braços.",
+              icon: Clock
+            },
+            {
+              title: "Logística Própria",
+              desc: "Levamos todo o material necessário (cadeiras ergonômicas, som ambiente).",
+              icon: Building2
+            },
+            {
+              title: "Equipe Especializada",
+              desc: "Profissionais treinados para atendimento em ambiente corporativo.",
+              icon: Users
+            }
+          ].map((item, i) => (
+            <FadeIn key={i} delay={i * 0.1}>
+              <div className="bg-white p-8 rounded-2xl border border-brand-100 shadow-sm text-center h-full">
+                <div className="w-14 h-14 bg-brand-100 rounded-full flex items-center justify-center mx-auto mb-6 text-brand-700">
+                  <item.icon className="w-7 h-7" />
+                </div>
+                <h3 className="text-xl font-serif mb-4 text-brand-800">{item.title}</h3>
+                <p className="text-brand-900/70">{item.desc}</p>
+              </div>
+            </FadeIn>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <Footer />
+  </div>
+);
+
 const HomePage = () => (
-  <div className="min-h-screen font-sans text-brand-900 bg-brand-50 selection:bg-brand-200 selection:text-brand-900">
+  <div className="min-h-screen font-sans text-brand-900 bg-brand-50 selection:bg-brand-200 selection:text-brand-900 pt-16">
+    <Navbar />
     <Hero />
     <About />
     <Services />
@@ -507,6 +622,7 @@ export default function App() {
       <Route path="/manta" element={<HomePage />} />
       <Route path="/drenagem" element={<HomePage />} />
       <Route path="/ventosa" element={<HomePage />} />
+      <Route path="/massagemcorporativa" element={<CorporateMassagePage />} />
     </Routes>
   );
 }

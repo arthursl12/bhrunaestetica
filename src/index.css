@@ -21,22 +21,8 @@
 
 @layer utilities {
   .text-metallic-bronze {
-    background: linear-gradient(to right, #7d402f 0%, #d09471 20%, #ebd6c5 40%, #d09471 60%, #7d402f 80%, #653628 100%);
-    background-size: 200% auto;
-    background-position: 100% center;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    @apply text-brand-800;
     text-shadow: 0px 1px 1px rgba(255, 255, 255, 0.3);
-    animation: shine 8s linear infinite;
-  }
-
-  @keyframes shine {
-    from {
-      background-position: 100% center;
-    }
-    to {
-      background-position: -100% center;
-    }
   }
 
   .logo-glow {
