@@ -23,7 +23,18 @@ import {
   Building2,
   Users,
   Clock,
-  Briefcase
+  Briefcase,
+  CheckCircle2,
+  HelpCircle,
+  FileText,
+  Truck,
+  ShieldCheck,
+  MessageSquare,
+  AlertCircle,
+  TrendingUp,
+  Smile,
+  Zap,
+  ChevronDown
 } from 'lucide-react';
 
 declare global {
@@ -505,100 +516,331 @@ const FloatingWhatsApp = () => (
   </a>
 );
 
-const CorporateMassagePage = () => (
-  <div className="min-h-screen font-sans text-brand-900 bg-brand-50 selection:bg-brand-200 selection:text-brand-900 pt-16">
-    <Navbar />
-    
-    <section className="relative py-24 px-4 overflow-hidden bg-white">
-      <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
-        <FadeIn>
-          <h1 className="text-5xl md:text-7xl font-serif text-brand-800 mb-6">Massagem Corporativa</h1>
-          <p className="text-xl text-brand-900/70 mb-8 leading-relaxed">
-            Leve produtividade, saúde e bem-estar para dentro da sua empresa. A Quick Massage é a solução ideal para aliviar o estresse da equipe em poucos minutos.
-          </p>
-          <div className="space-y-4 mb-10">
-            {[
-              "Aumento da produtividade",
-              "Redução do estresse e ansiedade",
-              "Melhora do clima organizacional",
-              "Prevenção de doenças ocupacionais (LER/DORT)"
-            ].map((benefit, i) => (
-              <div key={i} className="flex items-center gap-3">
-                <div className="w-5 h-5 bg-brand-200 rounded-full flex items-center justify-center">
-                  <Sparkles className="w-3 h-3 text-brand-700" />
-                </div>
-                <span className="text-brand-900/80">{benefit}</span>
-              </div>
-            ))}
-          </div>
-          <a 
-            href={WHATSAPP_LINK}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center px-8 py-4 text-lg font-medium text-white bg-brand-800 rounded-full hover:bg-brand-900 transition-all shadow-lg"
-          >
-            <Briefcase className="w-5 h-5 mr-3" />
-            Solicitar orçamento para minha empresa
-          </a>
-        </FadeIn>
-        
-        <FadeIn delay={0.2}>
-          <div className="relative">
-            <div className="absolute -inset-4 bg-brand-100 rounded-full blur-3xl opacity-50" />
-            <img 
-              src="/mass_relax.jpeg" 
-              alt="Quick Massage Corporativa" 
-              className="relative rounded-2xl shadow-2xl z-10 w-full h-[500px] object-cover"
-            />
-          </div>
-        </FadeIn>
-      </div>
-    </section>
+const CorporateMassagePage = () => {
+  const [openFaq, setOpenFaq] = React.useState<number | null>(null);
 
-    <section className="py-24 px-4 bg-brand-50">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-serif text-brand-800 mb-4">Como funciona?</h2>
-          <p className="text-brand-900/60 max-w-2xl mx-auto">
-            Projetamos uma logística eficiente que não interfere na rotina de trabalho.
-          </p>
+  const faqs = [
+    {
+      q: "Quanto tempo leva cada sessão?",
+      a: "Cada atendimento individual dura entre 15 e 20 minutos. Em um período de 4 horas, um profissional consegue atender entre 10 e 14 colaboradores com conforto e qualidade. Para equipes maiores, enviamos mais profissionais — tudo combinado previamente no seu orçamento personalizado."
+    },
+    {
+      q: "Precisa de um espaço específico na empresa?",
+      a: "Não. A cadeira de Quick Massage foi projetada para ambientes corporativos. Uma sala de reunião pequena, um espaço na copa ou um canto da recepção já são suficientes. Se tiver dúvida sobre o espaço disponível, nos mande uma foto e avaliamos juntos — sem compromisso."
+    },
+    {
+      q: "O serviço emite nota fiscal?",
+      a: "Sim, sempre. Emitimos NF para pessoa jurídica em todos os contratos e pacotes. Seu departamento financeiro e de compliance não terão nenhuma pendência."
+    },
+    {
+      q: "Como funciona o contrato mensal? Há fidelidade?",
+      a: "Trabalhamos com pacotes mensais e também com atendimentos pontuais para eventos. Os contratos mensais têm condições especiais de preço e prioridade de agenda. Apresentamos as opções no orçamento e você escolhe o que faz mais sentido para o momento da empresa."
+    },
+    {
+      q: "A terapeuta é qualificada? O serviço é seguro?",
+      a: "Sim. Todas as profissionais têm formação técnica em massoterapia, com foco em Quick Massage corporativa. Utilizamos exclusivamente materiais descartáveis por atendimento. A higiene e a segurança são inegociáveis para nós."
+    },
+    {
+      q: "Quanto custa?",
+      a: "O valor depende do número de colaboradores, frequência e região. Exatamente por isso, fazemos um orçamento 100% personalizado — sem pacotes engessados que não servem para ninguém. Clique abaixo e receba uma proposta em até 24 horas úteis."
+    }
+  ];
+
+  return (
+    <div className="min-h-screen font-sans text-brand-900 bg-brand-50 selection:bg-brand-200 selection:text-brand-900 pt-16">
+      <Navbar />
+      
+      {/* 1. HERO SECTION */}
+      <section className="relative py-24 px-4 overflow-hidden bg-white border-b border-brand-100">
+        <div className="max-w-6xl mx-auto text-center">
+          <FadeIn>
+            <span className="inline-block px-4 py-1.5 mb-6 text-xs font-bold tracking-widest text-brand-700 uppercase bg-brand-100 rounded-full">
+              Quick Massage Corporativa em BH
+            </span>
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif text-brand-800 mb-8 leading-tight max-w-5xl mx-auto">
+              Sua Equipe Produz Mais Quando Está Bem. <br className="hidden md:block" />
+              <span className="text-brand-500">Nós Cuidamos Disso — Dentro da Sua Empresa.</span>
+            </h1>
+            <p className="text-xl md:text-2xl text-brand-900/70 mb-12 leading-relaxed max-w-3xl mx-auto font-light">
+              O benefício que reduz o estresse, aumenta o foco e transforma o clima organizacional — sem tirar ninguém do trabalho por mais de 20 minutos.
+            </p>
+            <div className="flex flex-col sm:flex-row justify-center gap-4">
+              <a 
+                href={WHATSAPP_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center px-10 py-5 text-lg font-bold text-white bg-brand-800 rounded-full hover:bg-brand-900 transition-all shadow-xl hover:shadow-2xl transform hover:-translate-y-1"
+              >
+                <Briefcase className="w-5 h-5 mr-3" />
+                → Solicitar Orçamento Gratuito para Minha Empresa
+              </a>
+            </div>
+          </FadeIn>
         </div>
-        
-        <div className="grid md:grid-cols-3 gap-8">
-          {[
-            {
-              title: "Sessões Rápidas",
-              desc: "Duração de 15 a 20 minutos, focada em costas, pescoço e braços.",
-              icon: Clock
-            },
-            {
-              title: "Logística Própria",
-              desc: "Levamos todo o material necessário (cadeiras ergonômicas, som ambiente).",
-              icon: Building2
-            },
-            {
-              title: "Equipe Especializada",
-              desc: "Profissionais treinados para atendimento em ambiente corporativo.",
-              icon: Users
-            }
-          ].map((item, i) => (
-            <FadeIn key={i} delay={i * 0.1}>
-              <div className="bg-white p-8 rounded-2xl border border-brand-100 shadow-sm text-center h-full">
-                <div className="w-14 h-14 bg-brand-100 rounded-full flex items-center justify-center mx-auto mb-6 text-brand-700">
-                  <item.icon className="w-7 h-7" />
+      </section>
+
+      {/* 2. THE PROBLEM (PAS) */}
+      <section className="py-24 px-4 bg-brand-900 text-brand-50 relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-white/5 to-transparent pointer-events-none" />
+        <div className="max-w-4xl mx-auto">
+          <FadeIn>
+            <h2 className="text-3xl md:text-5xl font-serif mb-12 leading-tight">
+              Dor de cabeça, tensão no pescoço e aquela sensação de que a equipe "está no limite". <span className="text-brand-300">Você reconhece esse cenário?</span>
+            </h2>
+            <div className="space-y-6 text-lg md:text-xl text-brand-100/80 font-light leading-relaxed">
+              <p>Todo gestor sabe que uma equipe desgastada custa caro — muito mais caro do que parece à primeira vista.</p>
+              <p>Absenteísmo por dores musculares e estresse. Presenteísmo: o colaborador está lá, mas a cabeça foi embora. Turnover silencioso de talentos que se sentem invisíveis. Sinistralidade crescendo no plano de saúde da empresa. Clima pesado que contamina reuniões, prazos e resultados.</p>
+              <p>E o pior: enquanto o problema cresce, a solução parece sempre cara, complicada ou "para depois".</p>
+              <p className="text-brand-200 font-medium">A verdade é que o custo de não cuidar das pessoas já está aparecendo no seu resultado. Nas metas não batidas. No cliente mal atendido. Na inovação que não acontece porque ninguém tem energia criativa sobrando.</p>
+              <p className="pt-6 text-2xl md:text-3xl font-serif text-white">Existe uma forma simples, acessível e comprovada de virar esse jogo — e ela cabe dentro do seu escritório.</p>
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* 3. THE SOLUTION */}
+      <section className="py-24 px-4 bg-white">
+        <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+          <FadeIn>
+            <h2 className="text-4xl md:text-5xl font-serif text-brand-800 mb-8 leading-tight">
+              Quick Massage Corporativa: <span className="text-brand-400">15 minutos que valem por um dia de motivação.</span>
+            </h2>
+            <div className="space-y-6 text-lg text-brand-900/70 leading-relaxed">
+              <p>A Quick Massage Corporativa da Bhruna Azevedo Estética e Bem-Estar leva até a sua empresa uma experiência completa de bem-estar — sem burocracia, sem reforma no espaço físico e sem interromper a operação.</p>
+              <p>Nossa terapeuta especializada chega com tudo: a cadeira ergonômica própria para ambiente corporativo, todos os materiais descartáveis e higienizados, uniformes profissionais e uma técnica focada em aliviar os pontos de maior tensão do trabalho de escritório — nuca, ombros, coluna e braços.</p>
+              <p className="font-bold text-brand-800 italic">Você não precisa fazer nada além de nos chamar.</p>
+              <p>Em sessões de 15 a 20 minutos por colaborador, sua equipe sai renovada, focada e com a mensagem poderosa de que a empresa se importa de verdade com quem faz tudo acontecer.</p>
+            </div>
+          </FadeIn>
+          <FadeIn delay={0.2}>
+            <div className="relative group">
+              <div className="absolute -inset-4 bg-brand-100 rounded-2xl blur-2xl opacity-50 group-hover:opacity-75 transition-opacity" />
+              <div className="relative overflow-hidden rounded-2xl shadow-2xl">
+                <img 
+                  src="/mass_relax.jpeg" 
+                  alt="Quick Massage Corporativa BH" 
+                  className="w-full h-[600px] object-cover"
+                />
+              </div>
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* 4. BENEFITS */}
+      <section className="py-24 px-4 bg-brand-50 border-y border-brand-100">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-12">
+            {/* For Company */}
+            <FadeIn>
+              <div className="bg-white p-10 rounded-3xl shadow-sm border border-brand-100 h-full">
+                <div className="w-16 h-16 bg-brand-800 text-white rounded-2xl flex items-center justify-center mb-8">
+                  <TrendingUp className="w-8 h-8" />
                 </div>
-                <h3 className="text-xl font-serif mb-4 text-brand-800">{item.title}</h3>
-                <p className="text-brand-900/70">{item.desc}</p>
+                <h3 className="text-3xl font-serif text-brand-800 mb-8">Para a Empresa:<br/><span className="text-lg font-sans text-brand-500 font-medium">Um investimento com retorno visível</span></h3>
+                <ul className="space-y-6">
+                  {[
+                    { t: "Retenção de talentos", d: "Colaboradores que se sentem cuidados ficam. E indicam. Seu Employer Branding agradece." },
+                    { t: "Redução do absenteísmo", d: "Menos dores musculares = menos atestados = menos gargalos na operação." },
+                    { t: "Queda na sinistralidade", d: "Prevenção custa muito menos do que tratamento no plano de saúde." },
+                    { t: "Clima organizacional positivo", d: "O dia em que a massagem passa é o dia que todo mundo lembra e comenta bem." },
+                    { t: "Nota fiscal garantida", d: "Emitimos NF para pessoa jurídica. Zero dor de cabeça extra." },
+                    { t: "Gestão zero", d: "Serviço plug & play. Chegamos, montamos e atendemos sem impactar sua operação." }
+                  ].map((item, i) => (
+                    <li key={i} className="flex gap-4">
+                      <CheckCircle2 className="w-6 h-6 text-brand-400 flex-shrink-0" />
+                      <div>
+                        <strong className="block text-brand-900">{item.t}</strong>
+                        <span className="text-brand-900/60 text-sm leading-relaxed">{item.d}</span>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </FadeIn>
-          ))}
-        </div>
-      </div>
-    </section>
 
-    <Footer />
-  </div>
-);
+            {/* For Employee */}
+            <FadeIn delay={0.2}>
+              <div className="bg-white p-10 rounded-3xl shadow-sm border border-brand-100 h-full">
+                <div className="w-16 h-16 bg-brand-400 text-white rounded-2xl flex items-center justify-center mb-8">
+                  <Smile className="w-8 h-8" />
+                </div>
+                <h3 className="text-3xl font-serif text-brand-800 mb-8">Para o Colaborador:<br/><span className="text-lg font-sans text-brand-500 font-medium">O que cada pessoa da sua equipe vai sentir</span></h3>
+                <ul className="space-y-6">
+                  {[
+                    { t: "Alívio imediato", d: "Tensão cervical e dores nos ombros causadas por horas na cadeira resolvidas em minutos." },
+                    { t: "Redução do estresse", d: "Diminuição real da ansiedade em menos de 20 minutos de atendimento." },
+                    { t: "Mais foco e alerta", d: "Melhora da circulação e disposição renovada para as próximas horas de trabalho." },
+                    { t: "Reconhecimento real", d: "Sensação de pertencimento e de que a empresa se importa com seu bem-estar." },
+                    { t: "Conforto total", d: "Sem precisar sair do trabalho ou gastar do próprio bolso." }
+                  ].map((item, i) => (
+                    <li key={i} className="flex gap-4">
+                      <CheckCircle2 className="w-6 h-6 text-brand-400 flex-shrink-0" />
+                      <div>
+                        <strong className="block text-brand-900">{item.t}</strong>
+                        <span className="text-brand-900/60 text-sm leading-relaxed">{item.d}</span>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+                <div className="mt-12 p-6 bg-brand-50 rounded-2xl border-l-4 border-brand-800">
+                  <p className="text-xl font-serif italic text-brand-900/80">
+                    "Não é só uma massagem. É a mensagem de que a empresa enxerga você como gente — e isso muda tudo."
+                  </p>
+                </div>
+              </div>
+            </FadeIn>
+          </div>
+        </div>
+      </section>
+
+      {/* 5. SIPAT SECTION */}
+      <section className="py-24 px-4 bg-white">
+        <div className="max-w-5xl mx-auto bg-brand-900 rounded-[3rem] overflow-hidden shadow-2xl relative">
+          <div className="absolute top-0 right-0 p-12 opacity-10">
+            <Zap className="w-48 h-48 text-white" />
+          </div>
+          <div className="p-12 md:p-20 relative z-10">
+            <FadeIn>
+              <h2 className="text-3xl md:text-5xl font-serif text-white mb-8">
+                SIPAT chegando? <span className="text-brand-300">Transforme a obrigação em um momento inesquecível.</span>
+              </h2>
+              <div className="space-y-6 text-brand-100/80 text-lg mb-12 max-w-2xl">
+                <p>A Bhruna Azevedo transforma a SIPAT da sua empresa em um evento que as pessoas realmente querem participar.</p>
+                <p>Montamos uma estação de Quick Massage completa no espaço que você tiver disponível. O resultado? Engajamento real com o tema de saúde e participação ativa — não forçada.</p>
+              </div>
+              <a 
+                href={WHATSAPP_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center px-10 py-5 text-lg font-bold text-brand-900 bg-brand-200 rounded-full hover:bg-white transition-all shadow-xl"
+              >
+                <Zap className="w-5 h-5 mr-3" />
+                Peça um orçamento exclusivo para SIPAT
+              </a>
+            </FadeIn>
+          </div>
+        </div>
+      </section>
+
+      {/* 6. LOCAL DIFFERENTIAL */}
+      <section className="py-24 px-4 bg-brand-50">
+        <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+          <FadeIn>
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-brand-200 text-brand-800 rounded-full text-sm font-bold mb-6">
+              <MapPin className="w-4 h-4" /> BH e Região Metropolitana
+            </div>
+            <h2 className="text-4xl md:text-5xl font-serif text-brand-800 mb-8">
+              Nós chegamos onde você está — <span className="text-brand-500 text-3xl block mt-2">no horário combinado.</span>
+            </h2>
+            <div className="space-y-6 text-brand-900/70 text-lg">
+              <p>Sediados estrategicamente na região norte de BH, garantimos pontualidade e agilidade para empresas em toda a capital e grande região metropolitana.</p>
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-3 text-sm font-medium text-brand-800/60">
+                {["Savassi", "Lourdes", "Pampulha", "Centro", "Contagem", "Betim", "Barreiro", "Funcionários", "Vet. Norte"].map((place, i) => (
+                  <div key={i} className="flex items-center gap-2">
+                    <div className="w-1.5 h-1.5 bg-brand-400 rounded-full" /> {place}
+                  </div>
+                ))}
+              </div>
+              <p className="pt-4 italic border-t border-brand-200">
+                Sabemos que o gestor de RH não tem tempo a perder. Nossa operação é desenhada para ser invisível para você — e inesquecível para a sua equipe.
+              </p>
+            </div>
+          </FadeIn>
+          <FadeIn delay={0.2}>
+            <div className="aspect-video rounded-3xl overflow-hidden shadow-2xl border-8 border-white">
+              <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3751.583321484439!2d-43.91851172382405!3d-19.85764038151241!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa69ab7b579058b%3A0xe54e5884f228d447!2sR.%20L%C3%ADdia%2C%2038%20-%20Piraj%C3%A1%2C%20Belo%20Horizonte%20-%20MG%2C%2031910-650!5e0!3m2!1spt-BR!2sbr!4v1712332800000!5m2!1spt-BR!2sbr" 
+                width="100%" 
+                height="100%" 
+                style={{ border: 0 }} 
+                allowFullScreen={false} 
+                loading="lazy"
+                title="Cobertura BH"
+              ></iframe>
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* 8. FAQ */}
+      <section className="py-24 px-4 bg-white border-b border-brand-100">
+        <div className="max-w-3xl mx-auto">
+          <FadeIn>
+            <div className="text-center mb-16">
+              <h2 className="text-4xl font-serif text-brand-800 mb-4">Perguntas Frequentes</h2>
+              <p className="text-brand-900/60 font-light italic">Respondemos de forma direta o que todo gestor quer saber.</p>
+            </div>
+            <div className="space-y-4">
+              {faqs.map((faq, i) => (
+                <div key={i} className="border border-brand-100 rounded-2xl overflow-hidden transition-all">
+                  <button 
+                    onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                    className="w-full px-8 py-6 flex items-center justify-between text-left hover:bg-brand-50 transition-colors group"
+                  >
+                    <span className="font-bold text-brand-900 group-hover:text-brand-800 flex items-center gap-4">
+                      <HelpCircle className="w-5 h-5 text-brand-400" /> {faq.q}
+                    </span>
+                    <ChevronDown className={`w-5 h-5 text-brand-300 transition-transform duration-300 ${openFaq === i ? 'rotate-180' : ''}`} />
+                  </button>
+                  <div className={`transition-all duration-300 overflow-hidden ${openFaq === i ? 'max-h-96' : 'max-h-0'}`}>
+                    <p className="px-8 pb-8 pt-2 text-brand-900/70 leading-relaxed bg-brand-50/30">
+                      {faq.a}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* 9. FINAL CTA */}
+      <section className="py-24 px-4 bg-brand-100 relative overflow-hidden">
+        <div className="max-w-4xl mx-auto text-center relative z-10">
+          <FadeIn>
+            <h2 className="text-4xl md:text-6xl font-serif text-brand-900 mb-6">Sua equipe merece isso.<br/><span className="text-brand-600">Sua empresa também.</span></h2>
+            <p className="text-xl text-brand-900/70 mb-12 max-w-2xl mx-auto">
+              Solicite agora um orçamento personalizado e receba uma proposta completa em até 24 horas úteis. Sem compromisso.
+            </p>
+            <div className="flex flex-col sm:flex-row justify-center gap-6">
+              <a 
+                href={WHATSAPP_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center px-10 py-5 text-xl font-bold text-white bg-brand-800 rounded-full hover:bg-brand-900 transition-all shadow-xl hover:shadow-2xl"
+              >
+                <MessageSquare className="w-6 h-6 mr-3" /> Quero Solicitar Meu Orçamento Agora
+              </a>
+            </div>
+            
+            {/* TRUST BADGES */}
+            <div className="mt-16 pt-12 border-t border-brand-200 grid grid-cols-2 md:grid-cols-5 gap-6 text-[10px] md:text-xs font-bold text-brand-800/50 uppercase tracking-widest">
+              <div className="flex flex-col items-center gap-2">
+                <FileText className="w-5 h-5" /> Nota Fiscal Garantida
+              </div>
+              <div className="flex flex-col items-center gap-2">
+                <Zap className="w-5 h-5" /> Materiais Descartáveis
+              </div>
+              <div className="flex flex-col items-center gap-2">
+                <Award className="w-5 h-5" /> Profissionais Certificadas
+              </div>
+              <div className="flex flex-col items-center gap-2">
+                <Truck className="w-5 h-5" /> Atendimento em Toda BH
+              </div>
+              <div className="flex flex-col items-center gap-2">
+                <ShieldCheck className="w-5 h-5" /> Sem Espaço Especial
+              </div>
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
+      <Footer />
+      <FloatingWhatsApp />
+    </div>
+  );
+};
 
 const HomePage = () => (
   <div className="min-h-screen font-sans text-brand-900 bg-brand-50 selection:bg-brand-200 selection:text-brand-900 pt-16">
