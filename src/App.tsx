@@ -768,6 +768,8 @@ export default function App() {
       <Route path="/drenagem" element={<HomePage />} />
       <Route path="/ventosa" element={<HomePage />} />
       <Route path="/domicilio" element={<DomicilioPage />} />
+      <Route path="/domiciliodrenagem" element={<DomicilioPage />} />
+      <Route path="/posoperatorio" element={<DomicilioPage />} />
       <Route path="/massagemcorporativa" element={<CorporateMassagePage />} />
     </Routes>
   );
