@@ -249,11 +249,11 @@ const DomicilioPage = () => {
           </div>
 
           {/* Desktop Grid / Mobile Carousel */}
-          <div className="flex md:grid md:grid-cols-4 gap-6 overflow-x-auto md:overflow-x-visible pb-8 md:pb-0 snap-x snap-mandatory scrollbar-hide">
+          <div className="flex md:grid md:grid-cols-4 gap-6 overflow-x-auto md:overflow-x-visible pb-8 md:pb-0 snap-x snap-mandatory scrollbar-hide items-stretch px-4 -mx-4">
             {services.map((service, i) => (
-              <FadeIn key={i} delay={i * 0.1} className="min-w-[85%] md:min-w-0 snap-center">
-                <div className="bg-white rounded-3xl overflow-hidden shadow-sm group hover:shadow-xl transition-all duration-500 h-full border border-brand-100">
-                  <div className="aspect-[4/5] overflow-hidden relative">
+              <FadeIn key={i} delay={i * 0.1} className="min-w-[80%] md:min-w-0 snap-start flex">
+                <div className="bg-white rounded-3xl overflow-hidden shadow-sm group hover:shadow-xl transition-all duration-500 border border-brand-100 flex flex-col w-full h-auto min-h-full">
+                  <div className="aspect-[4/5] overflow-hidden relative flex-shrink-0">
                     <img 
                       src={service.image} 
                       alt={service.title} 
@@ -261,15 +261,17 @@ const DomicilioPage = () => {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-brand-900/60 to-transparent" />
                   </div>
-                  <div className="p-6">
-                    <h3 className="text-xl font-serif font-bold text-brand-800 mb-1">{service.title}</h3>
-                    <p className="text-brand-500 text-sm font-medium mb-4">{service.benefit}</p>
-                    <a 
-                      href={DOMICILIO_WHATSAPP_LINK} 
-                      className="text-xs font-bold text-brand-900/40 group-hover:text-brand-800 flex items-center gap-1 transition-colors"
-                    >
-                      Ver detalhes <ChevronRight className="w-3 h-3" />
-                    </a>
+                  <div className="p-6 flex flex-col flex-grow">
+                    <h3 className="text-xl font-serif font-bold text-brand-800 mb-1 break-words">{service.title}</h3>
+                    <p className="text-brand-500 text-sm font-medium mb-4 break-words leading-tight">{service.benefit}</p>
+                    <div className="mt-auto">
+                      <a 
+                        href={DOMICILIO_WHATSAPP_LINK} 
+                        className="text-xs font-bold text-brand-900/40 group-hover:text-brand-800 flex items-center gap-1 transition-colors"
+                      >
+                        Ver detalhes <ChevronRight className="w-3 h-3" />
+                      </a>
+                    </div>
                   </div>
                 </div>
               </FadeIn>
