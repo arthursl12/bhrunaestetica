@@ -21,6 +21,8 @@ import {
   CheckCircle2,
   HelpCircle,
   FileText,
+  Truck,
+  ShieldCheck,
   MessageSquare,
   TrendingUp,
   Smile,

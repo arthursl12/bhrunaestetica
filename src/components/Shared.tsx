@@ -1,7 +1,7 @@
-import React from 'react';
-import { motion } from 'motion/react';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
 import { Link } from 'react-router-dom';
-import { Instagram } from 'lucide-react';
+import { Instagram, Menu, X } from 'lucide-react';
 
 export const WHATSAPP_LINK = "https://wa.me/553191422212";
 
@@ -11,28 +11,114 @@ export const trackEvent = (action: string) => {
   }
 };
 
-export const Navbar = () => (
-  <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-brand-100 px-4 py-3">
-    <div className="max-w-7xl mx-auto flex justify-between items-center">
-      <Link to="/" className="flex items-center gap-2 group">
-        <img src="/logo.jpg" alt="Logo" className="h-10 w-10 rounded-full border border-brand-200 transition-transform group-hover:scale-110" />
-        <span className="font-serif text-brand-900 font-bold text-lg hidden md:block">Bhruna Azevedo</span>
-      </Link>
-      <div className="flex gap-4 md:gap-8">
-        <Link to="/" className="text-brand-800 hover:text-brand-500 font-medium transition-colors text-sm md:text-base">Home</Link>
-        <Link to="/domicilio" className="text-brand-800 hover:text-brand-500 font-medium transition-colors text-sm md:text-base">Atendimento Domicílio</Link>
-        <Link to="/massagemcorporativa" className="text-brand-800 hover:text-brand-500 font-medium transition-colors text-sm md:text-base">Massagem Corporativa</Link>
-      </div>
-    </div>
-  </nav>
-);
+export const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
 
-export const FadeIn = ({ children, delay = 0 }: { children: React.ReactNode, delay?: number }) => (
+  const navLinks = [
+    { name: 'Home', path: '/' },
+    { name: 'Atendimento Domicílio', path: '/domicilio' },
+    { name: 'Massagem Corporativa', path: '/massagemcorporativa' },
+  ];
+
+  return (
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-brand-100 px-4 py-3">
+      <div className="max-w-7xl mx-auto flex justify-between items-center relative">
+        {/* Brand/Logo Area with protection padding */}
+        <Link to="/" className="flex items-center gap-3 group z-50 p-1">
+          <div className="p-0.5 rounded-full border border-brand-200 bg-white shadow-sm transition-transform group-hover:scale-105">
+            <img 
+              src="/logo.jpg" 
+              alt="Logo" 
+              className="h-10 w-10 md:h-12 md:w-12 rounded-full object-cover" 
+            />
+          </div>
+          <span className="font-serif text-brand-900 font-bold text-lg hidden sm:block">Bhruna Azevedo</span>
+        </Link>
+
+        {/* Desktop Navigation */}
+        <div className="hidden lg:flex gap-8">
+          {navLinks.map((link) => (
+            <Link 
+              key={link.path} 
+              to={link.path} 
+              className="text-brand-800 hover:text-brand-500 font-medium transition-colors text-base"
+            >
+              {link.name}
+            </Link>
+          ))}
+        </div>
+
+        {/* Mobile Menu Button */}
+        <button 
+          onClick={() => setIsOpen(!isOpen)}
+          className="lg:hidden p-2 text-brand-900 z-50 hover:bg-brand-50 rounded-lg transition-colors"
+          aria-label={isOpen ? "Fechar Menu" : "Abrir Menu"}
+        >
+          {isOpen ? <X size={28} /> : <Menu size={28} />}
+        </button>
+
+        {/* Mobile Menu Overlay */}
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              className="absolute top-full left-0 right-0 bg-white border-b border-brand-100 lg:hidden overflow-hidden shadow-2xl z-40 rounded-b-2xl mt-1"
+            >
+              <div className="flex flex-col p-6 gap-6">
+                {navLinks.map((link, index) => (
+                  <motion.div
+                    key={link.path}
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.1 }}
+                  >
+                    <Link
+                      to={link.path}
+                      onClick={() => setIsOpen(false)}
+                      className="text-brand-800 hover:text-brand-500 font-serif text-xl font-medium flex items-center justify-between border-b border-brand-50 pb-3 transition-colors group"
+                    >
+                      {link.name}
+                      <motion.div
+                        whileHover={{ x: 5 }}
+                        className="text-brand-300 group-hover:text-brand-500"
+                      >
+                        <X size={16} className="rotate-45" />
+                      </motion.div>
+                    </Link>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        {/* Background Overlay for Mobile Menu */}
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setIsOpen(false)}
+              className="fixed inset-0 bg-brand-900/10 backdrop-blur-sm -z-10 lg:hidden h-screen w-screen"
+              style={{ top: '64px' }}
+            />
+          )}
+        </AnimatePresence>
+      </div>
+    </nav>
+  );
+};
+
+export const FadeIn = ({ children, delay = 0, className }: { children: React.ReactNode, delay?: number, className?: string, key?: React.Key }) => (
   <motion.div
     initial={{ opacity: 0, y: 20 }}
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true, margin: "-100px" }}
     transition={{ duration: 0.6, delay }}
+    className={className}
   >
     {children}
   </motion.div>
