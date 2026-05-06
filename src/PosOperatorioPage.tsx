@@ -33,7 +33,7 @@ import {
   WHATSAPP_LINK
 } from './components/Shared';
 
-const POS_OP_WHATSAPP_LINK = "https://wa.me/5531992980110?text=Olá!%20Tenho%20interesse%20no%20atendimento%20pós-operatório%20a%20domicílio.%20Pode%20me%20ajudar?";
+const POS_OP_WHATSAPP_LINK = "https://wa.me/5531991422212?text=Olá!%20Tenho%20interesse%20no%20atendimento%20pós-operatório%20a%20domicílio.%20Pode%20me%20ajudar?";
 
 const PosOperatorioPage = () => {
   return (

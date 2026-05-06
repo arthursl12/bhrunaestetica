@@ -21,7 +21,7 @@ import {
   WhatsAppIcon
 } from './components/Shared';
 
-const DOMICILIO_WHATSAPP_LINK = "https://wa.me/5531992980110?text=Olá!%20Tenho%20interesse%20no%20atendimento%20a%20domicílio.%20Queria%20mais%20informações";
+const DOMICILIO_WHATSAPP_LINK = "https://wa.me/5531991422212?text=Olá!%20Tenho%20interesse%20no%20atendimento%20a%20domicílio.%20Queria%20mais%20informações";
 
 const services = [
   {
