@@ -39,6 +39,7 @@ import {
   WhatsAppIcon
 } from './components/Shared';
 import DomicilioPage from './DomicilioPage';
+import PosOperatorioPage from './PosOperatorioPage';
 
 declare global {
   interface Window {
@@ -769,7 +770,7 @@ export default function App() {
       <Route path="/ventosa" element={<HomePage />} />
       <Route path="/domicilio" element={<DomicilioPage />} />
       <Route path="/domiciliodrenagem" element={<DomicilioPage />} />
-      <Route path="/posoperatorio" element={<DomicilioPage />} />
+      <Route path="/posoperatorio" element={<PosOperatorioPage />} />
       <Route path="/massagemcorporativa" element={<CorporateMassagePage />} />
     </Routes>
   );
