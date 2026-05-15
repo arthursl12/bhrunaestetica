@@ -104,40 +104,83 @@ const Hero = () => (
 
 const About = () => (
   <section className="py-24 px-4 bg-white relative overflow-hidden">
-    <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center relative z-20">
-      <FadeIn>
-        <div className="aspect-[4/5] rounded-t-full overflow-hidden relative shadow-2xl">
-          <div className="absolute inset-0 bg-brand-200/20 mix-blend-multiply z-10" />
-          <img 
-            src="/bhruna.jpg" 
-            alt="Bhruna Azevedo" 
-            className="w-full h-full object-cover"
-          />
-        </div>
+    <div className="max-w-6xl mx-auto relative z-20">
+      <FadeIn className="text-center mb-16">
+        <h2 className="text-4xl md:text-5xl font-serif text-brand-800">Sobre Nós</h2>
       </FadeIn>
-      <div className="space-y-6">
-        <FadeIn>
-          <h2 className="text-4xl md:text-5xl font-serif text-brand-800">Sobre Mim</h2>
+
+      {/* Bhruna Azevedo Section */}
+      <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-8 items-center mb-24">
+        <FadeIn className="flex justify-center md:justify-end">
+          <div className="w-full max-w-[336px] aspect-[4/5] rounded-t-full overflow-hidden relative shadow-2xl">
+            <div className="absolute inset-0 bg-brand-200/20 mix-blend-multiply z-10" />
+            <img 
+              src="/bhruna.jpg" 
+              alt="Bhruna Azevedo" 
+              className="w-full h-full object-cover"
+            />
+          </div>
         </FadeIn>
-        <FadeIn delay={0.2}>
-          <p className="text-lg text-brand-900/80 leading-relaxed">
-            Sou Bhruna Azevedo, especialista em estética e bem-estar. Minha missão é proporcionar momentos de cuidado profundo, unindo técnicas avançadas a um toque acolhedor e humanizado.
-          </p>
-        </FadeIn>
-        <FadeIn delay={0.3}>
-          <p className="text-lg text-brand-900/80 leading-relaxed">
-            Acredito que a estética vai muito além da aparência; trata-se de resgatar a autoestima, aliviar as tensões do dia a dia e promover saúde de dentro para fora.
-          </p>
-        </FadeIn>
-        <FadeIn delay={0.4}>
-          <div className="p-6 bg-brand-50 border-l-4 border-brand-400 rounded-r-lg mt-6 shadow-sm">
-            <h3 className="font-serif text-xl text-brand-800 mb-2">Atendimento Exclusivo em BH</h3>
-            <p className="text-brand-900/70">
-              Localizada na <strong>Rua Lídia, 38 (Entrada lateral), bairro Pirajá</strong>. Próximo à Estação São Gabriel.
-            </p>
+        <div className="space-y-6 text-left">
+          <FadeIn delay={0.2}>
+            <div className="space-y-4">
+              <h3 className="text-3xl font-serif text-brand-700">Bhruna Azevedo</h3>
+              <p className="text-brand-500 font-medium uppercase tracking-wider text-sm">Fundadora & CEO</p>
+              <p className="text-lg text-brand-900/80 leading-relaxed">
+                Idealizadora da marca, Bhruna Azevedo une sua visão empreendedora à paixão pelo cuidado. Embora hoje lidere a gestão e o crescimento da empresa, ela mantém sua essência como especialista, atuando diretamente nos atendimentos para garantir que cada cliente receba o padrão de excellence e o toque humanizado que são os pilares do seu trabalho.
+              </p>
+              <p className="text-lg text-brand-900/80 leading-relaxed">
+                Sua missão é proporcionar momentos de cuidado profundo, unindo técnicas avançadas a um acolhimento que vai muito além da estética: trata-se de resgatar a autoestima e promover saúde de dentro para fora.
+              </p>
+            </div>
+          </FadeIn>
+        </div>
+      </div>
+
+      {/* Ana Moraes Section */}
+      <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-8 items-center mb-16">
+        <div className="order-2 md:order-1 space-y-6 text-left">
+          <FadeIn delay={0.2}>
+            <div className="space-y-4">
+              <h3 className="text-3xl font-serif text-brand-700">Ana Moraes</h3>
+              <p className="text-brand-500 font-medium uppercase tracking-wider text-sm">Massoterapeuta Parceira</p>
+              <p className="text-lg text-brand-900/80 leading-relaxed">
+                Nossa equipe conta com o talento de Ana Moraes, massoterapeuta parceira que compartilha da nossa filosofia de cuidado integral. Com vasta experiência em técnicas manuais e um olhar atento às necessidades individuais de cada cliente, Ana integra nossa equipe para ampliar nossa capacidade de atendimento, trazendo alívio de tensões e reequilíbrio.
+              </p>
+              <p className="text-lg text-brand-900/80 leading-relaxed">
+                Sua chegada fortalece nosso compromisso em oferecer um atendimento de alta qualidade, ampliando nossa disponibilidade sem abrir mão do toque personalizado e técnico que define a Bhruna Azevedo Estética e Bem-Estar.
+              </p>
+            </div>
+          </FadeIn>
+        </div>
+        <FadeIn delay={0.4} className="order-1 md:order-2 flex justify-center md:justify-start">
+          <div className="w-full max-w-[336px] aspect-[4/5] rounded-t-full overflow-hidden relative shadow-2xl">
+            <div className="absolute inset-0 bg-brand-200/20 mix-blend-multiply z-10" />
+            <img 
+              src="/ana_moraes.jpg" 
+              alt="Ana Moraes" 
+              className="w-full h-full object-cover"
+            />
           </div>
         </FadeIn>
       </div>
+
+      {/* Address Info */}
+      <FadeIn delay={0.6}>
+        <div className="p-8 bg-brand-50 border-l-4 border-brand-400 rounded-r-lg shadow-sm max-w-2xl mx-auto">
+          <div className="flex flex-col md:flex-row items-center md:items-start gap-4">
+            <div className="p-3 bg-brand-100 rounded-full">
+              <MapPin className="w-6 h-6 text-brand-600" />
+            </div>
+            <div>
+              <h3 className="font-serif text-xl text-brand-800 mb-2">Atendimento Exclusivo em BH</h3>
+              <p className="text-brand-900/70">
+                Localizada na <strong>Rua Lídia, 38 (Entrada lateral), bairro Pirajá</strong>. Próximo à Estação São Gabriel.
+              </p>
+            </div>
+          </div>
+        </div>
+      </FadeIn>
     </div>
   </section>
 );
