@@ -187,6 +187,12 @@ const About = () => (
 
 const services = [
   {
+    title: "Limpeza de Pele",
+    description: "Tratamento profundo que remove impurezas, cravos e células mortas, devolvendo o viço e a saúde natural da sua pele.",
+    icon: Sparkles,
+    image: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?q=80&w=2070&auto=format&fit=crop"
+  },
+  {
     title: "Drenagem Linfática",
     description: "Reduz o inchaço, melhora a circulação e elimina toxinas do corpo, promovendo leveza imediata.",
     icon: Droplets,
