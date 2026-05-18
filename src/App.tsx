@@ -127,7 +127,7 @@ const About = () => (
               <h3 className="text-3xl font-serif text-brand-700">Bhruna Azevedo</h3>
               <p className="text-brand-500 font-medium uppercase tracking-wider text-sm">Fundadora & CEO</p>
               <p className="text-lg text-brand-900/80 leading-relaxed">
-                Idealizadora da marca, Bhruna Azevedo une sua visão empreendedora à paixão pelo cuidado. Embora hoje lidere a gestão e o crescimento da empresa, ela mantém sua essência como especialista, atuando diretamente nos atendimentos para garantir que cada cliente receba o padrão de excellence e o toque humanizado que são os pilares do seu trabalho.
+                Idealizadora da marca, Bhruna Azevedo une sua visão empreendedora à paixão pelo cuidado. Atua diretamente nos atendimentos para garantir que cada cliente receba o padrão de excelência e o toque humanizado que são os pilares do seu trabalho.
               </p>
               <p className="text-lg text-brand-900/80 leading-relaxed">
                 Sua missão é proporcionar momentos de cuidado profundo, unindo técnicas avançadas a um acolhimento que vai muito além da estética: trata-se de resgatar a autoestima e promover saúde de dentro para fora.
@@ -157,7 +157,7 @@ const About = () => (
           <div className="w-full max-w-[336px] aspect-[4/5] rounded-t-full overflow-hidden relative shadow-2xl">
             <div className="absolute inset-0 bg-brand-200/20 mix-blend-multiply z-10" />
             <img 
-              src="/ana_moraes.jpg" 
+              src="/anamoraes.jpeg" 
               alt="Ana Moraes" 
               className="w-full h-full object-cover"
             />
@@ -228,7 +228,7 @@ const Services = () => (
   <section className="py-24 bg-brand-50 overflow-hidden">
     <div className="max-w-7xl mx-auto px-4 mb-16 text-center">
       <FadeIn>
-        <h2 className="text-4xl md:text-5xl font-serif text-brand-800 mb-4">Meus Serviços</h2>
+        <h2 className="text-4xl md:text-5xl font-serif text-brand-800 mb-4">Nossos Serviços</h2>
         <p className="text-lg text-brand-900/70 max-w-2xl mx-auto">
           Tratamentos personalizados para atender às suas necessidades únicas de estética e relaxamento.
         </p>
