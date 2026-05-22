@@ -88,8 +88,8 @@ const KitCard = ({
     </div>
 
     <div className="m-kit-footer">
-      <span className="m-label text-[10px]">Para quem é:</span>
-      <p className="m-italic text-sm opacity-70">{forWhom}</p>
+      <span className="m-label">Para quem é:</span>
+      <p className="m-italic opacity-70">{forWhom}</p>
     </div>
   </FadeIn>
 );
@@ -121,10 +121,10 @@ const MassageadoresPage = () => {
           <div className="m-hero-content">
             <FadeIn>
               <h1 className="m-display">
-                Ferramentas para massagem que trabalham por você — não contra as suas mãos.
+                Ferramentas para massagem que trabalham por você,<br/>não contra as suas mãos.
               </h1>
               <p className="m-body-large mb-10 max-w-2xl">
-                Kits de massageadores anatômicos feitos em impressão 3D. Projetados para aplicar pressão no lugar certo, com menos esforço e mais resultado.
+                Kits de massageadores anatômicos feitos em impressão 3D.<br/>Projetados para aplicar pressão no lugar certo, com menos esforço e mais resultado.
               </p>
               <button 
                 onClick={() => document.getElementById('kits')?.scrollIntoView({ behavior: 'smooth' })}
@@ -158,13 +158,13 @@ const MassageadoresPage = () => {
           <FadeIn className="m-value-prop">
             <div className="space-y-6">
               <p className="m-body-large">
-                São massageadores manuais com design geométrico desenvolvido para encaixar firme na mão e direcionar pressão nos pontos certos — seja você um massoterapeuta que faz dez atendimentos por dia ou alguém que quer aliviar a tensão das costas depois do trabalho.
+                São massageadores manuais com design geométrico desenvolvido para encaixar firme na mão e direcionar pressão nos pontos certos, seja você um massoterapeuta que faz dez atendimentos por dia ou alguém que quer aliviar a tensão das costas depois do trabalho.
               </p>
               <p className="m-body-large">
-                Fabricados em impressão 3D industrial, as peças têm acabamento robusto, textura natural que ajuda na aderência e resistência para uso intenso. Nada de promessas exageradas: são ferramentas bem pensadas para uma função específica, e fazem esse trabalho com consistência.
+                Fabricados em impressão 3D, as peças têm acabamento robusto e resistente, textura natural que ajuda na aderência e resistência para uso intenso. São ferramentas bem pensadas para uma função específica e fazem esse trabalho com consistência.
               </p>
               <p className="m-body-large">
-                Vendemos apenas em kits fechados porque cada peça foi escolhida para complementar a outra. Você recebe uma solução completa, não um produto avulso sem contexto.
+                Vendemos kits fechados custo-benefício e também peças avulsas. A ideia é você recebe uma solução completa nos kits pensados para funcionar em conjunto.
               </p>
             </div>
           </FadeIn>
@@ -175,15 +175,15 @@ const MassageadoresPage = () => {
       <section id="kits" className="m-section m-section-alt">
         <div className="m-container">
           <FadeIn className="mb-16">
-            <span className="m-label">O Catálogo</span>
-            <h2 className="m-display text-5xl">Os Kits</h2>
+            {/* <span className="m-label">Nosso Catálogo</span> */}
+            <h2 className="m-display text-5xl">Conheça Nossos Kits</h2>
           </FadeIn>
 
           <div className="space-y-12">
             <KitCard 
               label="Para profissionais"
               title="Kit Profissional"
-              context="Quem trabalha com massagem sabe o quanto os dedos e o punho acumulam esforço ao longo do dia. Este kit foi pensado para distribuir esse esforço — você aplica a mesma pressão com menos desgaste nas articulações."
+              context="Quem trabalha com massagem sabe o quanto os dedos e o punho acumulam esforço ao longo do dia. Este kit foi pensado para distribuir esse esforço e promover mais relaxamento e alívio nos seus clientes."
               items={[
                 { 
                   name: "Ferramenta Multifuncional", 
@@ -204,7 +204,7 @@ const MassageadoresPage = () => {
             <KitCard 
               label="Para uso pessoal"
               title="Kit Bem-Estar"
-              context="Feito para quem quer resolver a tensão sem depender de ninguém e sem precisar aprender técnica complicada. As peças têm geometria intuitiva — você encosta, aplica pressão e sente onde está o nó."
+              context="Feito para quem quer resolver a tensão sem depender de ninguém e sem precisar aprender técnica complicada. As peças têm geometria intuitiva: você encosta, aplica pressão e sente onde está o nó."
               items={[
                 { 
                   name: "Ferramenta de Ponteira", 
@@ -251,6 +251,11 @@ const MassageadoresPage = () => {
                 desc: "Lava com água e sabão, sem segredo — importante para quem usa entre atendimentos." 
               },
               { 
+                icon: ShieldCheck, 
+                title: "Resistente a Álcool 70%", 
+                desc: "O material suporta higienização constante com álcool 70% sem sofrer degradação ou ressecamento." 
+              },
+              { 
                 icon: Cpu, 
                 title: "Textura da impressão 3D", 
                 desc: "O acabamento natural cria aderência real na pele, sem ser abrasivo." 
@@ -279,7 +284,7 @@ const MassageadoresPage = () => {
           <FadeIn>
             <h2 className="m-display">Escolha o seu kit.</h2>
             <p className="m-body mb-10 opacity-70">
-              Pronta entrega disponível para os dois modelos. Produção em lote — o estoque é limitado ao ciclo atual.
+              Atendemos encomendas personalizadas e temos kits a pronta entrega.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4 mb-8">
               <a 
@@ -294,7 +299,7 @@ const MassageadoresPage = () => {
                 href={WHATSAPP_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="m-btn m-btn-outline border-white text-white hover:bg-white hover:text-brand-900 px-10"
+                className="m-btn m-btn-outline px-10"
               >
                 Ver Disponibilidade e Prazo
               </a>
@@ -314,7 +319,7 @@ const MassageadoresPage = () => {
             <span className="font-serif font-bold">Bhruna Azevedo</span>
           </div>
           <p className="text-[10px] opacity-60">
-            Peças exclusivas AnatomyForm. Política de troca: 7 dias para defeitos de fabricação.
+            Política de troca: 7 dias para defeitos de fabricação.
           </p>
           <div className="flex gap-4">
             <span className="text-[10px]">&copy; {new Date().getFullYear()}</span>

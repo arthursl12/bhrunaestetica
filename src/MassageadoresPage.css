@@ -252,6 +252,16 @@
   border-top: 1px solid var(--border-color);
 }
 
+.m-kit-footer .m-label {
+  font-size: 12px;
+  margin-bottom: 0.5rem;
+}
+
+.m-kit-footer p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
 /* Features List */
 .m-features-list {
   display: grid;
@@ -285,8 +295,15 @@
   text-align: center;
 }
 
-.m-final-cta .m-display {
+.m-final-cta .m-btn-outline {
+  border-color: rgba(255, 255, 255, 0.4);
   color: white;
+}
+
+.m-final-cta .m-btn-outline:hover {
+  background-color: white;
+  color: var(--text-main);
+  border-color: white;
 }
 
 .m-final-cta .m-label {
