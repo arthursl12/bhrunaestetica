@@ -6,48 +6,21 @@ import {
   Droplets, 
   Cpu, 
   PackageCheck,
-  ArrowRight,
-  ExternalLink
 } from 'lucide-react';
 import { 
   WHATSAPP_LINK, 
   trackEvent,
-  WhatsAppIcon,
-  FloatingWhatsApp
+  FadeIn,
+  FloatingWhatsApp 
 } from './components/Shared';
 import './MassageadoresPage.css';
-
-const FadeIn = ({ children, className = "" }: { children: React.ReactNode, className?: string }) => {
-  const [isVisible, setIsVisible] = React.useState(false);
-  const domRef = React.useRef<HTMLDivElement>(null);
-
-  React.useEffect(() => {
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => setIsVisible(entry.isIntersecting));
-    }, { threshold: 0.1 });
-    
-    const current = domRef.current;
-    if (current) observer.observe(current);
-    return () => { if (current) observer.unobserve(current); };
-  }, []);
-
-  return (
-    <div
-      className={`m-fade-in ${isVisible ? 'visible' : ''} ${className}`}
-      ref={domRef}
-    >
-      {children}
-    </div>
-  );
-};
 
 const KitItem = ({ name, description, key }: { name: string, description: string, key?: React.Key }) => (
   <div className="m-item-cell" key={key}>
     <div className="m-item-image">
-      {/* Placeholder icon representing the 3D tool */}
-      <Cpu className="w-12 h-12 text-brand-200" strokeWidth={1} />
+      <Cpu className="w-12 h-12 text-brand-300/30" strokeWidth={1} />
     </div>
-    <div className="m-item-name">{name}</div>
+    <div className="m-item-name font-serif text-brand-800">{name}</div>
     <div className="m-item-desc">{description}</div>
   </div>
 );
@@ -68,14 +41,14 @@ const KitCard = ({
   <FadeIn className="m-kit-card">
     <div className="m-kit-header">
       <span className="m-label">{label}</span>
-      <h3 className="m-display text-4xl">{title}</h3>
-      <p className="m-body opacity-80">{context}</p>
+      <h3 className="m-display text-4xl md:text-5xl font-serif text-brand-800">{title}</h3>
+      <p className="m-body-large text-brand-900/70">{context}</p>
       <a 
         href={WHATSAPP_LINK} 
         target="_blank" 
         rel="noopener noreferrer"
         onClick={() => trackEvent(`kit_click_${title.toLowerCase().replace(' ', '_')}`)}
-        className="m-btn m-btn-primary w-fit"
+        className="m-btn m-btn-primary w-fit mt-4"
       >
         Escolher meu Kit
       </a>
@@ -89,82 +62,92 @@ const KitCard = ({
 
     <div className="m-kit-footer">
       <span className="m-label">Para quem é:</span>
-      <p className="m-italic opacity-70">{forWhom}</p>
+      <p className="m-italic text-lg text-brand-900/60">{forWhom}</p>
     </div>
   </FadeIn>
 );
 
 const MassageadoresPage = () => {
   return (
-    <div className="massageadores-page">
+    <div className="massageadores-page selection:bg-brand-200 selection:text-brand-900">
       {/* SECTION 1 - NAVIGATION */}
-      <nav className="m-nav">
-        <div className="m-container m-nav-content">
-          <Link to="/" className="flex items-center gap-3">
-            <img src="/logo.jpg" alt="Logo" className="h-10 w-10 rounded-full" />
-            <span className="font-serif font-bold text-lg hidden sm:block">Bhruna Azevedo</span>
+      <nav className="m-nav px-4">
+        <div className="m-container flex justify-between items-center w-full">
+          <Link to="/" className="flex items-center gap-3 group">
+            <div className="p-0.5 rounded-full border border-brand-200 bg-white transition-transform group-hover:scale-105">
+              <img src="/logo.jpg" alt="Logo" className="h-10 w-10 md:h-12 md:w-12 rounded-full object-cover" />
+            </div>
+            <span className="font-serif font-bold text-lg text-brand-900 hidden sm:block">Bhruna Azevedo</span>
           </Link>
           <a 
             href={WHATSAPP_LINK}
             target="_blank"
             rel="noopener noreferrer"
-            className="m-btn m-btn-primary py-3 px-6 text-[10px]"
+            className="m-btn m-btn-primary py-3 px-6 text-sm"
           >
-            Falar no WhatsApp
+            WhatsApp
           </a>
         </div>
       </nav>
 
       {/* SECTION 2 - HERO */}
-      <section className="m-hero">
-        <div className="m-container">
-          <div className="m-hero-content">
-            <FadeIn>
-              <h1 className="m-display">
-                Ferramentas para massagem que trabalham por você,<br/>não contra as suas mãos.
-              </h1>
-              <p className="m-body-large mb-10 max-w-2xl">
-                Kits de massageadores anatômicos feitos em impressão 3D.<br/>Projetados para aplicar pressão no lugar certo, com menos esforço e mais resultado.
-              </p>
+      <section className="m-hero px-4">
+        <div className="m-container text-center lg:text-left">
+          <FadeIn>
+            <h1 className="m-display text-5xl md:text-7xl lg:text-8xl font-serif text-brand-900 mb-8 tracking-tight">
+              Ferramentas que trabalham <span className="m-italic text-brand-600">por você</span>.
+            </h1>
+            <p className="m-body-large text-brand-900/60 mb-12 max-w-2xl mx-auto lg:mx-0">
+              Kits de massageadores anatômicos feitos em impressão 3D. Projetados para aplicar pressão no lugar certo, com menos esforço e mais resultado.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <button 
                 onClick={() => document.getElementById('kits')?.scrollIntoView({ behavior: 'smooth' })}
-                className="m-btn m-btn-primary"
+                className="m-btn m-btn-primary shadow-xl"
               >
-                Escolher meu Kit
+                Ver Catálogo
               </button>
-            </FadeIn>
+              <a 
+                href={WHATSAPP_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="m-btn m-btn-outline"
+              >
+                Tire suas dúvidas
+              </a>
+            </div>
+          </FadeIn>
 
-            <FadeIn className="m-hero-features">
-              <div className="m-hero-feature">
-                <span className="m-hero-feature-label">Tecnologia</span>
-                <span className="m-body text-sm">Impressão 3D Industrial</span>
-              </div>
-              <div className="m-hero-feature">
-                <span className="m-hero-feature-label">Público</span>
-                <span className="m-body text-sm">Profissionais e Uso Pessoal</span>
-              </div>
-              <div className="m-hero-feature">
-                <span className="m-hero-feature-label">Solução</span>
-                <span className="m-body text-sm">Kit Completo com Suporte</span>
-              </div>
-            </FadeIn>
-          </div>
+          <FadeIn className="m-hero-features">
+            <div className="m-hero-feature">
+              <span className="m-hero-feature-label">Tecnologia</span>
+              <span className="m-body font-medium text-brand-900/80">Impressão 3D Industrial</span>
+            </div>
+            <div className="m-hero-feature">
+              <span className="m-hero-feature-label">Ergonomia</span>
+              <span className="m-body font-medium text-brand-900/80">Proteção das Articulações</span>
+            </div>
+            <div className="m-hero-feature">
+              <span className="m-hero-feature-label">Praticidade</span>
+              <span className="m-body font-medium text-brand-900/80">Kits Prontos para Uso</span>
+            </div>
+          </FadeIn>
         </div>
       </section>
 
       {/* SECTION 3 - PROPOSTA DE VALOR */}
-      <section className="m-section">
+      <section className="m-section px-4">
         <div className="m-container">
-          <FadeIn className="m-value-prop">
-            <div className="space-y-6">
-              <p className="m-body-large">
-                São massageadores manuais com design geométrico desenvolvido para encaixar firme na mão e direcionar pressão nos pontos certos, seja você um massoterapeuta que faz dez atendimentos por dia ou alguém que quer aliviar a tensão das costas depois do trabalho.
+          <FadeIn className="max-w-3xl mx-auto text-center">
+            <div className="space-y-8">
+              <p className="m-body-large text-brand-900/80 text-xl md:text-2xl italic font-serif">
+                "São instrumentos de precisão desenvolvidos para encaixar na mão e direcionar pressão onde o corpo realmente precisa."
               </p>
-              <p className="m-body-large">
+              <p className="m-body text-brand-900/60 text-lg leading-relaxed">
                 Fabricados em impressão 3D, as peças têm acabamento robusto e resistente, textura natural que ajuda na aderência e resistência para uso intenso. São ferramentas bem pensadas para uma função específica e fazem esse trabalho com consistência.
               </p>
-              <p className="m-body-large">
-                Vendemos kits fechados custo-benefício e também peças avulsas. A ideia é você recebe uma solução completa nos kits pensados para funcionar em conjunto.
+              <p className="m-body text-brand-900/60 text-lg leading-relaxed">
+                Vendemos kits fechados custo-benefício e também peças avulsas. A ideia é você receber uma solução completa nos kits pensados para funcionar em conjunto.
               </p>
             </div>
           </FadeIn>
@@ -172,65 +155,63 @@ const MassageadoresPage = () => {
       </section>
 
       {/* SECTION 4 - OS KITS */}
-      <section id="kits" className="m-section m-section-alt">
+      <section id="kits" className="m-section m-section-alt px-4">
         <div className="m-container">
-          <FadeIn className="mb-16">
-            {/* <span className="m-label">Nosso Catálogo</span> */}
-            <h2 className="m-display text-5xl">Conheça Nossos Kits</h2>
+          <FadeIn className="mb-16 text-center">
+            <h2 className="text-4xl md:text-6xl font-serif text-brand-800">Conheça Nossos Kits</h2>
           </FadeIn>
 
           <div className="space-y-12">
             <KitCard 
-              label="Para profissionais"
+              label="Alta Performance"
               title="Kit Profissional"
-              context="Quem trabalha com massagem sabe o quanto os dedos e o punho acumulam esforço ao longo do dia. Este kit foi pensado para distribuir esse esforço e promover mais relaxamento e alívio nos seus clientes."
+              context="Para massoterapeutas que buscam elevar o nível de sua técnica. Este kit foi pensado para distribuir o esforço e promover mais relaxamento nos seus clientes."
               items={[
                 { 
-                  name: "Ferramenta Multifuncional", 
-                  description: "Borda e ponteira para raspagem, deslizamento e ativação de pontos de gatilho." 
+                  name: "Multifuncional", 
+                  description: "Borda e ponteira para raspagem e ativação de pontos de gatilho." 
                 },
                 { 
                   name: "Rolo Texturizado", 
-                  description: "Trabalho em grandes grupos musculares sem sobrecarga dos polegares." 
+                  description: "Trabalho em grandes grupos musculares sem sobrecarga." 
                 },
                 { 
-                  name: "Suporte Organizador", 
-                  description: "Mantém as peças acessíveis e higienizadas entre os atendimentos." 
+                  name: "Organizador", 
+                  description: "Mantém as peças acessíveis e higienizadas." 
                 }
               ]}
-              forWhom="Massoterapeutas, fisioterapeutas, terapeutas holísticos e profissionais que atendem com frequência diária e sentem o cansaço acumulando nas mãos."
+              forWhom="Massoterapeutas, fisioterapeutas e profissionais que atendem diariamente."
             />
 
             <KitCard 
-              label="Para uso pessoal"
+              label="Bem-Estar em Casa"
               title="Kit Bem-Estar"
-              context="Feito para quem quer resolver a tensão sem depender de ninguém e sem precisar aprender técnica complicada. As peças têm geometria intuitiva: você encosta, aplica pressão e sente onde está o nó."
+              context="Feito para quem quer resolver a tensão sem depender de ninguém. As peças têm geometria intuitiva: você encosta, aplica pressão e sente o alívio."
               items={[
                 { 
-                  name: "Ferramenta de Ponteira", 
-                  description: "Pressão localizada no pescoço, ombros e pontos específicos das costas." 
+                  name: "Ponteira Cervical", 
+                  description: "Pressão localizada no pescoço e pontos específicos das costas." 
                 },
                 { 
                   name: "Rolo Compacto", 
-                  description: "Para panturrilha, planta do pé e região lombar." 
+                  description: "Ideal para panturrilha, planta do pé e região lombar." 
                 },
                 { 
-                  name: "Estojo Prático", 
+                  name: "Estojo", 
                   description: "Para guardar e carregar as peças com segurança." 
                 }
               ]}
-              forWhom="Pessoas com rotina de home office, quem sente tensão cervical com frequência, praticantes de atividade física que querem recuperação muscular simples no dia a dia."
+              forWhom="Pessoas em home office e praticantes de atividade física."
             />
           </div>
         </div>
       </section>
 
       {/* SECTION 5 - CARACTERÍSTICAS DO PRODUTO */}
-      <section className="m-section">
+      <section className="m-section px-4 bg-white">
         <div className="m-container">
-          <FadeIn>
-            <span className="m-label">Detalhes Técnicos</span>
-            <h2 className="m-display text-5xl">Características do Produto</h2>
+          <FadeIn className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-serif text-brand-800">Diferenciais Técnicos</h2>
           </FadeIn>
 
           <FadeIn className="m-features-list">
@@ -238,39 +219,41 @@ const MassageadoresPage = () => {
               { 
                 icon: ShieldCheck, 
                 title: "Material leve e resistente", 
-                desc: "Suporta pressão contínua sem deformar, dura muito mais do que parece pelo peso." 
+                desc: "Suporta pressão contínua sem deformar, durabilidade garantida." 
               },
               { 
                 icon: Hand, 
                 title: "Encaixe firme na mão", 
-                desc: "O design geométrico impede que a peça escorregue mesmo com óleo ou creme." 
+                desc: "Design geométrico que impede que a peça escorregue com óleo." 
               },
               { 
                 icon: Droplets, 
                 title: "Fácil de higienizar", 
-                desc: "Lava com água e sabão, sem segredo — importante para quem usa entre atendimentos." 
+                desc: "Pode ser lavado com água e sabão neutro entre os atendimentos." 
               },
               { 
                 icon: ShieldCheck, 
                 title: "Resistente a Álcool 70%", 
-                desc: "O material suporta higienização constante com álcool 70% sem sofrer degradação ou ressecamento." 
+                desc: "Material suporta higienização constante sem degradar ou ressecar." 
               },
               { 
                 icon: Cpu, 
-                title: "Textura da impressão 3D", 
-                desc: "O acabamento natural cria aderência real na pele, sem ser abrasivo." 
+                title: "Textura de Aderência", 
+                desc: "Acabamento que cria aderência real na pele, sem ser abrasivo." 
               },
               { 
                 icon: PackageCheck, 
-                title: "Fabricado sob encomenda", 
-                desc: "Produção em lotes controlados: cada peça passa por inspeção antes de sair." 
+                title: "Sob Encomenda", 
+                desc: "Lotes controlados com inspeção individual de cada peça." 
               }
             ].map((feature, index) => (
               <div key={index} className="m-feature-item">
-                <feature.icon className="m-feature-icon w-6 h-6" strokeWidth={1.5} />
+                <div className="w-12 h-12 bg-brand-50 rounded-2xl flex items-center justify-center flex-shrink-0">
+                  <feature.icon className="text-brand-600 w-6 h-6" strokeWidth={1.5} />
+                </div>
                 <div>
-                  <h4 className="font-bold mb-1">{feature.title}</h4>
-                  <p className="m-body text-sm text-muted">{feature.desc}</p>
+                  <h4 className="font-serif text-xl text-brand-800 mb-2">{feature.title}</h4>
+                  <p className="m-body text-brand-900/60">{feature.desc}</p>
                 </div>
               </div>
             ))}
@@ -279,50 +262,45 @@ const MassageadoresPage = () => {
       </section>
 
       {/* SECTION 6 - CTA FINAL */}
-      <section className="m-section m-final-cta">
-        <div className="m-container">
-          <FadeIn>
-            <h2 className="m-display">Escolha o seu kit.</h2>
-            <p className="m-body mb-10 opacity-70">
-              Atendemos encomendas personalizadas e temos kits a pronta entrega.
-            </p>
-            <div className="flex flex-col sm:flex-row justify-center gap-4 mb-8">
-              <a 
-                href={WHATSAPP_LINK}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="m-btn m-btn-primary px-10"
-              >
-                Falar no WhatsApp e Escolher meu Kit
-              </a>
-              <a 
-                href={WHATSAPP_LINK}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="m-btn m-btn-outline px-10"
-              >
-                Ver Disponibilidade e Prazo
-              </a>
-            </div>
-            <p className="text-xs opacity-50">
-              Dúvida sobre qual kit faz mais sentido para o seu caso? É só perguntar — respondemos rápido.
-            </p>
-          </FadeIn>
-        </div>
+      <section className="m-final-cta">
+        <FadeIn>
+          <h2 className="text-4xl md:text-6xl font-serif mb-8">Escolha o seu kit.</h2>
+          <p className="m-body-large mb-12 opacity-80 max-w-2xl mx-auto">
+            Atendemos encomendas personalizadas e temos kits a pronta entrega para início imediato.
+          </p>
+          <div className="flex flex-col sm:flex-row justify-center gap-6">
+            <a 
+              href={WHATSAPP_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="m-btn m-btn-primary bg-brand-200 text-brand-900 hover:bg-white"
+            >
+              Falar no WhatsApp
+            </a>
+            <a 
+              href={WHATSAPP_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="m-btn m-btn-outline border-white text-white hover:bg-white hover:text-brand-900"
+            >
+              Ver Disponibilidade
+            </a>
+          </div>
+        </FadeIn>
       </section>
 
       {/* SECTION 7 - RODAPÉ */}
-      <footer className="m-footer">
+      <footer className="m-footer px-4">
         <div className="m-container m-footer-content">
           <div className="flex items-center gap-3">
-            <img src="/logo.jpg" alt="Logo" className="h-8 w-8 rounded-full grayscale opacity-50" />
-            <span className="font-serif font-bold">Bhruna Azevedo</span>
+            <img src="/logo.jpg" alt="Logo" className="h-8 w-8 rounded-full opacity-70" />
+            <span className="font-serif font-bold text-brand-900/70">Bhruna Azevedo</span>
           </div>
-          <p className="text-[10px] opacity-60">
+          <p className="text-xs opacity-60">
             Política de troca: 7 dias para defeitos de fabricação.
           </p>
-          <div className="flex gap-4">
-            <span className="text-[10px]">&copy; {new Date().getFullYear()}</span>
+          <div className="text-xs opacity-60">
+            &copy; {new Date().getFullYear()}
           </div>
         </div>
       </footer>
