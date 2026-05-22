@@ -40,6 +40,7 @@ import {
 } from './components/Shared';
 import DomicilioPage from './DomicilioPage';
 import PosOperatorioPage from './PosOperatorioPage';
+import MassageadoresPage from './MassageadoresPage';
 
 declare global {
   interface Window {
@@ -821,6 +822,7 @@ export default function App() {
       <Route path="/domiciliodrenagem" element={<DomicilioPage />} />
       <Route path="/posoperatorio" element={<PosOperatorioPage />} />
       <Route path="/massagemcorporativa" element={<CorporateMassagePage />} />
+      <Route path="/massageadores" element={<MassageadoresPage />} />
     </Routes>
   );
 }

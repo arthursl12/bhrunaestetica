@@ -18,6 +18,7 @@ export const Navbar = () => {
     { name: 'Home', path: '/' },
     { name: 'Atendimento Domicílio', path: '/domicilio' },
     { name: 'Massagem Corporativa', path: '/massagemcorporativa' },
+    { name: 'Massageadores', path: '/massageadores' },
   ];
 
   return (
