@@ -11,14 +11,14 @@ export const trackEvent = (action: string) => {
   }
 };
 
-export const Navbar = () => {
+export const Navbar = ({ title = "Bhruna Azevedo" }: { title?: string }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const navLinks = [
     { name: 'Home', path: '/' },
     { name: 'Atendimento Domicílio', path: '/domicilio' },
     { name: 'Massagem Corporativa', path: '/massagemcorporativa' },
-    { name: 'Massageadores', path: '/massageadores' },
+    { name: 'Massageadores Terapêuticos', path: '/massageadores' },
   ];
 
   return (
@@ -33,7 +33,7 @@ export const Navbar = () => {
               className="h-10 w-10 md:h-12 md:w-12 rounded-full object-cover" 
             />
           </div>
-          <span className="font-serif text-brand-900 font-bold text-lg hidden sm:block">Bhruna Azevedo</span>
+          <span className="font-serif text-brand-900 font-bold text-lg hidden sm:block">{title}</span>
         </Link>
 
         {/* Desktop Navigation */}
