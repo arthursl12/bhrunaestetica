@@ -193,6 +193,18 @@
   .m-kit-grid {
     grid-template-columns: 1fr;
   }
+  .m-item-cell {
+    align-items: center;
+    text-align: center;
+  }
+  .m-item-image {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .m-item-desc {
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 .m-item-cell {
