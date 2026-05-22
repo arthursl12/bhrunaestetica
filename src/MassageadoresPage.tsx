@@ -15,10 +15,14 @@ import {
 } from './components/Shared';
 import './MassageadoresPage.css';
 
-const KitItem = ({ name, description, key }: { name: string, description: string, key?: React.Key }) => (
+const KitItem = ({ name, description, image, key }: { name: string, description: string, image?: string, key?: React.Key }) => (
   <div className="m-item-cell" key={key}>
     <div className="m-item-image">
-      <Cpu className="w-12 h-12 text-brand-300/30" strokeWidth={1} />
+      {image ? (
+        <img src={image} alt={name} className="w-full h-full object-cover transition-transform hover:scale-110 duration-500" />
+      ) : (
+        <Cpu className="w-12 h-12 text-brand-300/30" strokeWidth={1} />
+      )}
     </div>
     <div className="m-item-name font-serif text-brand-800">{name}</div>
     <div className="m-item-desc">{description}</div>
@@ -35,7 +39,7 @@ const KitCard = ({
   label: string, 
   title: string, 
   context: string, 
-  items: { name: string, description: string }[],
+  items: { name: string, description: string, image?: string }[],
   forWhom: string
 }) => (
   <FadeIn className="m-kit-card">
@@ -56,7 +60,7 @@ const KitCard = ({
 
     <div className="m-kit-grid">
       {items.map((item, index) => (
-        <KitItem key={index} name={item.name} description={item.description} />
+        <KitItem key={index} name={item.name} description={item.description} image={item.image} />
       ))}
     </div>
 
@@ -168,16 +172,24 @@ const MassageadoresPage = () => {
               context="Para massoterapeutas que buscam elevar o nível de sua técnica. Este kit foi pensado para distribuir o esforço e promover mais relaxamento nos seus clientes."
               items={[
                 { 
-                  name: "Multifuncional", 
-                  description: "Borda e ponteira para raspagem e ativação de pontos de gatilho." 
+                  name: "Gua Sha", 
+                  description: "Borda e ponteira para raspagem e ativação de pontos de gatilho.",
+                  image: "/m4_guacha.jpeg"
                 },
                 { 
-                  name: "Rolo Texturizado", 
-                  description: "Trabalho em grandes grupos musculares sem sobrecarga." 
+                  name: "Dual Roller", 
+                  description: "Pressão bilateral para alívio rápido de tensões musculares.",
+                  image: "/m5_roller.jpeg"
                 },
                 { 
-                  name: "Organizador", 
-                  description: "Mantém as peças acessíveis e higienizadas." 
+                  name: "Trigger Point Pro", 
+                  description: "Liberação miofascial profunda em pontos de difícil acesso.",
+                  image: "/m7_trigger.jpeg"
+                },
+                { 
+                  name: "Ativador Lâmina", 
+                  description: "Promove liberação de forma facilitada.",
+                  image: "/m3.jpeg"
                 }
               ]}
               forWhom="Massoterapeutas, fisioterapeutas e profissionais que atendem diariamente."
@@ -190,16 +202,20 @@ const MassageadoresPage = () => {
               items={[
                 { 
                   name: "Ponteira Cervical", 
-                  description: "Pressão localizada no pescoço e pontos específicos das costas." 
+                  description: "Pressão localizada no pescoço e pontos específicos das costas.",
+                  image: "/m1.jpeg"
                 },
                 { 
-                  name: "Rolo Compacto", 
-                  description: "Ideal para panturrilha, planta do pé e região lombar." 
+                  name: "Ponteira Perfurada", 
+                  description: "Facilidade de pegada para diversidade de ativações.",
+                  image: "/m2.jpeg"
                 },
+                
                 { 
-                  name: "Estojo", 
-                  description: "Para guardar e carregar as peças com segurança." 
-                }
+                  name: "Rolo Texturizado", 
+                  description: "Trabalho em grandes grupos musculares sem sobrecarga.",
+                  image: "/m6_roller2.jpeg"
+                },
               ]}
               forWhom="Pessoas em home office e praticantes de atividade física."
             />
