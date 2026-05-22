@@ -19,7 +19,7 @@ const KitItem = ({ name, description, image, key }: { name: string, description:
   <div className="m-item-cell" key={key}>
     <div className="m-item-image">
       {image ? (
-        <img src={image} alt={name} className="w-full h-full object-cover transition-transform hover:scale-110 duration-500" />
+        <img src={image} alt={name} className="w-full h-full object-contain transition-transform hover:scale-110 duration-500" />
       ) : (
         <Cpu className="w-12 h-12 text-brand-300/30" strokeWidth={1} />
       )}

@@ -176,14 +176,15 @@
 
 .m-item-image {
   aspect-ratio: 1/1;
-  background-color: var(--alt-bg);
+  background-color: white; /* Match card background */
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 20px;
+  border-radius: 12px;
   overflow: hidden;
   margin-bottom: 16px;
-  max-width: 200px; /* Restricting image size */
+  max-width: 200px;
+  border: 1px solid rgba(125, 64, 47, 0.05); /* Very subtle border */
 }
 
 .m-kit-header {
