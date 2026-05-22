@@ -103,21 +103,6 @@
   color: white;
 }
 
-/* Navigation */
-.m-nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 72px;
-  background-color: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--border-color);
-  z-index: 100;
-  display: flex;
-  align-items: center;
-}
-
 /* Hero */
 .m-hero {
   padding-top: 160px;

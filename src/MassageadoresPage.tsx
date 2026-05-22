@@ -11,7 +11,8 @@ import {
   WHATSAPP_LINK, 
   trackEvent,
   FadeIn,
-  FloatingWhatsApp 
+  FloatingWhatsApp,
+  Navbar
 } from './components/Shared';
 import './MassageadoresPage.css';
 
@@ -73,33 +74,15 @@ const KitCard = ({
 
 const MassageadoresPage = () => {
   return (
-    <div className="massageadores-page selection:bg-brand-200 selection:text-brand-900">
-      {/* SECTION 1 - NAVIGATION */}
-      <nav className="m-nav px-4">
-        <div className="m-container flex justify-between items-center w-full">
-          <Link to="/" className="flex items-center gap-3 group">
-            <div className="p-0.5 rounded-full border border-brand-200 bg-white transition-transform group-hover:scale-105">
-              <img src="/logo.jpg" alt="Logo" className="h-10 w-10 md:h-12 md:w-12 rounded-full object-cover" />
-            </div>
-            <span className="font-serif font-bold text-lg text-brand-900 hidden sm:block">Bhruna Azevedo</span>
-          </Link>
-          <a 
-            href={WHATSAPP_LINK}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="m-btn m-btn-primary py-3 px-6 text-sm"
-          >
-            WhatsApp
-          </a>
-        </div>
-      </nav>
+    <div className="massageadores-page selection:bg-brand-200 selection:text-brand-900 pt-16">
+      <Navbar />
 
       {/* SECTION 2 - HERO */}
       <section className="m-hero px-4">
         <div className="m-container text-center lg:text-left">
           <FadeIn>
             <h1 className="m-display text-5xl md:text-7xl lg:text-8xl font-serif text-brand-900 mb-8 tracking-tight">
-              Ferramentas que trabalham <span className="m-italic text-brand-600">por você</span>.
+              Ferramentas que trabalham <br/><span className="m-italic text-brand-600">por você</span>.
             </h1>
             <p className="m-body-large text-brand-900/60 mb-12 max-w-2xl mx-auto lg:mx-0">
               Kits de massageadores anatômicos feitos em impressão 3D. Projetados para aplicar pressão no lugar certo, com menos esforço e mais resultado.
