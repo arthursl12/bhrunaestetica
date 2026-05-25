@@ -113,7 +113,7 @@ const About = () => (
       {/* Bhruna Azevedo Section */}
       <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-8 items-center mb-24">
         <FadeIn className="flex justify-center md:justify-end">
-          <div className="w-full max-w-[336px] aspect-[4/5] rounded-t-full overflow-hidden relative shadow-2xl">
+          <div className="w-full max-w-[260px] md:max-w-[336px] aspect-[4/5] rounded-t-full overflow-hidden relative shadow-2xl">
             <div className="absolute inset-0 bg-brand-200/20 mix-blend-multiply z-10" />
             <img 
               src="/bhruna.jpg" 
@@ -155,7 +155,7 @@ const About = () => (
           </FadeIn>
         </div>
         <FadeIn delay={0.4} className="order-1 md:order-2 flex justify-center md:justify-start">
-          <div className="w-full max-w-[336px] aspect-[4/5] rounded-t-full overflow-hidden relative shadow-2xl">
+          <div className="w-full max-w-[260px] md:max-w-[336px] aspect-[4/5] rounded-t-full overflow-hidden relative shadow-2xl">
             <div className="absolute inset-0 bg-brand-200/20 mix-blend-multiply z-10" />
             <img 
               src="/anamoraes.jpeg" 
