@@ -240,7 +240,7 @@ const services = [
     title: "Atendimento Psicológico",
     description: "Acolhimento emocional e escuta qualificada para adultos e idosos, com foco em saúde mental, bem-estar e qualidade de vida.",
     icon: MessageSquare,
-    image: "https://images.unsplash.com/photo-1527689354796-0331405e3641?q=80&w=2070&auto=format&fit=crop"
+    image: "/psy.jpeg"
   },
   {
     title: "Limpeza de Pele",
