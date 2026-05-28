@@ -138,36 +138,67 @@ const About = () => (
         </div>
       </div>
 
-      {/* Ana Moraes Section */}
-      <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-8 items-center mb-16">
-        <div className="order-2 md:order-1 space-y-6 text-left">
-          <FadeIn delay={0.2}>
-            <div className="space-y-4">
-              <h3 className="text-3xl font-serif text-brand-700">Ana Moraes</h3>
-              <p className="text-brand-500 font-medium uppercase tracking-wider text-sm">Massoterapeuta Parceira</p>
-              <p className="text-lg text-brand-900/80 leading-relaxed">
-                Nossa equipe conta com o talento de Ana Moraes, massoterapeuta parceira que compartilha da nossa filosofia de cuidado integral. Com vasta experiência em técnicas manuais e um olhar atento às necessidades individuais de cada cliente, Ana integra nossa equipe para ampliar nossa capacidade de atendimento, trazendo alívio de tensões e reequilíbrio.
+      {/* Partners Section */}
+      <div className="max-w-6xl mx-auto px-4 mb-24">
+        <FadeIn className="text-center mb-16">
+          <h3 className="text-3xl font-serif text-brand-700">Nossas Parceiras</h3>
+          <p className="text-brand-900/60 mt-4 max-w-2xl mx-auto">
+            Contamos com profissionais qualificadas que compartilham nossa filosofia de cuidado integral e excelência técnica.
+          </p>
+        </FadeIn>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+          {/* Ana Moraes */}
+          <FadeIn delay={0.2} className="flex flex-col items-center text-center">
+            <div className="w-full max-w-[240px] aspect-[4/5] rounded-t-full overflow-hidden relative shadow-xl mb-6">
+              <div className="absolute inset-0 bg-brand-200/20 mix-blend-multiply z-10" />
+              <img 
+                src="/anamoraes.jpeg" 
+                alt="Ana Moraes" 
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="space-y-3 px-4">
+              <h4 className="text-2xl font-serif text-brand-700">Ana Moraes</h4>
+              <p className="text-brand-500 font-medium uppercase tracking-wider text-xs">Massoterapeuta Parceira</p>
+              <p className="text-brand-900/80 leading-relaxed text-sm">
+                Com vasta experiência em técnicas manuais e um olhar atento às necessidades individuais, Ana traz alívio de tensões e reequilíbrio para nossa equipe.
               </p>
-              <p className="text-lg text-brand-900/80 leading-relaxed">
-                Sua chegada fortalece nosso compromisso em oferecer um atendimento de alta qualidade, ampliando nossa disponibilidade sem abrir mão do toque personalizado e técnico que define a Bhruna Azevedo Estética e Bem-Estar.
+            </div>
+          </FadeIn>
+
+          {/* Partner 2 */}
+          <FadeIn delay={0.4} className="flex flex-col items-center text-center">
+            <div className="w-full max-w-[240px] aspect-[4/5] rounded-t-full overflow-hidden relative shadow-xl mb-6 bg-brand-50 flex items-center justify-center border border-brand-100">
+              <UserCheck className="w-16 h-16 text-brand-200" />
+            </div>
+            <div className="space-y-3 px-4">
+              <h4 className="text-2xl font-serif text-brand-700">Priscila Santos</h4>
+              <p className="text-brand-500 font-medium uppercase tracking-wider text-xs">Fisioterapeuta Dermato-Funcional</p>
+              <p className="text-brand-900/80 leading-relaxed text-sm">
+                Especialista em recuperação tecidual e tratamentos estéticos avançados, trazendo ciência e técnica para o bem-estar das nossas clientes.
+              </p>
+            </div>
+          </FadeIn>
+
+          {/* Partner 3 */}
+          <FadeIn delay={0.6} className="flex flex-col items-center text-center">
+            <div className="w-full max-w-[240px] aspect-[4/5] rounded-t-full overflow-hidden relative shadow-xl mb-6 bg-brand-50 flex items-center justify-center border border-brand-100">
+              <UserCheck className="w-16 h-16 text-brand-200" />
+            </div>
+            <div className="space-y-3 px-4">
+              <h4 className="text-2xl font-serif text-brand-700">Carla Oliveira</h4>
+              <p className="text-brand-500 font-medium uppercase tracking-wider text-xs">Esteticista Facial</p>
+              <p className="text-brand-900/80 leading-relaxed text-sm">
+                Especialista em protocolos faciais personalizados, unindo tecnologia e cosmetologia para realçar a beleza natural de cada rosto.
               </p>
             </div>
           </FadeIn>
         </div>
-        <FadeIn delay={0.4} className="order-1 md:order-2 flex justify-center md:justify-start">
-          <div className="w-full max-w-[260px] md:max-w-[336px] aspect-[4/5] rounded-t-full overflow-hidden relative shadow-2xl">
-            <div className="absolute inset-0 bg-brand-200/20 mix-blend-multiply z-10" />
-            <img 
-              src="/anamoraes.jpeg" 
-              alt="Ana Moraes" 
-              className="w-full h-full object-cover"
-            />
-          </div>
-        </FadeIn>
       </div>
 
       {/* Address Info */}
-      <FadeIn delay={0.6}>
+      <FadeIn delay={0.8}>
         <div className="p-8 bg-brand-50 border-l-4 border-brand-400 rounded-r-lg shadow-sm max-w-2xl mx-auto">
           <div className="flex flex-col md:flex-row items-center md:items-start gap-4">
             <div className="p-3 bg-brand-100 rounded-full">
