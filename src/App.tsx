@@ -41,6 +41,7 @@ import {
 import DomicilioPage from './DomicilioPage';
 import PosOperatorioPage from './PosOperatorioPage';
 import MassageadoresPage from './MassageadoresPage';
+import PsicologiaPage from './PsicologiaPage';
 
 declare global {
   interface Window {
@@ -169,8 +170,13 @@ const About = () => (
 
           {/* Bianca Santos */}
           <FadeIn delay={0.4} className="flex flex-col items-center text-center">
-            <div className="w-full max-w-[240px] aspect-[4/5] rounded-t-full overflow-hidden relative shadow-xl mb-6 bg-brand-50 flex items-center justify-center border border-brand-100">
-              <UserCheck className="w-16 h-16 text-brand-200" />
+            <div className="w-full max-w-[240px] aspect-[4/5] rounded-t-full overflow-hidden relative shadow-xl mb-6">
+              <div className="absolute inset-0 bg-brand-200/20 mix-blend-multiply z-10" />
+              <img 
+                src="/bianca.jpeg" 
+                alt="Bianca Santos" 
+                className="w-full h-full object-cover"
+              />
             </div>
             <div className="space-y-3 px-4">
               <h4 className="text-2xl font-serif text-brand-700">Bianca Santos</h4>
@@ -183,8 +189,13 @@ const About = () => (
 
           {/* Roseli Santos */}
           <FadeIn delay={0.6} className="flex flex-col items-center text-center">
-            <div className="w-full max-w-[240px] aspect-[4/5] rounded-t-full overflow-hidden relative shadow-xl mb-6 bg-brand-50 flex items-center justify-center border border-brand-100">
-              <UserCheck className="w-16 h-16 text-brand-200" />
+            <div className="w-full max-w-[240px] aspect-[4/5] rounded-t-full overflow-hidden relative shadow-xl mb-6">
+              <div className="absolute inset-0 bg-brand-200/20 mix-blend-multiply z-10" />
+              <img 
+                src="/roseli.jpeg" 
+                alt="Roseli Santos" 
+                className="w-full h-full object-cover"
+              />
             </div>
             <div className="space-y-3 px-4">
               <h4 className="text-2xl font-serif text-brand-700">Roseli Santos</h4>
@@ -902,6 +913,7 @@ export default function App() {
       <Route path="/posoperatorio" element={<PosOperatorioPage />} />
       <Route path="/massagemcorporativa" element={<CorporateMassagePage />} />
       <Route path="/massageadores" element={<MassageadoresPage />} />
+      <Route path="/psicologia" element={<PsicologiaPage />} />
     </Routes>
   );
 }
