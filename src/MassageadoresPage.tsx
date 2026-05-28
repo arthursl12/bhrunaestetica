@@ -52,7 +52,7 @@ const KitCard = ({
         href={WHATSAPP_LINK} 
         target="_blank" 
         rel="noopener noreferrer"
-        onClick={() => trackEvent(`kit_click_${title.toLowerCase().replace(' ', '_')}`)}
+        onClick={() => trackEvent('whatsapp_click')}
         className="m-btn m-btn-primary w-fit mt-4"
       >
         Escolher meu Kit
