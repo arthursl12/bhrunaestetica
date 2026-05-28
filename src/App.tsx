@@ -167,30 +167,30 @@ const About = () => (
             </div>
           </FadeIn>
 
-          {/* Partner 2 */}
+          {/* Bianca Santos */}
           <FadeIn delay={0.4} className="flex flex-col items-center text-center">
             <div className="w-full max-w-[240px] aspect-[4/5] rounded-t-full overflow-hidden relative shadow-xl mb-6 bg-brand-50 flex items-center justify-center border border-brand-100">
               <UserCheck className="w-16 h-16 text-brand-200" />
             </div>
             <div className="space-y-3 px-4">
-              <h4 className="text-2xl font-serif text-brand-700">Priscila Santos</h4>
-              <p className="text-brand-500 font-medium uppercase tracking-wider text-xs">Fisioterapeuta Dermato-Funcional</p>
+              <h4 className="text-2xl font-serif text-brand-700">Bianca Santos</h4>
+              <p className="text-brand-500 font-medium uppercase tracking-wider text-xs">Massoterapeuta Parceira</p>
               <p className="text-brand-900/80 leading-relaxed text-sm">
-                Especialista em recuperação tecidual e tratamentos estéticos avançados, trazendo ciência e técnica para o bem-estar das nossas clientes.
+                Especialista em drenagem linfática e massagens relaxantes, Bianca foca no bem-estar físico e na redução de edemas, proporcionando leveza e relaxamento profundo.
               </p>
             </div>
           </FadeIn>
 
-          {/* Partner 3 */}
+          {/* Roseli Santos */}
           <FadeIn delay={0.6} className="flex flex-col items-center text-center">
             <div className="w-full max-w-[240px] aspect-[4/5] rounded-t-full overflow-hidden relative shadow-xl mb-6 bg-brand-50 flex items-center justify-center border border-brand-100">
               <UserCheck className="w-16 h-16 text-brand-200" />
             </div>
             <div className="space-y-3 px-4">
-              <h4 className="text-2xl font-serif text-brand-700">Carla Oliveira</h4>
-              <p className="text-brand-500 font-medium uppercase tracking-wider text-xs">Esteticista Facial</p>
+              <h4 className="text-2xl font-serif text-brand-700">Roseli Santos</h4>
+              <p className="text-brand-500 font-medium uppercase tracking-wider text-xs">Psicóloga & Neuropsicóloga</p>
               <p className="text-brand-900/80 leading-relaxed text-sm">
-                Especialista em protocolos faciais personalizados, unindo tecnologia e cosmetologia para realçar a beleza natural de cada rosto.
+                Especialista em avaliação neuropsicológica e saúde emocional de adultos e idosos. Atua com foco em cognição, funcionalidade e qualidade de vida através de um olhar humanizado e integrado.
               </p>
             </div>
           </FadeIn>
