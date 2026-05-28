@@ -219,22 +219,16 @@ const About = () => (
 
 const services = [
   {
-    title: "Limpeza de Pele",
-    description: "Tratamento profundo que remove impurezas, cravos e células mortas, devolvendo o viço e a saúde natural da sua pele.",
-    icon: Sparkles,
-    image: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?q=80&w=2070&auto=format&fit=crop"
-  },
-  {
     title: "Drenagem Linfática",
     description: "Reduz o inchaço, melhora a circulação e elimina toxinas do corpo, promovendo leveza imediata.",
     icon: Droplets,
     image: "/drenagem.jpeg"
   },
   {
-    title: "Taping",
-    description: "Aplicação estratégica de bandagens terapêuticas para diversas necessidades. No estético, auxilia na modelagem e celulite; no pós-operatório, reduz edemas e acelera a cicatrização; e no gestacional, oferece suporte muscular e alívio de dores, garantindo conforto e segurança.",
-    icon: Activity,
-    image: "/taping.jpeg"
+    title: "Massagem Relaxante",
+    description: "Técnicas que aliviam a tensão muscular, reduzem o estresse e promovem uma profunda sensação de paz e relaxamento total.",
+    icon: Heart,
+    image: "/mass_relax.jpeg"
   },
   {
     title: "Ventosaterapia",
@@ -243,10 +237,22 @@ const services = [
     image: "/ventosa.png"
   },
   {
-    title: "Massagem Relaxante",
-    description: "Técnicas que aliviam a tensão muscular, reduzem o estresse e promovem uma profunda sensação de paz e relaxamento total.",
-    icon: Heart,
-    image: "/mass_relax.jpeg"
+    title: "Atendimento Psicológico",
+    description: "Acolhimento emocional e escuta qualificada para adultos e idosos, com foco em saúde mental, bem-estar e qualidade de vida.",
+    icon: MessageSquare,
+    image: "https://images.unsplash.com/photo-1527689354796-0331405e3641?q=80&w=2070&auto=format&fit=crop"
+  },
+  {
+    title: "Limpeza de Pele",
+    description: "Tratamento profundo que remove impurezas, cravos e células mortas, devolvendo o viço e a saúde natural da sua pele.",
+    icon: Sparkles,
+    image: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?q=80&w=2070&auto=format&fit=crop"
+  },
+  {
+    title: "Taping",
+    description: "Aplicação estratégica de bandagens terapêuticas para diversas necessidades. No estético, auxilia na modelagem e celulite; no pós-operatório, reduz edemas e acelera a cicatrização; e no gestacional, oferece suporte muscular e alívio de dores, garantindo conforto e segurança.",
+    icon: Activity,
+    image: "/taping.jpeg"
   },
   {
     title: "Manta Detox",
@@ -259,12 +265,6 @@ const services = [
     description: "Uma experiência de relaxamento profundo que vai além da estética. Inclui hidratação intensiva e massagem relaxante nos pontos de tensão, devolvendo a maciez e promovendo um alívio imediato para pés cansados.",
     icon: Sparkles,
     image: "/spapes.jpeg"
-  },
-  {
-    title: "Atendimento Psicológico",
-    description: "Acolhimento emocional e escuta qualificada para adultos e idosos, com foco em saúde mental, bem-estar e qualidade de vida.",
-    icon: MessageSquare,
-    image: "https://images.unsplash.com/photo-1527689354796-0331405e3641?q=80&w=2070&auto=format&fit=crop"
   },
 ];
 
@@ -279,42 +279,84 @@ const Services = () => (
       </FadeIn>
     </div>
 
-    <div className="flex flex-col md:flex-row w-full h-[600px] md:h-[700px] gap-0">
-      {services.map((service, index) => (
-        <div 
-          key={index}
-          className="group relative flex-1 hover:md:flex-[4] transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] overflow-hidden cursor-pointer border-b md:border-b-0 md:border-r border-white/10"
-        >
-          {/* Background Image */}
-          <div className="absolute inset-0 z-0">
-            <img 
-              src={service.image} 
-              alt={service.title}
-              className="w-full h-full object-cover grayscale-[0.5] group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-brand-900 via-brand-900/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-700" />
-          </div>
+    <div className="flex flex-col gap-0">
+      {/* Row 1 */}
+      <div className="flex flex-col md:flex-row w-full h-[600px] md:h-[450px] gap-0">
+        {services.slice(0, 4).map((service, index) => (
+          <div 
+            key={index}
+            className="group relative flex-1 hover:md:flex-[4] transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] overflow-hidden cursor-pointer border-b md:border-b-0 md:border-r border-white/10"
+          >
+            {/* Background Image */}
+            <div className="absolute inset-0 z-0">
+              <img 
+                src={service.image} 
+                alt={service.title}
+                className="w-full h-full object-cover grayscale-[0.5] group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-brand-900 via-brand-900/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-700" />
+            </div>
 
-          {/* Content */}
-          <div className="absolute inset-0 z-10 p-8 flex flex-col justify-end text-white">
-            <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-              <div className="w-12 h-12 bg-brand-200/20 backdrop-blur-sm rounded-full flex items-center justify-center mb-4 text-brand-200 group-hover:bg-brand-200 group-hover:text-brand-900 transition-colors duration-500">
-                <service.icon className="w-6 h-6" strokeWidth={1.5} />
-              </div>
-              
-              <h3 className="text-2xl md:text-3xl font-serif font-medium mb-3 text-brand-50 whitespace-nowrap">
-                {service.title}
-              </h3>
-              
-              <div className="max-h-0 group-hover:max-h-32 opacity-0 group-hover:opacity-100 transition-all duration-700 overflow-hidden">
-                <p className="text-brand-100 leading-relaxed text-sm md:text-base max-w-md">
-                  {service.description}
-                </p>
+            {/* Content */}
+            <div className="absolute inset-0 z-10 p-8 flex flex-col justify-end text-white">
+              <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                <div className="w-12 h-12 bg-brand-200/20 backdrop-blur-sm rounded-full flex items-center justify-center mb-4 text-brand-200 group-hover:bg-brand-200 group-hover:text-brand-900 transition-colors duration-500">
+                  <service.icon className="w-6 h-6" strokeWidth={1.5} />
+                </div>
+                
+                <h3 className="text-2xl md:text-3xl font-serif font-medium mb-3 text-brand-50 whitespace-nowrap">
+                  {service.title}
+                </h3>
+                
+                <div className="max-h-0 group-hover:max-h-32 opacity-0 group-hover:opacity-100 transition-all duration-700 overflow-hidden">
+                  <p className="text-brand-100 leading-relaxed text-sm md:text-base max-w-md">
+                    {service.description}
+                  </p>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
+
+      {/* Row 2 */}
+      <div className="flex flex-col md:flex-row w-full h-[600px] md:h-[450px] gap-0">
+        {services.slice(4, 8).map((service, index) => (
+          <div 
+            key={index}
+            className="group relative flex-1 hover:md:flex-[4] transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] overflow-hidden cursor-pointer border-b md:border-b-0 md:border-r border-white/10"
+          >
+            {/* Background Image */}
+            <div className="absolute inset-0 z-0">
+              <img 
+                src={service.image} 
+                alt={service.title}
+                className="w-full h-full object-cover grayscale-[0.5] group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-brand-900 via-brand-900/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-700" />
+            </div>
+
+            {/* Content */}
+            <div className="absolute inset-0 z-10 p-8 flex flex-col justify-end text-white">
+              <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                <div className="w-12 h-12 bg-brand-200/20 backdrop-blur-sm rounded-full flex items-center justify-center mb-4 text-brand-200 group-hover:bg-brand-200 group-hover:text-brand-900 transition-colors duration-500">
+                  <service.icon className="w-6 h-6" strokeWidth={1.5} />
+                </div>
+                
+                <h3 className="text-2xl md:text-3xl font-serif font-medium mb-3 text-brand-50 whitespace-nowrap">
+                  {service.title}
+                </h3>
+                
+                <div className="max-h-0 group-hover:max-h-32 opacity-0 group-hover:opacity-100 transition-all duration-700 overflow-hidden">
+                  <p className="text-brand-100 leading-relaxed text-sm md:text-base max-w-md">
+                    {service.description}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   </section>
 );
