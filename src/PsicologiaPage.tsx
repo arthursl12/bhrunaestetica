@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { 
   CheckCircle2, 
   ChevronRight, 
@@ -13,7 +13,8 @@ import {
   Activity,
   Smile,
   Zap,
-  Layout
+  Layout,
+  Calendar
 } from 'lucide-react';
 import { 
   Navbar, 
@@ -27,6 +28,28 @@ import {
 const PSICO_WHATSAPP_LINK = "https://wa.me/5531991422212?text=Olá!%20Tenho%20interesse%20no%20atendimento%20psicológico%20e%20neuropsicológico.%20Queria%20mais%20informações";
 
 const PsicologiaPage = () => {
+  useEffect(() => {
+    // Calendly script injection
+    const script = document.createElement('script');
+    script.src = "https://assets.calendly.com/assets/external/widget.js";
+    script.async = true;
+    document.body.appendChild(script);
+
+    // Event listener for Calendly
+    const handleCalendlyEvent = (e: MessageEvent) => {
+      if (e.data.event && e.data.event === 'calendly.event_scheduled') {
+        trackEvent('schedule_appointment_psico');
+      }
+    };
+
+    window.addEventListener('message', handleCalendlyEvent);
+
+    return () => {
+      document.body.removeChild(script);
+      window.removeEventListener('message', handleCalendlyEvent);
+    };
+  }, []);
+
   return (
     <div className="min-h-screen font-sans text-brand-900 bg-brand-50 selection:bg-brand-200 selection:text-brand-900 pt-16">
       <Navbar />
@@ -226,29 +249,48 @@ const PsicologiaPage = () => {
         </div>
       </section>
 
-      {/* 5. CTA SECTION */}
-      <section className="py-24 px-4 bg-white text-center">
-        <div className="max-w-3xl mx-auto">
+      {/* 5. BOOKING SECTION */}
+      <section id="agendamento" className="py-24 px-4 bg-white overflow-hidden">
+        <div className="max-w-4xl mx-auto text-center mb-12">
           <FadeIn>
-            <div className="inline-block p-3 bg-brand-100 rounded-full mb-6">
-              <Zap className="w-6 h-6 text-brand-600" />
+            <div className="inline-block p-3 bg-brand-50 rounded-full mb-6">
+              <Calendar className="w-6 h-6 text-brand-600" />
             </div>
-            <h2 className="text-3xl md:text-5xl font-serif text-brand-800 mb-8">Comece seu processo de cuidado hoje mesmo.</h2>
-            <p className="text-lg text-brand-900/70 mb-12 leading-relaxed">
-              Dúvidas sobre a avaliação neuropsicológica ou quer agendar um acolhimento inicial? Fale diretamente conosco pelo WhatsApp.
+            <h2 className="text-4xl md:text-5xl font-serif text-brand-800 mb-6">Agende sua Sessão</h2>
+            <p className="text-lg text-brand-900/70 max-w-2xl mx-auto">
+              Selecione o serviço desejado e escolha o melhor horário para o seu atendimento exclusivo com Roseli Santos.
+            </p>
+          </FadeIn>
+        </div>
+        
+        <FadeIn delay={0.2}>
+          <div className="max-w-5xl mx-auto rounded-2xl overflow-hidden shadow-2xl border border-brand-100 bg-brand-50/30 backdrop-blur-sm">
+            {/* Calendly Inline Widget */}
+            <div 
+              className="calendly-inline-widget" 
+              data-url="https://calendly.com/bhrunaestetica?hide_landing_page_details=1&hide_gdpr_banner=1&primary_color=d09471" 
+              style={{ minWidth: '320px', height: '900px' }}
+            ></div>
+          </div>
+        </FadeIn>
+
+        <FadeIn delay={0.4}>
+          <div className="mt-12 text-center">
+            <p className="text-brand-900/60 mb-6 font-light italic">
+              Prefere agendar diretamente ou tem alguma dúvida?
             </p>
             <a 
               href={PSICO_WHATSAPP_LINK}
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => trackEvent('whatsapp_click_psico_footer')}
-              className="inline-flex items-center justify-center px-10 py-5 text-xl font-bold text-white bg-brand-800 rounded-full hover:bg-brand-900 transition-all shadow-xl hover:shadow-2xl transform hover:-translate-y-1"
+              className="inline-flex items-center justify-center px-10 py-4 text-lg font-medium text-white bg-brand-800 rounded-full hover:bg-brand-900 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1"
             >
-              <WhatsAppIcon className="w-6 h-6 mr-4" />
-              Falar com Roseli Santos
+              <WhatsAppIcon className="w-5 h-5 mr-3" />
+              Falar com Roseli Santos via WhatsApp
             </a>
-          </FadeIn>
-        </div>
+          </div>
+        </FadeIn>
       </section>
 
       <Footer />

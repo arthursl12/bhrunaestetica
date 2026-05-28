@@ -373,67 +373,35 @@ const Services = () => (
 );
 
 const Booking = () => {
-  useEffect(() => {
-    // Calendly script injection
-    const script = document.createElement('script');
-    script.src = "https://assets.calendly.com/assets/external/widget.js";
-    script.async = true;
-    document.body.appendChild(script);
-
-    // Event listener for Calendly
-    const handleCalendlyEvent = (e: MessageEvent) => {
-      if (e.data.event && e.data.event === 'calendly.event_scheduled') {
-        trackEvent('schedule_appointment');
-      }
-    };
-
-    window.addEventListener('message', handleCalendlyEvent);
-
-    return () => {
-      document.body.removeChild(script);
-      window.removeEventListener('message', handleCalendlyEvent);
-    };
-  }, []);
-
   return (
     <section id="agendamento" className="py-24 px-4 bg-white overflow-hidden">
-      <div className="max-w-4xl mx-auto text-center mb-12">
+      <div className="max-w-4xl mx-auto text-center">
         <FadeIn>
+          <div className="inline-block p-3 bg-brand-50 rounded-full mb-6">
+            <Calendar className="w-6 h-6 text-brand-600" />
+          </div>
           <h2 className="text-4xl md:text-5xl font-serif text-brand-800 mb-6">Agende sua Sessão</h2>
-          <p className="text-lg text-brand-900/70 max-w-2xl mx-auto">
-            Selecione o tratamento desejado e escolha o melhor horário para o seu atendimento exclusivo.
+          <p className="text-lg text-brand-900/70 max-w-2xl mx-auto mb-12">
+            Estamos prontos para cuidar de você. Clique no botão abaixo para falar diretamente conosco via WhatsApp e garantir o melhor horário para seu atendimento exclusivo.
           </p>
+          
+          <div className="flex flex-col items-center gap-6">
+            <a 
+              href={WHATSAPP_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => trackEvent('whatsapp_click_booking')}
+              className="inline-flex items-center justify-center px-10 py-5 text-xl font-bold text-white bg-[#25D366] rounded-full hover:bg-[#128C7E] transition-all shadow-xl hover:shadow-2xl transform hover:-translate-y-1"
+            >
+              <WhatsAppIcon className="w-6 h-6 mr-3" />
+              Agendar via WhatsApp
+            </a>
+            <p className="text-brand-900/50 text-sm font-light italic">
+              Resposta rápida e atendimento personalizado.
+            </p>
+          </div>
         </FadeIn>
       </div>
-      
-      <FadeIn delay={0.2}>
-        <div className="max-w-5xl mx-auto rounded-2xl overflow-hidden shadow-2xl border border-brand-100 bg-brand-50/30 backdrop-blur-sm">
-          {/* Calendly Inline Widget */}
-          <div 
-            className="calendly-inline-widget" 
-            data-url="https://calendly.com/bhrunaestetica?hide_landing_page_details=1&hide_gdpr_banner=1&primary_color=d09471" 
-            style={{ minWidth: '320px', height: '900px' }}
-          ></div>
-        </div>
-      </FadeIn>
-
-      <FadeIn delay={0.4}>
-        <div className="mt-12 text-center">
-          <p className="text-brand-900/60 mb-6 font-light italic">
-            Prefere agendar diretamente ou tem alguma dúvida?
-          </p>
-          <a 
-            href={WHATSAPP_LINK}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => trackEvent('whatsapp_click')}
-            className="inline-flex items-center justify-center px-8 py-4 text-lg font-medium text-white bg-brand-800 rounded-full hover:bg-brand-900 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
-          >
-            <WhatsAppIcon className="w-5 h-5 mr-3" />
-            Fale comigo
-          </a>
-        </div>
-      </FadeIn>
     </section>
   );
 };
