@@ -528,7 +528,7 @@ const DrenagemLinfaticaPage = () => {
           {/* Desktop: 3 columns / Mobile: horizontal scroll */}
           <div className="flex md:grid md:grid-cols-3 gap-6 overflow-x-auto md:overflow-x-visible pb-8 md:pb-0 snap-x snap-mandatory scrollbar-hide px-4 -mx-4">
             {testimonials.map((t, i) => (
-              <FadeIn key={i} delay={i * 0.1} className="min-w-[85%] md:min-w-0 snap-start">
+              <div key={i} className="min-w-[85%] md:min-w-0 snap-start">
                 <div className="bg-brand-50 rounded-3xl overflow-hidden border border-brand-100 shadow-sm hover:shadow-md transition-shadow h-full">
                   <div className="aspect-[9/16] overflow-hidden bg-brand-100">
                     <img
@@ -538,7 +538,7 @@ const DrenagemLinfaticaPage = () => {
                     />
                   </div>
                 </div>
-              </FadeIn>
+              </div>
             ))}
           </div>
         </div>
