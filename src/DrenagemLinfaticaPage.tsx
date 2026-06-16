@@ -381,7 +381,7 @@ const DrenagemLinfaticaPage = () => {
                 </div>
 
                 <div className="mt-8">
-                  <div className="aspect-video rounded-2xl overflow-hidden shadow-xl border-8 border-white">
+                  <div className="w-full md:w-1/2 mx-auto aspect-[4/3] md:aspect-video rounded-2xl overflow-hidden shadow-xl border-8 border-white">
                     <iframe 
                       src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3751.583321484439!2d-43.91851172382405!3d-19.85764038151241!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa69ab7b579058b%3A0xe54e5884f228d447!2sR.%20L%C3%ADdia%2C%2038%20-%20Piraj%C3%A1%2C%20Belo%20Horizonte%20-%20MG%2C%2031910-650!5e0!3m2!1spt-BR!2sbr!4v1712332800000000!5m2!1spt-BR!2sbr" 
                       width="100%" 
