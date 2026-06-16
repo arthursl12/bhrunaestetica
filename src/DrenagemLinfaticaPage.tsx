@@ -530,11 +530,11 @@ const DrenagemLinfaticaPage = () => {
             {testimonials.map((t, i) => (
               <FadeIn key={i} delay={i * 0.1} className="min-w-[85%] md:min-w-0 snap-start">
                 <div className="bg-brand-50 rounded-3xl overflow-hidden border border-brand-100 shadow-sm hover:shadow-md transition-shadow h-full">
-                  <div className="aspect-[9/16] overflow-hidden">
+                  <div className="aspect-[9/16] overflow-hidden bg-brand-100">
                     <img
                       src={t.image}
                       alt={`Depoimento ${i + 1}`}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-contain"
                     />
                   </div>
                 </div>
@@ -592,7 +592,7 @@ const DrenagemLinfaticaPage = () => {
               Seu corpo já está pedindo isso há um tempo.
             </h2>
             <p className="text-xl text-brand-200/70 mb-12 max-w-2xl mx-auto">
-              Clínica em BH ou atendimento Home Care — você escolhe.
+              Clínica em BH ou atendimento a domicilio — você escolhe.
             </p>
             <div className="flex flex-col items-center gap-6">
               <a
@@ -606,7 +606,7 @@ const DrenagemLinfaticaPage = () => {
                 Quero Agendar Minha Sessão
               </a>
               <p className="text-sm text-brand-300/60">
-                Atendimento em Pirajá · Bairro São Paulo · São Gabriel · Região do Minas Shopping · e em toda BH via Home Care
+                Atendimento no Eymard/Pirajá · Região do Minas Shopping · e em toda BH via Home Care
               </p>
             </div>
           </FadeIn>
