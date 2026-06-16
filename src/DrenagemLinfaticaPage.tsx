@@ -15,7 +15,9 @@ import {
   Package,
   Sparkles,
   Baby,
-  ChevronRight
+  ChevronRight,
+  House,
+  Map
 } from 'lucide-react';
 import {
   Navbar,
@@ -186,7 +188,7 @@ const DrenagemLinfaticaPage = () => {
 
             <FadeIn delay={0.3}>
               <p className="text-lg text-brand-200/70 mb-10 leading-relaxed max-w-xl">
-                Drenagem Linfática de verdade — aquela que alivia o inchaço, elimina o cansaço das pernas e devolve a sensação de leveza que você já não sente faz tempo.
+                Drenagem Linfática de verdade: alivia o inchaço, elimina o cansaço das pernas e devolve a sensação de leveza que você já não sente faz tempo.
               </p>
             </FadeIn>
 
@@ -205,7 +207,8 @@ const DrenagemLinfaticaPage = () => {
               </div>
               <p className="text-sm text-brand-200/60 flex items-center gap-2">
                 <MapPin className="w-4 h-4" />
-                Clínica em BH · Home Care
+                Clínica em BH / Spa em Casa
+                <House className="w-4 h-4" />
               </p>
             </FadeIn>
           </div>
@@ -226,10 +229,8 @@ const DrenagemLinfaticaPage = () => {
       {/* Sticky Location Bar */}
       <div className="bg-brand-800 border-b border-brand-700 py-4 px-4 hidden md:block">
         <div className="max-w-6xl mx-auto flex justify-center gap-12 text-sm text-brand-200">
+          <span className="flex items-center gap-2"><MapPin className="w-4 h-4" /> Eymard</span>
           <span className="flex items-center gap-2"><MapPin className="w-4 h-4" /> Pirajá</span>
-          <span className="flex items-center gap-2"><MapPin className="w-4 h-4" /> Bairro São Paulo</span>
-          <span className="flex items-center gap-2"><MapPin className="w-4 h-4" /> São Gabriel</span>
-          <span className="flex items-center gap-2"><MapPin className="w-4 h-4" /> Minas Shopping</span>
         </div>
       </div>
 
@@ -375,10 +376,8 @@ const DrenagemLinfaticaPage = () => {
                   Ou, se preferir, venha até a gente.
                 </p>
                 <div className="flex flex-wrap justify-center gap-4 text-sm text-brand-900/70">
-                  <span className="flex items-center gap-2"><MapPin className="w-4 h-4 text-brand-400" /> Pirajá</span>
-                  <span className="flex items-center gap-2"><MapPin className="w-4 h-4 text-brand-400" /> São Gabriel</span>
-                  <span className="flex items-center gap-2"><MapPin className="w-4 h-4 text-brand-400" /> Bairro São Paulo</span>
-                  <span className="flex items-center gap-2"><MapPin className="w-4 h-4 text-brand-400" /> Minas Shopping</span>
+                  <span className="flex items-center gap-2"><MapPin className="w-4 h-4 text-brand-400" /> Pirajá/Eymard</span>
+                  <span className="flex items-center gap-2"><Map className="w-4 h-4 text-brand-400" /> Pertinho do Minas Shopping</span>
                 </div>
               </div>
             </div>
