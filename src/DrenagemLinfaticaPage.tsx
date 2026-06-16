@@ -326,7 +326,7 @@ const DrenagemLinfaticaPage = () => {
             <FadeIn delay={0.2}>
               <div className="relative rounded-[2rem] overflow-hidden shadow-2xl">
                 <img
-                  src="/drenagem.jpeg"
+                  src="/drenagem_close.jpeg"
                   alt="Drenagem Linfática - Técnica"
                   className="w-full h-[500px] object-cover"
                 />
