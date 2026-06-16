@@ -243,14 +243,14 @@ const DrenagemLinfaticaPage = () => {
             </FadeIn>
           </div>
 
-          <div className="flex md:grid md:grid-cols-4 gap-6 overflow-x-auto md:overflow-x-visible pb-8 md:pb-0 snap-x snap-mandatory scrollbar-hide px-4 -mx-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {painPoints.map((item, i) => (
-              <FadeIn key={i} delay={i * 0.1} className="min-w-[70%] md:min-w-0 snap-start">
-                <div className="bg-white p-8 rounded-2xl border border-brand-100 shadow-sm hover:shadow-md transition-shadow h-full text-center flex flex-col items-center">
-                  <div className="w-16 h-16 text-brand-400 mb-6">
+              <FadeIn key={i} delay={i * 0.1}>
+                <div className="bg-white p-4 md:p-6 rounded-2xl border border-brand-100 shadow-sm hover:shadow-md transition-shadow h-full text-center flex flex-col items-center">
+                  <div className="w-10 h-10 md:w-16 md:h-16 text-brand-400 mb-4 md:mb-6">
                     {item.icon}
                   </div>
-                  <p className="text-brand-800 font-medium leading-relaxed">{item.text}</p>
+                  <p className="text-sm md:base font-medium text-brand-800 leading-relaxed">{item.text}</p>
                 </div>
               </FadeIn>
             ))}
