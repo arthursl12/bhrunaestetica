@@ -379,6 +379,33 @@ const DrenagemLinfaticaPage = () => {
                   <span className="flex items-center gap-2"><MapPin className="w-4 h-4 text-brand-400" /> Pirajá/Eymard</span>
                   <span className="flex items-center gap-2"><Map className="w-4 h-4 text-brand-400" /> Pertinho do Minas Shopping</span>
                 </div>
+
+                <div className="mt-8">
+                  <div className="aspect-video rounded-2xl overflow-hidden shadow-xl border-8 border-white">
+                    <iframe 
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3751.583321484439!2d-43.91851172382405!3d-19.85764038151241!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa69ab7b579058b%3A0xe54e5884f228d447!2sR.%20L%C3%ADdia%2C%2038%20-%20Piraj%C3%A1%2C%20Belo%20Horizonte%20-%20MG%2C%2031910-650!5e0!3m2!1spt-BR!2sbr!4v1712332800000000!5m2!1spt-BR!2sbr" 
+                      width="100%" 
+                      height="100%" 
+                      style={{ border: 0 }} 
+                      allowFullScreen={false} 
+                      loading="lazy"
+                      title="Localização Bhruna Estética - Pirajá"
+                    ></iframe>
+                  </div>
+                  
+                  <div className="mt-6 text-center">
+                    <a 
+                      href={DRENAGEM_WHATSAPP_LINK}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() => trackEvent('whatsapp_click')}
+                      className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white bg-[#25D366] rounded-full hover:bg-[#128C7E] transition-all shadow-xl hover:shadow-2xl transform hover:-translate-y-1"
+                    >
+                      <WhatsAppIcon className="w-6 h-6 mr-3" />
+                      Agendar pelo WhatsApp
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
           </FadeIn>
