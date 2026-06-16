@@ -382,15 +382,14 @@ const Booking = () => {
           </div>
           <h2 className="text-4xl md:text-5xl font-serif text-brand-800 mb-6">Agende sua Sessão</h2>
           <p className="text-lg text-brand-900/70 max-w-2xl mx-auto mb-12">
-            Estamos prontos para cuidar de você. Clique no botão abaixo para falar diretamente conosco via WhatsApp e garantir o melhor horário para seu atendimento exclusivo.
-          </p>
+            Estamos prontos para cuidar de você. Chame a gente no botão abaixo </p>
           
           <div className="flex flex-col items-center gap-6">
             <a 
               href={WHATSAPP_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              onClick={() => trackEvent('whatsapp_click_booking')}
+              onClick={() => trackEvent('whatsapp_click')}
               className="inline-flex items-center justify-center px-10 py-5 text-xl font-bold text-white bg-[#25D366] rounded-full hover:bg-[#128C7E] transition-all shadow-xl hover:shadow-2xl transform hover:-translate-y-1"
             >
               <WhatsAppIcon className="w-6 h-6 mr-3" />

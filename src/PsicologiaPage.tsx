@@ -38,7 +38,7 @@ const PsicologiaPage = () => {
     // Event listener for Calendly
     const handleCalendlyEvent = (e: MessageEvent) => {
       if (e.data.event && e.data.event === 'calendly.event_scheduled') {
-        trackEvent('schedule_appointment_psico');
+        trackEvent('schedule_appointment');
       }
     };
 
@@ -75,7 +75,7 @@ const PsicologiaPage = () => {
                   href={PSICO_WHATSAPP_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
-                  onClick={() => trackEvent('whatsapp_click_psico_hero')}
+                  onClick={() => trackEvent('whatsapp_click')}
                   className="inline-flex items-center justify-center w-full md:w-auto px-8 py-4 text-lg font-bold text-white bg-[#25D366] rounded-full hover:bg-[#128C7E] transition-all shadow-xl hover:shadow-2xl transform hover:-translate-y-1"
                 >
                   <WhatsAppIcon className="w-6 h-6 mr-3" />
@@ -283,7 +283,7 @@ const PsicologiaPage = () => {
               href={PSICO_WHATSAPP_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              onClick={() => trackEvent('whatsapp_click_psico_footer')}
+              onClick={() => trackEvent('whatsapp_click')}
               className="inline-flex items-center justify-center px-10 py-4 text-lg font-medium text-white bg-brand-800 rounded-full hover:bg-brand-900 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1"
             >
               <WhatsAppIcon className="w-5 h-5 mr-3" />

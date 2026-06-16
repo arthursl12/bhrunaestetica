@@ -70,7 +70,7 @@ const PosOperatorioPage = () => {
                 href={POS_OP_WHATSAPP_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={() => trackEvent('whatsapp_click_pos_hero')}
+                onClick={() => trackEvent('whatsapp_click')}
                 className="inline-flex items-center justify-center w-full md:w-auto px-10 py-5 text-xl font-bold text-white bg-brand-800 rounded-full hover:bg-brand-900 transition-all shadow-2xl transform hover:-translate-y-1"
               >
                 <WhatsAppIcon className="w-6 h-6 mr-3" />
@@ -533,7 +533,7 @@ const PosOperatorioPage = () => {
                 href={POS_OP_WHATSAPP_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={() => trackEvent('whatsapp_click_pos_final')}
+                onClick={() => trackEvent('whatsapp_click')}
                 className="inline-flex items-center justify-center w-full md:w-auto px-12 py-6 text-2xl font-bold text-white bg-[#25D366] rounded-full hover:bg-[#128C7E] transition-all shadow-2xl animate-pulse-slow"
               >
                 <WhatsAppIcon className="w-8 h-8 mr-4" />
