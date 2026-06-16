@@ -77,7 +77,7 @@ const techniques = [
     title: "Drenagem Linfática",
     benefit: "Alivia o inchaço e devolve a leveza",
     description: "Manobras suaves e rítmicas que reativam o fluxo linfático e eliminam o excesso de líquido retido nos tecidos.",
-    image: "/drenagem.jpeg"
+    image: "/drenagem_3.jpeg"
   },
   {
     title: "Massagem Modeladora",
