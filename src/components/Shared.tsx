@@ -16,6 +16,7 @@ export const Navbar = ({ title = "Bhruna Azevedo" }: { title?: string }) => {
 
   const navLinks = [
     { name: 'Home', path: '/' },
+    { name: 'Drenagem Linfática', path: '/drenagem' },
     { name: 'Atendimento Domicílio', path: '/domicilio' },
     { name: 'Massagem Corporativa', path: '/massagemcorporativa' },
     { name: 'Massageadores Terapêuticos', path: '/massageadores' },

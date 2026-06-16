@@ -42,6 +42,7 @@ import DomicilioPage from './DomicilioPage';
 import PosOperatorioPage from './PosOperatorioPage';
 import MassageadoresPage from './MassageadoresPage';
 import PsicologiaPage from './PsicologiaPage';
+import DrenagemLinfaticaPage from './DrenagemLinfaticaPage';
 
 declare global {
   interface Window {
@@ -872,6 +873,7 @@ export default function App() {
   return (
     <Routes>
       <Route path="/" element={<HomePage />} />
+      <Route path="/drenagem" element={<DrenagemLinfaticaPage />} />
       <Route path="/manta" element={<HomePage />} />
       <Route path="/drenagem" element={<HomePage />} />
       <Route path="/ventosa" element={<HomePage />} />
