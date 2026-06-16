@@ -270,10 +270,10 @@ const DrenagemLinfaticaPage = () => {
           {/* 3A — Como Funciona */}
           <div className="grid lg:grid-cols-2 gap-16 items-center mb-24">
             <FadeIn>
-              <h2 className="text-4xl md:text-5xl font-serif text-brand-800 mb-8 leading-tight">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif text-brand-800 mb-8 leading-tight">
                 Drenagem Linfática: ciência que seu corpo já conhece.
               </h2>
-              <div className="space-y-6 text-brand-900/70 leading-relaxed mb-10">
+              <div className="space-y-6 text-brand-900/70 leading-relaxed mb-10 break-words overflow-wrap-break-word">
                 <p>
                   O sistema linfático é uma rede silenciosa que percorre todo o seu corpo. Ele é responsável por recolher o excesso de líquidos, filtrar toxinas e manter o equilíbrio dos tecidos.
                 </p>
@@ -286,9 +286,9 @@ const DrenagemLinfaticaPage = () => {
               </div>
 
               {/* Timeline */}
-              <div className="flex items-center gap-4">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-brand-100 flex items-center justify-center">
+              <div className="flex flex-col md:flex-row items-center md:items-center gap-4 md:gap-6">
+                <div className="flex items-center gap-3 w-full md:w-auto">
+                  <div className="w-10 h-10 rounded-full bg-brand-100 flex items-center justify-center flex-shrink-0">
                     <Activity className="w-5 h-5 text-brand-500" />
                   </div>
                   <div>
@@ -296,9 +296,11 @@ const DrenagemLinfaticaPage = () => {
                     <span className="text-sm font-medium text-brand-800">Estímulo</span>
                   </div>
                 </div>
-                <ChevronRight className="w-4 h-4 text-brand-300" />
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-brand-100 flex items-center justify-center">
+                
+                <ChevronRight className="w-4 h-4 text-brand-300 hidden md:block md:rotate-90" />
+                
+                <div className="flex items-center gap-3 w-full md:w-auto">
+                  <div className="w-10 h-10 rounded-full bg-brand-100 flex items-center justify-center flex-shrink-0">
                     <Droplets className="w-5 h-5 text-brand-500" />
                   </div>
                   <div>
@@ -306,9 +308,11 @@ const DrenagemLinfaticaPage = () => {
                     <span className="text-sm font-medium text-brand-800">Fluxo</span>
                   </div>
                 </div>
-                <ChevronRight className="w-4 h-4 text-brand-300" />
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-brand-100 flex items-center justify-center">
+                
+                <ChevronRight className="w-4 h-4 text-brand-300 hidden md:block md:rotate-90" />
+                
+                <div className="flex items-center gap-3 w-full md:w-auto">
+                  <div className="w-10 h-10 rounded-full bg-brand-100 flex items-center justify-center flex-shrink-0">
                     <Heart className="w-5 h-5 text-brand-500" />
                   </div>
                   <div>
