@@ -152,7 +152,7 @@ const DrenagemLinfaticaPage = () => {
   ];
 
   return (
-    <div className="min-h-screen font-sans text-brand-900 bg-brand-50 selection:bg-brand-200 selection:text-brand-900 pt-16">
+    <div className="min-h-screen font-sans text-brand-900 bg-brand-50 selection:bg-brand-200 selection:text-brand-900 pt-16 overflow-x-hidden">
       <Navbar />
 
       {/* 1. HERO SECTION */}
