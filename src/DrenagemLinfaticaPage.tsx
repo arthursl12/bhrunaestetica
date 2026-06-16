@@ -341,24 +341,24 @@ const DrenagemLinfaticaPage = () => {
                 </p>
               </div>
 
-              <div className="grid md:grid-cols-2 gap-12 items-center">
-                <div className="grid grid-cols-2 gap-4">
-                  {[
-                    { icon: <Box className="w-6 h-6" />, text: "Maca portátil profissional" },
-                    { icon: <Package className="w-6 h-6" />, text: "Lençóis descartáveis ou higienizados" },
-                    { icon: <Sparkles className="w-6 h-6" />, text: "Óleos e cremes de uso profissional" },
-                    { icon: <ShieldCheck className="w-6 h-6" />, text: "Kit de descartáveis selados" },
-                    { icon: <Sparkles className="w-6 h-6" />, text: "Ambiente com aromaterapia" },
-                    { icon: <CheckCircle2 className="w-6 h-6" />, text: "Protocolo de biossegurança" }
-                  ].map((item, i) => (
-                    <div key={i} className="flex items-start gap-3 bg-white p-4 rounded-xl">
-                      <div className="text-brand-400 mt-0.5">{item.icon}</div>
-                      <span className="text-sm text-brand-800 font-medium">{item.text}</span>
-                    </div>
-                  ))}
-                </div>
+               <div className="grid md:grid-cols-2 gap-12 items-center">
+                  <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                    {[
+                      { icon: <Box className="w-6 h-6" />, text: "Maca portátil profissional" },
+                      { icon: <Package className="w-6 h-6" />, text: "Lençóis descartáveis ou higienizados" },
+                      { icon: <Sparkles className="w-6 h-6" />, text: "Óleos e cremes de uso profissional" },
+                      { icon: <ShieldCheck className="w-6 h-6" />, text: "Kit de descartáveis selados" },
+                      { icon: <Sparkles className="w-6 h-6" />, text: "Ambiente com aromaterapia" },
+                      { icon: <CheckCircle2 className="w-6 h-6" />, text: "Protocolo de biossegurança" }
+                    ].map((item, i) => (
+                      <div key={i} className="bg-white p-4 rounded-xl text-center flex flex-col items-center">
+                        <div className="w-10 h-10 text-brand-400 mb-3">{item.icon}</div>
+                        <span className="text-sm text-brand-800 font-medium">{item.text}</span>
+                      </div>
+                    ))}
+                  </div>
 
-                <div className="relative rounded-2xl overflow-hidden shadow-xl">
+                  <div className="relative rounded-2xl overflow-hidden shadow-xl">
                   <img
                     src="/domic_spaemcasa.jpeg"
                     alt="Kit Home Care"
