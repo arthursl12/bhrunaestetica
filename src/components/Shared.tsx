@@ -18,7 +18,7 @@ export const Navbar = ({ title = "Bhruna Azevedo" }: { title?: string }) => {
     { name: 'Home', path: '/' },
     { name: 'Drenagem Linfática', path: '/drenagem' },
     { name: 'Atendimento Domicílio', path: '/domicilio' },
-    { name: 'Massagem Corporativa', path: '/massagemcorporativa' },
+    { name: 'Massagem Corporativa', href: 'https://essentiasaudecorporativa.vercel.app/' },
     { name: 'Massageadores Terapêuticos', path: '/massageadores' },
   ];
 
@@ -40,13 +40,25 @@ export const Navbar = ({ title = "Bhruna Azevedo" }: { title?: string }) => {
         {/* Desktop Navigation */}
         <div className="hidden lg:flex gap-8">
           {navLinks.map((link) => (
-            <Link 
-              key={link.path} 
-              to={link.path} 
-              className="text-brand-800 hover:text-brand-500 font-medium transition-colors text-base"
-            >
-              {link.name}
-            </Link>
+            link.href ? (
+              <a 
+                key={link.href} 
+                href={link.href} 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-brand-800 hover:text-brand-500 font-medium transition-colors text-base"
+              >
+                {link.name}
+              </a>
+            ) : (
+              <Link 
+                key={link.path} 
+                to={link.path} 
+                className="text-brand-800 hover:text-brand-500 font-medium transition-colors text-base"
+              >
+                {link.name}
+              </Link>
+            )
           ))}
         </div>
 
@@ -71,24 +83,42 @@ export const Navbar = ({ title = "Bhruna Azevedo" }: { title?: string }) => {
               <div className="flex flex-col p-6 gap-6">
                 {navLinks.map((link, index) => (
                   <motion.div
-                    key={link.path}
+                    key={link.path || link.href}
                     initial={{ opacity: 0, x: -10 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.1 }}
                   >
-                    <Link
-                      to={link.path}
-                      onClick={() => setIsOpen(false)}
-                      className="text-brand-800 hover:text-brand-500 font-serif text-xl font-medium flex items-center justify-between border-b border-brand-50 pb-3 transition-colors group"
-                    >
-                      {link.name}
-                      <motion.div
-                        whileHover={{ x: 5 }}
-                        className="text-brand-300 group-hover:text-brand-500"
+                    {link.href ? (
+                      <a
+                        href={link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={() => setIsOpen(false)}
+                        className="text-brand-800 hover:text-brand-500 font-serif text-xl font-medium flex items-center justify-between border-b border-brand-50 pb-3 transition-colors group"
                       >
-                        <X size={16} className="rotate-45" />
-                      </motion.div>
-                    </Link>
+                        {link.name}
+                        <motion.div
+                          whileHover={{ x: 5 }}
+                          className="text-brand-300 group-hover:text-brand-500"
+                        >
+                          <X size={16} className="rotate-45" />
+                        </motion.div>
+                      </a>
+                    ) : (
+                      <Link
+                        to={link.path}
+                        onClick={() => setIsOpen(false)}
+                        className="text-brand-800 hover:text-brand-500 font-serif text-xl font-medium flex items-center justify-between border-b border-brand-50 pb-3 transition-colors group"
+                      >
+                        {link.name}
+                        <motion.div
+                          whileHover={{ x: 5 }}
+                          className="text-brand-300 group-hover:text-brand-500"
+                        >
+                          <X size={16} className="rotate-45" />
+                        </motion.div>
+                      </Link>
+                    )}
                   </motion.div>
                 ))}
               </div>
