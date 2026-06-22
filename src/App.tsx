@@ -149,7 +149,7 @@ const About = () => (
           </p>
         </FadeIn>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           {/* Bianca Santos */}
           <FadeIn delay={0.4} className="flex flex-col items-center text-center">
             <div className="w-full max-w-[240px] aspect-[4/5] rounded-t-full overflow-hidden relative shadow-xl mb-6">
