@@ -60,15 +60,15 @@ const painPoints = [
     ),
     text: "O salão barulhento e lotado"
   },
-  {
-    icon: (
-      <svg viewBox="0 0 24 24" className="w-full h-full" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-        <path d="M9 12l2 2 4-4" />
-      </svg>
-    ),
-    text: "O medo de ferramentas mal esterilizadas"
-  }
+  // {
+  //   icon: (
+  //     <svg viewBox="0 0 24 24" className="w-full h-full" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
+  //       <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+  //       <path d="M9 12l2 2 4-4" />
+  //     </svg>
+  //   ),
+  //   text: "O medo de ferramentas mal esterilizadas"
+  // }
 ];
 
 const safetySequence = [
@@ -114,25 +114,31 @@ const safetySeals = [
 
 const serviceCards = [
   {
-    title: "Manicure e Pedicure Tradicional",
+    title: "Manicure",
     desc: "Acabamento impecável, com durabilidade real",
     indication: "Indicado para: cuidado essencial e manutenção",
     image: "/manicure_tradicional.jpeg"
   },
   {
-    title: "Alongamento em Gel / Fibra de Vidro",
+    title: "Pedicure",
     desc: "Resistência e naturalidade, com durabilidade prolongada",
     indication: "Indicado para: quem busca alongamento duradouro",
     image: "/manicure_alongamento.jpeg"
   },
+  // {
+  //   title: "Alongamento em Gel / Fibra de Vidro",
+  //   desc: "Resistência e naturalidade, com durabilidade prolongada",
+  //   indication: "Indicado para: quem busca alongamento duradouro",
+  //   image: "/manicure_alongamento.jpeg"
+  // },
+  // {
+  //   title: "Blindagem de Unhas Naturais",
+  //   desc: "Fortalecimento real para unhas fracas ou quebradiças",
+  //   indication: "Indicado para: unhas naturais fracas/quebradiças",
+  //   image: "/manicure_blindagem.jpeg"
+  // },
   {
-    title: "Blindagem de Unhas Naturais",
-    desc: "Fortalecimento real para unhas fracas ou quebradiças",
-    indication: "Indicado para: unhas naturais fracas/quebradiças",
-    image: "/manicure_blindagem.jpeg"
-  },
-  {
-    title: "Spa dos Pés / Plástica dos Pés",
+    title: "Spa dos Pés",
     desc: "Relaxamento profundo e cuidado completo com a pele dos pés",
     indication: "Indicado para: relaxamento e renovação da pele",
     image: "/manicure_spa.jpeg"
@@ -140,10 +146,10 @@ const serviceCards = [
 ];
 
 const portfolioImages = [
-  { image: "/manicure_portfolio_1.jpeg", alt: "Manicure com blindagem, acabamento brilhante" },
+  { image: "/manicure_portfolio_1.jpeg", alt: "Manicure, acabamento brilhante" },
   { image: "/manicure_portfolio_2.jpeg", alt: "Spa dos pés finalizado, textura de pele cuidada" },
-  { image: "/manicure_portfolio_3.jpeg", alt: "Alongamento em gel, detalhe lateral" },
-  { image: "/manicure_portfolio_4.jpeg", alt: "Manicure tradicional, tom neutro" }
+  // { image: "/manicure_portfolio_3.jpeg", alt: "Alongamento em gel, detalhe lateral" },
+  { image: "/manicure_portfolio_4.jpeg", alt: "Pedicure tradicional, tom vermelho" }
 ];
 
 const testimonials = [
@@ -174,11 +180,6 @@ const journeySteps = [
     icon: Heart,
     title: "Recepção acolhedora",
     desc: "Um ambiente pensado para relaxar."
-  },
-  {
-    icon: Package,
-    title: "Materiais abertos na sua frente",
-    desc: "Lacrados e seguros."
   },
   {
     icon: Hand,
@@ -256,7 +257,7 @@ const ManicurePage = () => {
             </FadeIn>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-8 mb-16">
             {painPoints.map((item, i) => (
               <FadeIn key={i} delay={i * 0.1}>
                 <div className="bg-white p-6 md:p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow h-full text-center flex flex-col items-center">
@@ -271,62 +272,14 @@ const ManicurePage = () => {
 
           <FadeIn>
             <p className="text-center text-lg md:text-xl text-brand-600 max-w-3xl mx-auto font-light leading-relaxed">
-              Durabilidade, saúde das unhas e segurança não deveriam ser exceção. Na Bhruna Estética, são o padrão.
+              Durabilidade e saúde das unhas não deveriam ser exceção. Aqui, são o padrão.
             </p>
           </FadeIn>
         </div>
       </section>
 
-      {/* 3. BIOSSEGURANÇA — Ritual Fotográfico */}
-      <section className="py-24 px-4 bg-white">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <FadeIn>
-              <h2 className="text-3xl md:text-5xl font-serif text-brand-800 mb-4">Segurança que você vê, não apenas que confia.</h2>
-              <p className="text-lg text-brand-900/70 max-w-3xl mx-auto leading-relaxed">
-                Cada instrumento é esterilizado em autoclave e aberto na sua frente, antes do início do atendimento.
-              </p>
-            </FadeIn>
-          </div>
-
-          {/* Photo Sequence */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-            {safetySequence.map((item, i) => (
-              <FadeIn key={i} delay={i * 0.15}>
-                <div className="relative rounded-2xl overflow-hidden aspect-[4/3] group">
-                  <img
-                    src={item.image}
-                    alt={item.alt}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-brand-900/60 to-transparent" />
-                  <div className="absolute bottom-4 left-4 right-4">
-                    <p className="text-white font-medium text-sm md:text-base">{item.caption}</p>
-                  </div>
-                </div>
-              </FadeIn>
-            ))}
-          </div>
-
-          {/* Safety Seals */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {safetySeals.map((item, i) => (
-              <FadeIn key={i} delay={i * 0.1}>
-                <div className="text-center p-6 bg-brand-50 rounded-2xl">
-                  <div className="w-12 h-12 text-brand-500 mx-auto mb-4">
-                    <item.icon className="w-full h-full" strokeWidth={1.5} />
-                  </div>
-                  <h3 className="font-bold text-brand-800 text-sm mb-1">{item.title}</h3>
-                  <p className="text-brand-900/60 text-xs">{item.desc}</p>
-                </div>
-              </FadeIn>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* 4. GRADE DE SERVIÇOS */}
-      <section className="py-24 px-4 bg-brand-50 overflow-hidden">
+      <section className="py-24 px-4 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <FadeIn>
@@ -334,7 +287,7 @@ const ManicurePage = () => {
             </FadeIn>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {serviceCards.map((service, i) => (
               <FadeIn key={i} delay={i * 0.1}>
                 <div className="bg-white rounded-3xl overflow-hidden shadow-sm group hover:shadow-xl transition-all duration-500 border border-brand-100">
@@ -402,7 +355,7 @@ const ManicurePage = () => {
           </div>
 
           {/* Testimonials */}
-          <div className="border-t border-brand-100 pt-16">
+          {/* <div className="border-t border-brand-100 pt-16">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {testimonials.map((t, i) => (
                 <FadeIn key={i} delay={i * 0.1}>
@@ -426,7 +379,7 @@ const ManicurePage = () => {
                 </FadeIn>
               ))}
             </div>
-          </div>
+          </div> */}
         </div>
       </section>
 
@@ -445,7 +398,7 @@ const ManicurePage = () => {
               {/* Connecting line */}
               <div className="absolute top-10 left-0 right-0 h-px bg-brand-200" />
 
-              <div className="grid grid-cols-4 gap-8 relative">
+              <div className="grid grid-cols-3 gap-8 relative">
                 {journeySteps.map((step, i) => (
                   <FadeIn key={i} delay={i * 0.15}>
                     <div className="flex flex-col items-center text-center">
@@ -508,7 +461,7 @@ const ManicurePage = () => {
             </a>
 
             <p className="mt-12 text-brand-400 text-xs md:text-sm font-light italic">
-              Manicure e Pedicure Premium em BH · Biossegurança cirúrgica · Durabilidade real · O refúgio de autocuidado que você merece.
+              Manicure e Pedicure Premium em BH · Durabilidade real · O refúgio de autocuidado que você merece.
             </p>
           </FadeIn>
         </div>
