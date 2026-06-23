@@ -116,14 +116,14 @@ const serviceCards = [
   {
     title: "Manicure",
     desc: "Acabamento impecável, com durabilidade real",
-    indication: "Indicado para: cuidado essencial e manutenção",
-    image: "/manicure_tradicional.jpeg"
+    indication: "Beleza e delicadeza",
+    image: "/nail_manicure.jpeg"
   },
   {
     title: "Pedicure",
     desc: "Resistência e naturalidade, com durabilidade prolongada",
-    indication: "Indicado para: quem busca alongamento duradouro",
-    image: "/manicure_alongamento.jpeg"
+    indication: "Cuidado essencial e manutenção",
+    image: "/nail_pedicure.jpeg"
   },
   // {
   //   title: "Alongamento em Gel / Fibra de Vidro",
@@ -141,7 +141,7 @@ const serviceCards = [
     title: "Spa dos Pés",
     desc: "Relaxamento profundo e cuidado completo com a pele dos pés",
     indication: "Indicado para: relaxamento e renovação da pele",
-    image: "/manicure_spa.jpeg"
+    image: "/nail_spapes.jpeg"
   }
 ];
 
@@ -306,7 +306,7 @@ const ManicurePage = () => {
                     <p className="text-brand-500 text-sm mb-4 flex items-center gap-2">
                       <span className="text-brand-400">▸</span> {service.indication}
                     </p>
-                    <button
+                    {/* <button
                       onClick={() => setOpenService(openService === i ? null : i)}
                       className="text-sm font-bold text-brand-900/40 group-hover:text-brand-800 flex items-center gap-1 transition-colors cursor-pointer"
                     >
@@ -321,7 +321,7 @@ const ManicurePage = () => {
                       >
                         <p>Agende pelo WhatsApp para receber informações detalhadas sobre cada procedimento, incluindo valores, duração e disponibilidade de horários.</p>
                       </motion.div>
-                    )}
+                    )} */}
                   </div>
                 </div>
               </FadeIn>
@@ -340,7 +340,7 @@ const ManicurePage = () => {
           </div>
 
           {/* Portfolio Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-5 mb-20">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-5 mb-20">
             {portfolioImages.map((item, i) => (
               <FadeIn key={i} delay={i * 0.1}>
                 <div className="relative rounded-2xl overflow-hidden aspect-[3/4] group">
@@ -444,7 +444,7 @@ const ManicurePage = () => {
           <FadeIn>
             <h2 className="text-4xl md:text-6xl font-serif mb-6 leading-tight">Seu momento de cuidado está esperando por você.</h2>
             <p className="text-xl text-brand-200/70 mb-12 max-w-2xl mx-auto leading-relaxed">
-              Manicure, pedicure, alongamento, blindagem ou spa dos pés — escolha o cuidado que faz sentido para você agora, e venha viver a experiência Bhruna Estética.
+              Manicure, pedicure ou spa dos pés — escolha o cuidado que faz sentido para você agora, e venha viver a experiência Bhruna Estética.
             </p>
             <p className="text-sm text-brand-300/60 mb-8">
               Atendimento com hora marcada, em nosso espaço em Belo Horizonte.
