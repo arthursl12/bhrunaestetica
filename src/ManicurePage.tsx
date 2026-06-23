@@ -215,7 +215,7 @@ const ManicurePage = () => {
       <section className="relative min-h-[90vh] md:min-h-[85vh] flex items-center bg-white overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="/manicure_hero.jpeg"
+            src="/nail_hero.jpeg"
             alt="Ambiente Bhruna Estética — manicure premium"
             className="w-full h-full object-cover"
           />
