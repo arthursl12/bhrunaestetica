@@ -239,10 +239,11 @@ const services = [
     path: "/psicologia"
   },
   {
-    title: "Limpeza de Pele",
-    description: "Tratamento profundo que remove impurezas, cravos e células mortas, devolvendo o viço e a saúde natural da sua pele.",
+    title: "Manicure e Pedicure",
+    description: "Unhas impecáveis e duradouras com biossegurança cirúrgica. Atendimento com hora marcada no nosso espaço.",
     icon: Sparkles,
-    image: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?q=80&w=2070&auto=format&fit=crop"
+    image: "/nail_manicure.jpeg",
+    path: "/manicure"
   },
   {
     title: "Taping",
