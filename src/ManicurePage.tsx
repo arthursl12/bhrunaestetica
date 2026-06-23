@@ -258,7 +258,7 @@ const ManicurePage = () => {
 
           <div className="grid grid-cols-2 md:grid-cols-3 gap-8 mb-16">
             {painPoints.map((item, i) => (
-              <FadeIn key={i} delay={i * 0.1}>
+              <FadeIn key={i} delay={i * 0.1} className={i === 2 ? 'col-span-2 sm:col-span-1' : undefined}>
                 <div className="bg-white p-6 md:p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow h-full text-center flex flex-col items-center">
                   <div className="w-10 h-10 md:w-12 md:h-12 text-brand-400 mb-4">
                     {item.icon}
@@ -341,7 +341,7 @@ const ManicurePage = () => {
           {/* Portfolio Grid */}
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-5 mb-20">
             {portfolioImages.map((item, i) => (
-              <FadeIn key={i} delay={i * 0.1}>
+              <FadeIn key={i} delay={i * 0.1} className={i === 2 ? 'col-span-2 sm:col-span-1' : undefined}>
                 <div className="relative rounded-2xl overflow-hidden aspect-[3/4] group">
                   <img
                     src={item.image}
