@@ -146,10 +146,9 @@ const serviceCards = [
 ];
 
 const portfolioImages = [
-  { image: "/manicure_portfolio_1.jpeg", alt: "Manicure, acabamento brilhante" },
-  { image: "/manicure_portfolio_2.jpeg", alt: "Spa dos pés finalizado, textura de pele cuidada" },
-  // { image: "/manicure_portfolio_3.jpeg", alt: "Alongamento em gel, detalhe lateral" },
-  { image: "/manicure_portfolio_4.jpeg", alt: "Pedicure tradicional, tom vermelho" }
+  { image: "/nail_acab1.jpeg", alt: "Manicure, acabamento brilhante" },
+  { image: "/nail_acab2.jpeg", alt: "Spa dos pés finalizado, textura de pele cuidada" },
+  { image: "/nail_acab3.jpeg", alt: "Pedicure, tom vermelho" }
 ];
 
 const testimonials = [
