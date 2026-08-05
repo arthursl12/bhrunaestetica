@@ -19,7 +19,7 @@ const PsychologistCard: React.FC<PsychologistCardProps> = ({ psychologist }) => 
         <img 
           src={psychologist.photo} 
           alt={psychologist.name} 
-          className="w-full h-full object-cover"
+          className="absolute inset-0 w-full h-full object-cover object-top"
         />
         {/* Online badge */}
         <div className="absolute top-4 right-4 bg-white/95 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-medium text-brand-700 flex items-center gap-1 shadow-sm">
