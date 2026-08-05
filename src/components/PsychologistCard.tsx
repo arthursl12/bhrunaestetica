@@ -15,7 +15,7 @@ const PsychologistCard: React.FC<PsychologistCardProps> = ({ psychologist }) => 
   return (
     <div className="bg-white rounded-3xl shadow-sm border border-brand-100 flex flex-col overflow-hidden">
       {/* Photo - ~52% */}
-      <div className="relative aspect-[3/2] w-full bg-brand-100 shrink-0">
+      <div className="relative aspect-[3/2] min-h-[280px] w-full bg-brand-100 shrink-0">
         <img 
           src={psychologist.photo} 
           alt={psychologist.name} 
