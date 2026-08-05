@@ -44,6 +44,7 @@ import MassageadoresPage from './MassageadoresPage';
 import PsicologiaPage from './PsicologiaPage';
 import DrenagemLinfaticaPage from './DrenagemLinfaticaPage';
 import ManicurePage from './ManicurePage';
+import TerapiaOnlinePage from './TerapiaOnlinePage';
 
 declare global {
   interface Window {
@@ -911,6 +912,7 @@ export default function App() {
       <Route path="/massageadores" element={<MassageadoresPage />} />
       <Route path="/psicologia" element={<PsicologiaPage />} />
       <Route path="/manicure" element={<ManicurePage />} />
+      <Route path="/terapiaonline" element={<TerapiaOnlinePage />} />
       </Routes>
     </>
   );
