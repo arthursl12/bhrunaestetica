@@ -73,9 +73,8 @@ const TerapiaOnlinePage = () => {
         {/* Overlay escuro para legibilidade */}
         <div className="absolute inset-0 bg-gradient-to-r from-brand-900/80 via-brand-800/60 to-brand-900/80" />
 
-        <div className="relative z-10 max-w-7xl mx-auto w-full flex flex-col md:flex-row items-center">
-          {/* Left — Emotional Layer */}
-          <div className="w-full md:w-[55%] p-6 md:p-12 lg:p-16">
+        <div className="relative z-10 max-w-7xl mx-auto w-full px-6 md:px-12 lg:px-16">
+          <div className="max-w-2xl">
             <FadeIn>
               <span className="inline-block px-4 py-1.5 mb-6 text-xs font-bold tracking-widest text-brand-200 uppercase bg-white/20 rounded-full">
                 Terapia Online
@@ -87,7 +86,7 @@ const TerapiaOnlinePage = () => {
               <p className="text-xl md:text-2xl font-serif text-brand-100 mb-6 leading-relaxed">
                 A gente encontra o psicólogo certo para você.
               </p>
-              <p className="text-lg text-brand-100/90 mb-10 leading-relaxed font-light max-w-xl">
+              <p className="text-lg text-brand-100/90 mb-10 leading-relaxed font-light">
                 Fale com nossa equipe pelo WhatsApp e, em poucos minutos, encontramos o terapeuta ideal e o melhor horário para a sua rotina. Sem plataforma, sem formulário, sem decisão difícil.
               </p>
               <div className="space-y-4">
@@ -104,71 +103,6 @@ const TerapiaOnlinePage = () => {
                 <div className="flex items-center gap-2 text-sm text-brand-100/80 font-light">
                   <Lock className="w-4 h-4 text-brand-200" />
                   Atendimento humano, acolhedor e 100% confidencial.
-                </div>
-                {/* Prova de pessoa real */}
-                <div className="flex items-center gap-3 pt-2">
-                  <div className="flex -space-x-2">
-                    <div className="w-9 h-9 rounded-full bg-white/30 border-2 border-white/50 flex items-center justify-center">
-                      <span className="text-xs font-bold text-white">A</span>
-                    </div>
-                    <div className="w-9 h-9 rounded-full bg-white/30 border-2 border-white/50 flex items-center justify-center">
-                      <span className="text-xs font-bold text-white">M</span>
-                    </div>
-                  </div>
-                  <p className="text-xs text-brand-100/80">
-                    Fale com a <strong className="text-white">Ana</strong> ou outra pessoa da nossa equipe
-                  </p>
-                </div>
-              </div>
-            </FadeIn>
-          </div>
-
-          {/* Right — Mini-mockup de conversa WhatsApp (card flutuante) */}
-          <div className="w-full md:w-[45%] relative h-[400px] md:h-[90vh] flex items-center justify-center p-6">
-            <FadeIn delay={0.3} className="w-full max-w-sm">
-              <div className="bg-white/95 backdrop-blur-sm rounded-3xl shadow-2xl border border-white/20 overflow-hidden">
-                {/* WhatsApp-style header */}
-                <div className="bg-[#075e54] px-6 py-4 flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
-                    <span className="text-sm font-bold text-white">BA</span>
-                  </div>
-                  <div>
-                    <p className="text-sm font-bold text-white">Bhruna Azevedo</p>
-                    <p className="text-xs text-white/70">online agora</p>
-                  </div>
-                </div>
-                {/* Chat bubbles */}
-                <div className="p-4 space-y-3">
-                  {/* Received message */}
-                  <div className="flex justify-start">
-                    <div className="bg-white px-4 py-3 rounded-2xl rounded-tl-sm max-w-[85%] shadow-sm">
-                      <p className="text-sm text-brand-900">Oi! Vamos encontrar o profissional ideal para você. Para começar, me conta: o que te trouxe aqui hoje? 😊</p>
-                      <p className="text-[10px] text-brand-400 text-right mt-1">09:14</p>
-                    </div>
-                  </div>
-                  {/* Sent message */}
-                  <div className="flex justify-end">
-                    <div className="bg-[#dcf8c6] px-4 py-3 rounded-2xl rounded-tr-sm max-w-[85%] shadow-sm">
-                      <p className="text-sm text-brand-900">Estou me sentindo muito ansiosa ultimamente...</p>
-                      <p className="text-[10px] text-brand-400 text-right mt-1">09:15</p>
-                    </div>
-                  </div>
-                  {/* Received message */}
-                  <div className="flex justify-start">
-                    <div className="bg-white px-4 py-3 rounded-2xl rounded-tl-sm max-w-[85%] shadow-sm">
-                      <p className="text-sm text-brand-900">Entendo. Vou te ajudar com isso. Tenho uma psicóloga especializada em ansiedade com horário amanhã às 10h. Topa?</p>
-                      <p className="text-[10px] text-brand-400 text-right mt-1">09:16</p>
-                    </div>
-                  </div>
-                </div>
-                {/* Input bar */}
-                <div className="bg-[#f0f0f0] px-4 py-3 flex items-center gap-3">
-                  <div className="flex-1 bg-white rounded-full px-4 py-2">
-                    <p className="text-sm text-brand-300">Digite sua mensagem...</p>
-                  </div>
-                  <div className="w-10 h-10 bg-[#075e54] rounded-full flex items-center justify-center">
-                    <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
-                  </div>
                 </div>
               </div>
             </FadeIn>
@@ -501,28 +435,86 @@ const TerapiaOnlinePage = () => {
         <div className="absolute top-0 right-0 w-64 h-64 bg-brand-700 rounded-full blur-3xl opacity-30 -mr-32 -mt-32" />
         <div className="absolute bottom-0 left-0 w-64 h-64 bg-brand-600 rounded-full blur-3xl opacity-20 -ml-32 -mb-32" />
 
-        <div className="max-w-4xl mx-auto text-center relative z-10">
-          <FadeIn>
-            <h2 className="text-4xl md:text-5xl font-serif mb-6 leading-tight">
-              Sua mente merece esse cuidado.
-            </h2>
-            <p className="text-xl text-brand-200/80 mb-12 max-w-2xl mx-auto font-light leading-relaxed">
-              Fale com nossa equipe e encontre o psicólogo certo para você — sem burocracia, sem espera.
-            </p>
-            <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <a
-                href={TERAPIA_WHATSAPP_LINK}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center px-10 py-5 text-lg font-bold text-white bg-[#25D366] rounded-full hover:bg-[#128C7E] transition-all shadow-xl hover:shadow-2xl transform hover:-translate-y-1"
-                onClick={() => trackEvent('whatsapp_click_terapia_final')}
-              >
-                <WhatsAppIcon className="w-6 h-6 mr-3" />
-                Falar com Nossa Equipe no WhatsApp
-              </a>
+        <div className="max-w-6xl mx-auto relative z-10">
+          <div className="grid md:grid-cols-2 gap-4 lg:gap-6 items-center">
+            {/* Left: CTA Content */}
+            <div className="md:pr-4">
+              <FadeIn>
+                <h2 className="text-4xl md:text-5xl font-serif mb-6 leading-tight text-left">
+                  Sua mente merece esse cuidado.
+                </h2>
+                <p className="text-xl text-brand-200/80 mb-10 max-w-lg font-light leading-relaxed text-left">
+                  Fale com nossa equipe e encontre o psicólogo certo para você — sem burocracia, sem espera.
+                </p>
+                <div className="flex flex-col sm:flex-row justify-start gap-4">
+                  <a
+                    href={TERAPIA_WHATSAPP_LINK}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center px-10 py-5 text-lg font-bold text-white bg-[#25D366] rounded-full hover:bg-[#128C7E] transition-all shadow-xl hover:shadow-2xl transform hover:-translate-y-1"
+                    onClick={() => trackEvent('whatsapp_click_terapia_final')}
+                  >
+                    <WhatsAppIcon className="w-6 h-6 mr-3" />
+                    Falar com Nossa Equipe no WhatsApp
+                  </a>
+                </div>
+              </FadeIn>
             </div>
 
-            {/* Trust Badges */}
+            {/* Right: WhatsApp Mockup */}
+            <div className="flex justify-center md:justify-end">
+              <FadeIn delay={0.3}>
+                <div className="bg-[#e5ddd5] rounded-3xl shadow-2xl overflow-hidden max-w-sm w-full">
+                  {/* WhatsApp-style header */}
+                  <div className="bg-[#075e54] px-6 py-4 flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
+                      <span className="text-sm font-bold text-white">BA</span>
+                    </div>
+                    <div>
+                      <p className="text-sm font-bold text-white">Bhruna Azevedo</p>
+                      <p className="text-xs text-white/70">online agora</p>
+                    </div>
+                  </div>
+                  {/* Chat bubbles */}
+                  <div className="p-4 space-y-3">
+                    {/* Received message */}
+                    <div className="flex justify-start">
+                      <div className="bg-white px-4 py-3 rounded-2xl rounded-tl-sm max-w-[85%] shadow-sm">
+                        <p className="text-sm text-brand-900">Oi! Vamos encontrar o profissional ideal para você. Para começar, me conta: o que te trouxe aqui hoje? 😊</p>
+                        <p className="text-[10px] text-brand-400 text-right mt-1">09:14</p>
+                      </div>
+                    </div>
+                    {/* Sent message */}
+                    <div className="flex justify-end">
+                      <div className="bg-[#dcf8c6] px-4 py-3 rounded-2xl rounded-tr-sm max-w-[85%] shadow-sm">
+                        <p className="text-sm text-brand-900">Estou me sentindo muito ansiosa ultimamente...</p>
+                        <p className="text-[10px] text-brand-400 text-right mt-1">09:15</p>
+                      </div>
+                    </div>
+                    {/* Received message */}
+                    <div className="flex justify-start">
+                      <div className="bg-white px-4 py-3 rounded-2xl rounded-tl-sm max-w-[85%] shadow-sm">
+                        <p className="text-sm text-brand-900">Entendo. Vou te ajudar com isso. Tenho uma psicóloga especializada em ansiedade com horário amanhã às 10h. Topa?</p>
+                        <p className="text-[10px] text-brand-400 text-right mt-1">09:16</p>
+                      </div>
+                    </div>
+                  </div>
+                  {/* Input bar */}
+                  <div className="bg-[#f0f0f0] px-4 py-3 flex items-center gap-3">
+                    <div className="flex-1 bg-white rounded-full px-4 py-2">
+                      <p className="text-sm text-brand-300">Digite sua mensagem...</p>
+                    </div>
+                    <div className="w-10 h-10 bg-[#075e54] rounded-full flex items-center justify-center">
+                      <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+                    </div>
+                  </div>
+                </div>
+              </FadeIn>
+            </div>
+          </div>
+
+          {/* Trust Badges — Full width below grid */}
+          <FadeIn delay={0.5}>
             <div className="mt-16 pt-12 border-t border-white/10 grid grid-cols-2 md:grid-cols-4 gap-6 text-xs font-bold text-brand-200/50 uppercase tracking-widest">
               <div className="flex flex-col items-center gap-2">
                 <BadgeCheck className="w-5 h-5" /> CRP Verificado
