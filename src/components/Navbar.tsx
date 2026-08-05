@@ -44,7 +44,7 @@ export const Navbar = ({ title = "Bhruna Azevedo" }: { title?: string }) => {
   const navRef = useRef<HTMLDivElement>(null);
 
   const isActive = useCallback((path: string) => {
-    if (path === '#') return false;
+    if (path === '#' || path === '/') return false;
     return location.pathname === path;
   }, [location.pathname]);
 
