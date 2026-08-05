@@ -71,7 +71,7 @@ const TerapiaOnlinePage = () => {
       {/* 1. HERO SECTION — Acolhimento + WhatsApp */}
       <section className="relative min-h-[90vh] flex items-center overflow-hidden">
         {/* Imagem full-screen */}
-        <div className="absolute inset-0 bg-cover bg-right md:bg-center" style={{ backgroundImage: 'url(/terapia1.jpeg)' }} />
+        <div className="absolute inset-0 bg-cover bg-[75%_center] md:bg-center" style={{ backgroundImage: 'url(/terapia1.jpeg)' }} />
         {/* Overlay escuro para legibilidade */}
         <div className="absolute inset-0 bg-gradient-to-r from-brand-900/80 via-brand-800/60 to-brand-900/80" />
 
