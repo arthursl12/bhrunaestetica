@@ -509,7 +509,7 @@ const TerapiaOnlinePage = () => {
                     className="inline-flex items-center justify-center px-10 py-5 text-lg font-bold text-white bg-[#25D366] rounded-full hover:bg-[#128C7E] transition-all shadow-xl hover:shadow-2xl transform hover:-translate-y-1"
                     onClick={() => trackEvent('whatsapp_click_terapia_final')}
                   >
-                    <WhatsAppIcon className="w-6 h-6 mr-3" />
+<WhatsAppIcon className="w-6 h-6 mr-3 self-center" />
                     Falar com Nossa Equipe no WhatsApp
                   </a>
                 </div>
