@@ -28,6 +28,8 @@ import {
   WhatsAppIcon
 } from './components/Shared';
 import { WHATSAPP_LINK } from './components/Shared';
+import TeamCarousel from './components/TeamCarousel';
+import { psychologists } from './data/psychologists';
 
 const TERAPIA_WHATSAPP_LINK = `${WHATSAPP_LINK}?text=Olá!%20Tenho%20interesse%20na%20terapia%20online.%20Gostaria%20de%20saber%20mais%20informações.`;
 
@@ -393,7 +395,60 @@ const TerapiaOnlinePage = () => {
         </div>
       </section>
 
-      {/* 6. FAQ */}
+      {/* 6. NOSSO TIME — Carousel de Psicólogos */}
+      <section className="py-24 px-4 bg-white">
+        <div className="max-w-7xl mx-auto">
+          {/* Header */}
+          <div className="text-center mb-16">
+            <FadeIn>
+              <span className="inline-block px-4 py-1.5 mb-4 text-xs font-bold tracking-widest text-brand-600 uppercase bg-brand-100 rounded-full">
+                Nosso Time
+              </span>
+              <h2 className="text-3xl md:text-5xl font-serif text-brand-800 mb-4">
+                Um time de verdade, <br className="hidden md:block" />
+                <span className="text-brand-400">pronto para te acolher.</span>
+              </h2>
+              <p className="text-brand-900/60 max-w-2xl mx-auto leading-relaxed">
+                Cada um dos nossos psicólogos foi escolhido a dedo — não só pela qualificação técnica, mas pela forma humana de acolher. Você não precisa escolher sozinho: no WhatsApp, ajudamos a encontrar quem mais combina com o que você está vivendo agora.
+              </p>
+            </FadeIn>
+          </div>
+
+          {/* Microtexto contextual */}
+          <FadeIn delay={0.1}>
+            <p className="text-center text-sm text-brand-500 mb-10 italic">
+              Alguns dos profissionais do nosso time 👇
+            </p>
+          </FadeIn>
+
+          {/* Carousel */}
+          <TeamCarousel psychologists={psychologists} />
+
+          {/* Fallback CTA */}
+          <FadeIn delay={0.3}>
+            <div className="mt-16 text-center">
+              <p className="text-brand-900/60 mb-6 font-light italic max-w-xl mx-auto">
+                Ainda não decidiu? A gente te ajuda a encontrar o match certo
+              </p>
+              <a 
+                href={`${WHATSAPP_LINK}?text=${encodeURIComponent('Oi! Vi o time de psicólogos no site e gostaria de ajuda para encontrar quem combina comigo 😊')}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => trackEvent('whatsapp_click_team_fallback')}
+                className="inline-flex items-center justify-center px-10 py-4 text-lg font-bold text-[#25D366] border-2 border-[#25D366] rounded-full hover:bg-[#25D366] hover:text-white transition-all shadow-lg"
+              >
+                <WhatsAppIcon className="w-5 h-5 mr-3" />
+                Falar com a equipe para me ajudar a escolher
+              </a>
+              <p className="mt-4 text-sm text-brand-900/50 font-light">
+                Conte um pouco do que você está buscando e encontramos quem combina.
+              </p>
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* 7. FAQ */}
       <section className="py-24 px-4 bg-white">
         <div className="max-w-3xl mx-auto">
           <FadeIn>
