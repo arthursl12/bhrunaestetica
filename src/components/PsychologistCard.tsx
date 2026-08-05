@@ -53,7 +53,7 @@ const PsychologistCard: React.FC<PsychologistCardProps> = ({ psychologist }) => 
           className="w-full text-center bg-[#25D366]/10 text-[#25D366] hover:bg-[#25D366]/20 font-bold py-3 px-4 rounded-2xl text-sm transition-colors flex items-center justify-center gap-2"
         >
           <WhatsAppIcon className="w-4 h-4" />
-          Quero falar com {psychologist.firstName}
+          {psychologist.gender === 'f' ? `Gostei da ${psychologist.firstName}` : `Gostei do ${psychologist.firstName}`}
         </a>
       </div>
     </div>
