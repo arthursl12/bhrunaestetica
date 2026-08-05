@@ -202,7 +202,7 @@ const About = () => (
             <div>
               <h3 className="font-serif text-xl text-brand-800 mb-2">Atendimento Exclusivo em BH</h3>
               <p className="text-brand-900/70">
-                Localizada na <strong>Rua Lídia, 38 (Entrada lateral), bairro Pirajá</strong>. Próximo à Estação São Gabriel.
+                Localizada na <strong>Av. Magenta, 554, bairro Vitoria</strong>. Próximo ao Jardim Vitória.
               </p>
             </div>
           </div>
@@ -437,7 +437,7 @@ const differentials = [
   },
   {
     title: "Localização Conveniente",
-    description: "Atendimento no Pirajá em BH.",
+    description: "Atendimento em Vitoria, BH.",
     icon: MapPin
   },
   {
@@ -487,14 +487,14 @@ const Location = () => (
               <MapPin className="w-6 h-6 text-brand-500 mr-4 flex-shrink-0 mt-1" />
               <div>
                 <strong className="block text-brand-800">Endereço</strong>
-                <span className="text-brand-900/70">R. Lídia, 38 - Entrada lateral<br/>Pirajá, Belo Horizonte - MG, 31910-650</span>
+                <span className="text-brand-900/70">Av. Magenta, 554<br/>Vitoria, Belo Horizonte - MG, 31970-745</span>
               </div>
             </li>
             <li className="flex items-start">
               <MapPin className="w-6 h-6 text-brand-500 mr-4 flex-shrink-0 mt-1 opacity-0" />
               <div>
                 <strong className="block text-brand-800">Referências</strong>
-                <span className="text-brand-900/70">Próximo à Estação São Gabriel<br/>Ao lado do Minas Shopping <br/>Perto da PUC São Gabriel</span>
+                <span className="text-brand-900/70">Bem no coração do bairro Vitória<br/>Fácil acesso pelo Anel Rodoviário e BR-381</span>
               </div>
             </li>
           </ul>
@@ -503,7 +503,7 @@ const Location = () => (
       <FadeIn delay={0.4}>
         <div className="aspect-square md:aspect-video lg:aspect-square bg-brand-100 rounded-2xl overflow-hidden shadow-inner relative">
           <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3751.583321484439!2d-43.91851172382405!3d-19.85764038151241!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa69ab7b579058b%3A0xe54e5884f228d447!2sR.%20L%C3%ADdia%2C%2038%20-%20Piraj%C3%A1%2C%20Belo%20Horizonte%20-%20MG%2C%2031910-650!5e0!3m2!1spt-BR!2sbr!4v1712332800000!5m2!1spt-BR!2sbr" 
+            src="https://maps.google.com/maps?q=Av.+Magenta,+554+-+Vitoria,+Belo+Horizonte+-+MG,+31970-745&t=&z=16&ie=UTF8&iwloc=&output=embed" 
             width="100%" 
             height="100%" 
             style={{ border: 0, filter: 'grayscale(0.3) contrast(1.1) opacity(0.9)' }} 
@@ -780,7 +780,7 @@ const CorporateMassagePage = () => {
           <FadeIn delay={0.2}>
             <div className="aspect-video rounded-3xl overflow-hidden shadow-2xl border-8 border-white">
               <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3751.583321484439!2d-43.91851172382405!3d-19.85764038151241!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa69ab7b579058b%3A0xe54e5884f228d447!2sR.%20L%C3%ADdia%2C%2038%20-%20Piraj%C3%A1%2C%20Belo%20Horizonte%20-%20MG%2C%2031910-650!5e0!3m2!1spt-BR!2sbr!4v1712332800000!5m2!1spt-BR!2sbr" 
+            src="https://maps.google.com/maps?q=Av.+Magenta,+554+-+Vitoria,+Belo+Horizonte+-+MG,+31970-745&t=&z=16&ie=UTF8&iwloc=&output=embed"
                 width="100%" 
                 height="100%" 
                 style={{ border: 0 }} 

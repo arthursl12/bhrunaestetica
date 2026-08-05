@@ -196,7 +196,7 @@ export const Footer = () => (
       </div>
       
       <div className="md:text-right text-sm text-brand-400">
-        <p>R. Lídia, 38 - Entrada lateral - Pirajá<br/>Belo Horizonte, MG</p>
+        <p>Av. Magenta, 554 - Vitoria<br/>Belo Horizonte, MG</p>
         <p className="mt-2">&copy; {new Date().getFullYear()} Bhruna Azevedo. Todos os direitos reservados.</p>
       </div>
     </div>

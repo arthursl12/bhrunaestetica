@@ -448,18 +448,18 @@ const ManicurePage = () => {
             <div className="mt-8 mb-8">
               <div className="w-full md:w-1/2 mx-auto aspect-[4/3] md:aspect-video rounded-2xl overflow-hidden shadow-xl border-8 border-white/10">
                 <iframe 
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3751.583321484439!2d-43.91851172382405!3d-19.85764038151241!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa69ab7b579058b%3A0xe54e5884f228d447!2sR.%20L%C3%ADdia%2C%2038%20-%20Piraj%C3%A1%2C%20Belo%20Horizonte%20-%20MG%2C%2031910-650!5e0!3m2!1spt-BR!2sbr!4v1712332800000!5m2!1spt-BR!2sbr" 
+                  src="https://maps.google.com/maps?q=Av.+Magenta,+554+-+Vitoria,+Belo+Horizonte+-+MG,+31970-745&t=&z=16&ie=UTF8&iwloc=&output=embed"
                   width="100%" 
                   height="100%" 
                   style={{ border: 0 }} 
                   allowFullScreen={false} 
                   loading="lazy"
-                  title="Localização Bhruna Estética - Pirajá"
+                  title="Localização Bhruna Estética - Vitoria"
                 ></iframe>
               </div>
             </div>
             <p className="text-sm text-brand-300/60 mb-8">
-              Atendimento com hora marcada, em nosso espaço em Belo Horizonte, bairro Pirajá/Eymard.
+              Atendimento com hora marcada, em nosso espaço em Belo Horizonte, bairro Vitoria.
             </p>
             <a
               href={MANICURE_WHATSAPP_LINK}
