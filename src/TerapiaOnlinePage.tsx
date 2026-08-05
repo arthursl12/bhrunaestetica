@@ -65,6 +65,8 @@ const TerapiaOnlinePage = () => {
     }
   ];
 
+  const SHOW_TEAM_SECTION = true; // Toggle to false to hide, true to show
+
   return (
     <div className="min-h-screen font-sans text-brand-900 bg-brand-50 selection:bg-brand-200 selection:text-brand-900 pt-16">
       <Navbar />
@@ -398,7 +400,7 @@ const TerapiaOnlinePage = () => {
         </div>
       </section>
 
-      {/* 6. NOSSO TIME — Carousel de Psicólogos */}
+      {SHOW_TEAM_SECTION && (
       <section className="py-24 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
           {/* Header */}
@@ -450,6 +452,7 @@ const TerapiaOnlinePage = () => {
           </FadeIn>
         </div>
       </section>
+      )}
 
       {/* 7. FAQ */}
       <section className="py-24 px-4 bg-white">

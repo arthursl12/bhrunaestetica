@@ -19,7 +19,7 @@ export const psychologists: Psychologist[] = [
     specialty: 'Ansiedade e Estresse',
     crp: 'CRP 06/098765',
     bio: 'Camila acredita que a ansiedade não precisa ser enfrentada sozinha — nem em silêncio. Com anos de experiência ajudando pessoas a entenderem os próprios gatilhos, ela cria um espaço leve para você respirar antes mesmo de falar.',
-    photo: '/team/camila.svg',
+    photo: '/team/anamoraes.jpeg',
     whatsappText: 'Oi! Vi o perfil da Camila Rocha no site e gostaria de saber mais sobre agendar com ela 😊'
   },
   {
