@@ -18,7 +18,6 @@ import {
   Heart
 } from 'lucide-react';
 import {
-  Navbar,
   Footer,
   FadeIn,
   FloatingWhatsApp,
@@ -26,6 +25,7 @@ import {
   trackEvent,
   WhatsAppIcon
 } from './components/Shared';
+import { Navbar } from './components/Navbar';
 
 const MANICURE_WHATSAPP_LINK = `${WHATSAPP_LINK}?text=Olá!%20Tenho%20interesse%20na%20Manicure%20e%20Pedicure%20Premium.%20Queria%20agendar%20meu%20horário.`;
 

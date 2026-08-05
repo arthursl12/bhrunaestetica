@@ -24,7 +24,6 @@ import {
   Smartphone
 } from 'lucide-react';
 import { 
-  Navbar, 
   Footer, 
   FadeIn, 
   FloatingWhatsApp, 
@@ -32,6 +31,7 @@ import {
   WhatsAppIcon,
   WHATSAPP_LINK
 } from './components/Shared';
+import { Navbar } from './components/Navbar';
 
 const POS_OP_WHATSAPP_LINK = "https://wa.me/5531991422212?text=Olá!%20Tenho%20interesse%20no%20atendimento%20pós-operatório%20a%20domicílio.%20Pode%20me%20ajudar?";
 

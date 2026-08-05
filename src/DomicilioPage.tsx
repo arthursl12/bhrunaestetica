@@ -13,13 +13,13 @@ import {
   Award
 } from 'lucide-react';
 import { 
-  Navbar, 
   Footer, 
   FadeIn, 
   FloatingWhatsApp, 
   trackEvent,
   WhatsAppIcon
 } from './components/Shared';
+import { Navbar } from './components/Navbar';
 
 const DOMICILIO_WHATSAPP_LINK = "https://wa.me/5531991422212?text=Olá!%20Tenho%20interesse%20no%20atendimento%20a%20domicílio.%20Queria%20mais%20informações";
 

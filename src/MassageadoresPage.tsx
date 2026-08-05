@@ -11,9 +11,9 @@ import {
   WHATSAPP_LINK, 
   trackEvent,
   FadeIn,
-  FloatingWhatsApp,
-  Navbar
+  FloatingWhatsApp
 } from './components/Shared';
+import { Navbar } from './components/Navbar';
 import './MassageadoresPage.css';
 
 const KitItem = ({ name, description, image, key }: { name: string, description: string, image?: string, key?: React.Key }) => (

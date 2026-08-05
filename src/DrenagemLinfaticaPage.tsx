@@ -20,7 +20,6 @@ import {
   Map
 } from 'lucide-react';
 import {
-  Navbar,
   Footer,
   FadeIn,
   FloatingWhatsApp,
@@ -28,6 +27,7 @@ import {
   trackEvent,
   WhatsAppIcon
 } from './components/Shared';
+import { Navbar } from './components/Navbar';
 
 const DRENAGEM_WHATSAPP_LINK = `${WHATSAPP_LINK}?text=Olá!%20Tenho%20interesse%20na%20Drenagem%20Linfática.%20Queria%20agendar%20minha%20sessão.`;
 

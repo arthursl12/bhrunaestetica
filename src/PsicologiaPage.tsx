@@ -17,13 +17,13 @@ import {
   Calendar
 } from 'lucide-react';
 import { 
-  Navbar, 
   Footer, 
   FadeIn, 
   FloatingWhatsApp, 
   trackEvent,
   WhatsAppIcon
 } from './components/Shared';
+import { Navbar } from './components/Navbar';
 
 const PSICO_WHATSAPP_LINK = "https://wa.me/5531991422212?text=Olá!%20Tenho%20interesse%20no%20atendimento%20psicológico%20e%20neuropsicológico.%20Queria%20mais%20informações";
 

@@ -21,13 +21,13 @@ import {
   ArrowDown
 } from 'lucide-react';
 import {
-  Navbar,
   Footer,
   FadeIn,
   FloatingWhatsApp,
   trackEvent,
   WhatsAppIcon
 } from './components/Shared';
+import { Navbar } from './components/Navbar';
 import { WHATSAPP_LINK } from './components/Shared';
 import TeamCarousel from './components/TeamCarousel';
 import { psychologists } from './data/psychologists';

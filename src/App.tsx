@@ -30,7 +30,6 @@ import {
   ChevronDown
 } from 'lucide-react';
 import { 
-  Navbar, 
   Footer, 
   FadeIn, 
   FloatingWhatsApp, 
@@ -38,6 +37,7 @@ import {
   trackEvent,
   WhatsAppIcon
 } from './components/Shared';
+import { Navbar } from './components/Navbar';
 import DomicilioPage from './DomicilioPage';
 import PosOperatorioPage from './PosOperatorioPage';
 import MassageadoresPage from './MassageadoresPage';
