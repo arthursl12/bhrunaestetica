@@ -17,7 +17,8 @@ import {
   BadgeCheck,
   Activity,
   Users,
-  ArrowRight
+  ArrowRight,
+  ArrowDown
 } from 'lucide-react';
 import {
   Navbar,
@@ -96,10 +97,10 @@ const TerapiaOnlinePage = () => {
                   href={TERAPIA_WHATSAPP_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center w-full md:w-auto px-10 py-5 text-lg font-bold text-white bg-[#25D366] rounded-full hover:bg-[#128C7E] transition-all shadow-xl hover:shadow-2xl transform hover:-translate-y-1"
+                   className="inline-flex items-center justify-center gap-3 w-full md:w-auto px-10 py-5 text-lg font-bold text-center text-white bg-[#25D366] rounded-full hover:bg-[#128C7E] transition-all shadow-xl hover:shadow-2xl transform hover:-translate-y-1"
                   onClick={() => trackEvent('whatsapp_click_terapia_hero')}
                 >
-                  <WhatsAppIcon className="w-6 h-6 mr-3" />
+                  <WhatsAppIcon className="w-6 h-6" />
                   Falar com Nossa Equipe no WhatsApp
                 </a>
                 <div className="flex items-center gap-2 text-sm text-brand-100/80 font-light">
@@ -225,7 +226,7 @@ const TerapiaOnlinePage = () => {
       {/* 3. VOCÊ NUNCA ESTÁ SOZINHO */}
       <section className="py-24 px-4 bg-white">
         <div className="max-w-5xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-16 items-center">
+          <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
             <FadeIn>
               <h2 className="text-3xl md:text-4xl font-serif text-brand-800 mb-8 leading-tight">
                 Do primeiro "Oi" até depois da sua sessão, <span className="text-brand-400">você não está sozinho.</span>
@@ -245,8 +246,8 @@ const TerapiaOnlinePage = () => {
 
             {/* Mapa visual da jornada */}
             <FadeIn delay={0.2}>
-              <div className="bg-brand-50 p-8 rounded-3xl">
-                <div className="flex items-center justify-between gap-4">
+              <div className="bg-brand-50 p-5 md:p-8 rounded-3xl">
+                <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 md:gap-4">
                   {/* Recepção */}
                   <div className="text-center flex-1">
                     <div className="w-16 h-16 bg-brand-100 rounded-2xl flex items-center justify-center mx-auto mb-3">
@@ -255,7 +256,8 @@ const TerapiaOnlinePage = () => {
                     <p className="text-sm font-bold text-brand-800">Recepção</p>
                     <p className="text-xs text-brand-500 mt-1">Equipe de acolhimento</p>
                   </div>
-                  <ArrowRight className="w-5 h-5 text-brand-300 flex-shrink-0" />
+                  <ArrowRight className="w-5 h-5 text-brand-300 flex-shrink-0 hidden md:block" />
+                  <ArrowDown className="w-5 h-5 text-brand-300 flex-shrink-0 self-center md:hidden" />
                   {/* Terapeuta */}
                   <div className="text-center flex-1">
                     <div className="w-16 h-16 bg-brand-600 rounded-2xl flex items-center justify-center mx-auto mb-3">
@@ -264,7 +266,8 @@ const TerapiaOnlinePage = () => {
                     <p className="text-sm font-bold text-brand-800">Terapeuta</p>
                     <p className="text-xs text-brand-500 mt-1">Sua sessão</p>
                   </div>
-                  <ArrowRight className="w-5 h-5 text-brand-300 flex-shrink-0" />
+                  <ArrowRight className="w-5 h-5 text-brand-300 flex-shrink-0 hidden md:block" />
+                  <ArrowDown className="w-5 h-5 text-brand-300 flex-shrink-0 self-center md:hidden" />
                   {/* Recepção novamente */}
                   <div className="text-center flex-1">
                     <div className="w-16 h-16 bg-brand-100 rounded-2xl flex items-center justify-center mx-auto mb-3">
