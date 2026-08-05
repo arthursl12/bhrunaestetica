@@ -8,18 +8,16 @@ import {
   ShieldCheck,
   Star,
   CheckCircle2,
-  Leaf,
   Heart,
   Timer,
-  Search,
   MessageCircle,
   Lock,
   HelpCircle,
   Sparkles,
-  ArrowRight,
   BadgeCheck,
-  MonitorPlay,
-  Activity
+  Activity,
+  Users,
+  ArrowRight
 } from 'lucide-react';
 import {
   Navbar,
@@ -38,20 +36,29 @@ const TerapiaOnlinePage = () => {
 
   const faqs = [
     {
-      q: "E se eu tiver um imprevisto e precisar remarcar?",
-      a: "Sem problema. Você pode reagendar diretamente pelo sistema, com até 24h de antecedência, sem precisar justificar ou falar com ninguém."
+      q: "Como escolho meu horário?",
+      a: "Você não precisa escolher sozinho. Nossa equipe conversa com você pelo WhatsApp, entende sua rotina e cruza com a agenda do profissional ideal — encontrando juntos o melhor horário possível.",
+      isSecurity: false
     },
     {
-      q: "Como funciona o pagamento?",
-      a: "Você paga com Pix ou cartão, em ambiente 100% seguro, no momento do agendamento. Simples e rápido."
+      q: "Como vou receber o link da consulta?",
+      a: "De forma automática e segura. Assim que seu horário é confirmado, nosso sistema cuida de tudo: o link chega no seu celular próximo ao horário da sessão, sem que você precise pedir ou lembrar.",
+      isSecurity: false
     },
     {
-      q: "Preciso baixar algum aplicativo?",
-      a: "Não. Basta clicar no link que você recebe por e-mail ou WhatsApp — a sessão abre direto no navegador do computador ou celular."
+      q: "Quando é feito o pagamento?",
+      a: "O pagamento é feito no momento do agendamento, durante a conversa com nossa equipe, para garantir e reservar seu horário com o profissional escolhido.",
+      isSecurity: false
     },
     {
-      q: "E se eu não me identificar com o profissional escolhido?",
-      a: "Você pode trocar de psicólogo a qualquer momento pela plataforma, sem burocracia e sem constrangimento."
+      q: "É seguro conversar pelo WhatsApp?",
+      a: "Sim. Nossa equipe segue o mesmo compromisso de sigilo profissional em toda a conversa, e nenhuma informação sensível sobre sua sessão é compartilhada fora do ambiente seguro da videochamada.",
+      isSecurity: true
+    },
+    {
+      q: "E se eu precisar remarcar?",
+      a: "É só avisar nossa equipe pelo WhatsApp, com a maior antecedência possível — vamos te ajudar a encontrar um novo horário sem burocracia.",
+      isSecurity: false
     }
   ];
 
@@ -59,7 +66,7 @@ const TerapiaOnlinePage = () => {
     <div className="min-h-screen font-sans text-brand-900 bg-brand-50 selection:bg-brand-200 selection:text-brand-900 pt-16">
       <Navbar />
 
-      {/* 1. HERO SECTION — Split Screen */}
+      {/* 1. HERO SECTION — Acolhimento + WhatsApp */}
       <section className="relative min-h-[90vh] flex items-center bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto w-full flex flex-col md:flex-row items-center">
           {/* Left — Emotional Layer */}
@@ -69,80 +76,94 @@ const TerapiaOnlinePage = () => {
                 Terapia Online
               </span>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif text-brand-800 mb-6 leading-tight">
-                Cuidar da sua mente pode ser <br />
-                <span className="text-brand-400">simples assim.</span>
+                Você não precisa procurar <br />
+                <span className="text-brand-400">sozinho.</span>
               </h1>
-              <p className="text-lg md:text-xl text-brand-900/70 mb-10 leading-relaxed font-light max-w-xl">
-                Escolha seu psicólogo, veja os horários disponíveis em tempo real e agende sua primeira sessão em menos de 2 minutos. Sem espera, sem WhatsApp, sem complicação.
+              <p className="text-xl md:text-2xl font-serif text-brand-700 mb-6 leading-relaxed">
+                A gente encontra o psicólogo certo para você.
+              </p>
+              <p className="text-lg text-brand-900/70 mb-10 leading-relaxed font-light max-w-xl">
+                Fale com nossa equipe pelo WhatsApp e, em poucos minutos, encontramos o terapeuta ideal e o melhor horário para a sua rotina. Sem plataforma, sem formulário, sem decisão difícil.
               </p>
               <div className="space-y-4">
                 <a
-                  href="#horarios"
-                  className="inline-flex items-center justify-center w-full md:w-auto px-10 py-5 text-lg font-bold text-white bg-brand-600 rounded-full hover:bg-brand-700 transition-all shadow-xl hover:shadow-2xl transform hover:-translate-y-1"
-                  onClick={() => trackEvent('cta_hero_ver_horarios')}
+                  href={TERAPIA_WHATSAPP_LINK}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center w-full md:w-auto px-10 py-5 text-lg font-bold text-white bg-[#25D366] rounded-full hover:bg-[#128C7E] transition-all shadow-xl hover:shadow-2xl transform hover:-translate-y-1"
+                  onClick={() => trackEvent('whatsapp_click_terapia_hero')}
                 >
-                  <CalendarCheck className="w-5 h-5 mr-3" />
-                  Ver Horários Disponíveis
+                  <WhatsAppIcon className="w-6 h-6 mr-3" />
+                  Falar com Nossa Equipe no WhatsApp
                 </a>
-                <p className="text-sm text-brand-900/50 font-light text-center md:text-left">
-                  Sem cadastro complicado. Sem compromisso até você decidir.
-                </p>
+                <div className="flex items-center gap-2 text-sm text-brand-900/50 font-light">
+                  <Lock className="w-4 h-4 text-brand-400" />
+                  Atendimento humano, acolhedor e 100% confidencial.
+                </div>
+                {/* Prova de pessoa real */}
+                <div className="flex items-center gap-3 pt-2">
+                  <div className="flex -space-x-2">
+                    <div className="w-9 h-9 rounded-full bg-brand-200 border-2 border-white flex items-center justify-center">
+                      <span className="text-xs font-bold text-brand-700">A</span>
+                    </div>
+                    <div className="w-9 h-9 rounded-full bg-brand-300 border-2 border-white flex items-center justify-center">
+                      <span className="text-xs font-bold text-brand-700">M</span>
+                    </div>
+                  </div>
+                  <p className="text-xs text-brand-900/50">
+                    Fale com a <strong className="text-brand-700">Ana</strong> ou outra pessoa da nossa equipe
+                  </p>
+                </div>
               </div>
             </FadeIn>
           </div>
 
-          {/* Right — Mockup de Prova */}
+          {/* Right — Mini-mockup de conversa WhatsApp */}
           <div className="w-full md:w-[45%] relative h-[400px] md:h-[90vh] flex items-center justify-center p-6">
             <FadeIn delay={0.3} className="w-full max-w-sm">
-              <div className="bg-white rounded-3xl shadow-2xl border border-brand-100 overflow-hidden">
-                {/* Mock Header */}
-                <div className="bg-brand-50 px-6 py-4 border-b border-brand-100">
-                  <p className="text-xs font-bold text-brand-500 uppercase tracking-widest">Escolha seu horário</p>
-                </div>
-                {/* Mock Profile */}
-                <div className="p-6 flex items-center gap-4 border-b border-brand-50">
-                  <div className="w-14 h-14 rounded-full bg-brand-200 flex items-center justify-center flex-shrink-0">
-                    <span className="text-lg font-serif font-bold text-brand-700">RP</span>
+              <div className="bg-[#e5ddd5] rounded-3xl shadow-2xl overflow-hidden">
+                {/* WhatsApp-style header */}
+                <div className="bg-[#075e54] px-6 py-4 flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
+                    <span className="text-sm font-bold text-white">BA</span>
                   </div>
                   <div>
-                    <p className="font-bold text-brand-800">Dra. Renata Pereira</p>
-                    <p className="text-sm text-brand-500">Psicóloga · CRP 04/12345</p>
-                    <div className="flex items-center gap-1 mt-1">
-                      {[1, 2, 3, 4, 5].map((s) => (
-                        <Star key={s} className="w-3 h-3 fill-brand-400 text-brand-400" />
-                      ))}
-                      <span className="text-xs text-brand-400 ml-1">5.0</span>
+                    <p className="text-sm font-bold text-white">Bhruna Azevedo</p>
+                    <p className="text-xs text-white/70">online agora</p>
+                  </div>
+                </div>
+                {/* Chat bubbles */}
+                <div className="p-4 space-y-3">
+                  {/* Received message */}
+                  <div className="flex justify-start">
+                    <div className="bg-white px-4 py-3 rounded-2xl rounded-tl-sm max-w-[85%] shadow-sm">
+                      <p className="text-sm text-brand-900">Oi! Vamos encontrar o profissional ideal para você. Para começar, me conta: o que te trouxe aqui hoje? 😊</p>
+                      <p className="text-[10px] text-brand-400 text-right mt-1">09:14</p>
+                    </div>
+                  </div>
+                  {/* Sent message */}
+                  <div className="flex justify-end">
+                    <div className="bg-[#dcf8c6] px-4 py-3 rounded-2xl rounded-tr-sm max-w-[85%] shadow-sm">
+                      <p className="text-sm text-brand-900">Estou me sentindo muito ansiosa ultimamente...</p>
+                      <p className="text-[10px] text-brand-400 text-right mt-1">09:15</p>
+                    </div>
+                  </div>
+                  {/* Received message */}
+                  <div className="flex justify-start">
+                    <div className="bg-white px-4 py-3 rounded-2xl rounded-tl-sm max-w-[85%] shadow-sm">
+                      <p className="text-sm text-brand-900">Entendo. Vou te ajudar com isso. Tenho uma psicóloga especializada em ansiedade com horário amanhã às 10h. Topa?</p>
+                      <p className="text-[10px] text-brand-400 text-right mt-1">09:16</p>
                     </div>
                   </div>
                 </div>
-                {/* Mock Time Slots */}
-                <div className="p-6 space-y-3">
-                  <p className="text-sm font-medium text-brand-900/60 mb-3">Horários disponíveis — Hoje</p>
-                  {['09:00', '11:30', '14:00'].map((time, i) => (
-                    <div
-                      key={time}
-                      className={`flex items-center justify-between p-4 rounded-2xl border-2 transition-all cursor-pointer ${
-                        i === 1
-                          ? 'border-brand-500 bg-brand-50 shadow-md'
-                          : 'border-brand-100 hover:border-brand-200'
-                      }`}
-                    >
-                      <div className="flex items-center gap-3">
-                        <Clock className="w-4 h-4 text-brand-400" />
-                        <span className="font-bold text-brand-800">{time}</span>
-                      </div>
-                      {i === 1 && (
-                        <span className="flex items-center gap-1 text-xs font-bold text-brand-600 bg-brand-100 px-3 py-1 rounded-full">
-                          <CheckCircle2 className="w-3 h-3" /> Confirmado
-                        </span>
-                      )}
-                    </div>
-                  ))}
-                </div>
-                <div className="px-6 pb-6">
-                  <button className="w-full py-3 bg-brand-600 text-white font-bold rounded-2xl hover:bg-brand-700 transition-colors text-sm">
-                    Agendar Sessão
-                  </button>
+                {/* Input bar */}
+                <div className="bg-[#f0f0f0] px-4 py-3 flex items-center gap-3">
+                  <div className="flex-1 bg-white rounded-full px-4 py-2">
+                    <p className="text-sm text-brand-300">Digite sua mensagem...</p>
+                  </div>
+                  <div className="w-10 h-10 bg-[#075e54] rounded-full flex items-center justify-center">
+                    <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+                  </div>
                 </div>
               </div>
             </FadeIn>
@@ -150,14 +171,14 @@ const TerapiaOnlinePage = () => {
         </div>
       </section>
 
-      {/* 2. COMO FUNCIONA — 3 Passos */}
+      {/* 2. COMO FUNCIONA — Jornada em 3 Passos */}
       <section className="py-24 px-4 bg-brand-50">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <FadeIn>
               <h2 className="text-3xl md:text-5xl font-serif text-brand-800 mb-4">
-                Simples assim: em 3 passos, <br className="hidden md:block" />
-                você já está com sua sessão marcada.
+                Simples assim: você fala com a gente, <br className="hidden md:block" />
+                a gente cuida do resto.
               </h2>
             </FadeIn>
           </div>
@@ -170,28 +191,39 @@ const TerapiaOnlinePage = () => {
             {[
               {
                 step: '01',
-                icon: Search,
-                title: 'Encontre quem combina com você',
-                desc: 'Navegue pelos perfis dos nossos especialistas, veja abordagens, especialidades e experiência. Você escolhe com quem quer conversar — no seu tempo, sem pressa.'
+                icon: MessageCircle,
+                title: 'O Acolhimento',
+                desc: 'Fale com uma pessoa de verdade. Clique e converse com nossa equipe no WhatsApp. Vamos entender sua rotina e o que você está buscando, para encontrar o terapeuta e o horário ideais — sem pressa e sem julgamento.',
+                highlight: true
               },
               {
                 step: '02',
-                icon: CalendarCheck,
-                title: 'Veja a agenda real, na hora',
-                desc: 'Chega de trocar mensagens para achar um horário em comum. Veja os horários realmente disponíveis e escolha o que encaixa na sua rotina.'
+                icon: CreditCard,
+                title: 'A Confirmação',
+                desc: 'Garanta sua vaga. Com tudo definido, você realiza o pagamento de forma segura para confirmar seu horário na agenda do especialista escolhido.',
+                highlight: false
               },
               {
                 step: '03',
-                icon: Video,
-                title: 'Pagamento seguro e link automático',
-                desc: 'Finalize o pagamento com segurança e receba o link da sua sessão por e-mail e WhatsApp. Na hora marcada, é só clicar e entrar.'
+                icon: Clock,
+                title: 'A Sessão Descomplicada',
+                desc: 'É só clicar e entrar. No dia da sua sessão, o link seguro da videochamada chega automaticamente no seu celular. Você não precisa lembrar de nada — a gente avisa.',
+                highlight: false
               }
             ].map((item, i) => (
               <FadeIn key={i} delay={i * 0.2} className="relative z-10">
-                <div className="bg-white p-8 rounded-3xl shadow-sm border border-brand-100 text-center h-full">
-                  <div className="w-16 h-16 bg-brand-100 rounded-2xl flex items-center justify-center mx-auto mb-6 relative">
-                    <item.icon className="w-7 h-7 text-brand-600" />
-                    <span className="absolute -top-2 -right-2 w-7 h-7 bg-brand-600 text-white text-xs font-bold rounded-full flex items-center justify-center">
+                <div className={`p-8 rounded-3xl text-center h-full ${
+                  item.highlight
+                    ? 'bg-white shadow-lg border-2 border-brand-300'
+                    : 'bg-white shadow-sm border border-brand-100'
+                }`}>
+                  <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6 relative ${
+                    item.highlight ? 'bg-brand-600' : 'bg-brand-100'
+                  }`}>
+                    <item.icon className={`w-7 h-7 ${item.highlight ? 'text-white' : 'text-brand-600'}`} />
+                    <span className={`absolute -top-2 -right-2 w-7 h-7 text-xs font-bold rounded-full flex items-center justify-center ${
+                      item.highlight ? 'bg-brand-800 text-white' : 'bg-brand-600 text-white'
+                    }`}>
                       {item.step}
                     </span>
                   </div>
@@ -208,27 +240,36 @@ const TerapiaOnlinePage = () => {
             {[
               {
                 step: '01',
-                icon: Search,
-                title: 'Encontre quem combina com você',
-                desc: 'Navegue pelos perfis, veja abordagens e especialidades. Você escolhe no seu tempo.'
+                icon: MessageCircle,
+                title: 'O Acolhimento',
+                desc: 'Fale com uma pessoa de verdade pelo WhatsApp. Vamos entender sua rotina e encontrar o terapeuta ideal.',
+                highlight: true
               },
               {
                 step: '02',
-                icon: CalendarCheck,
-                title: 'Veja a agenda real, na hora',
-                desc: 'Veja horários realmente disponíveis e escolha o que encaixa na sua rotina.'
+                icon: CreditCard,
+                title: 'A Confirmação',
+                desc: 'Com tudo definido, confirme seu horário com pagamento seguro.',
+                highlight: false
               },
               {
                 step: '03',
-                icon: Video,
-                title: 'Pagamento seguro e link automático',
-                desc: 'Receba o link por e-mail e WhatsApp. Na hora marcada, é só clicar e entrar.'
+                icon: Clock,
+                title: 'A Sessão Descomplicada',
+                desc: 'O link chega no seu celular. É só clicar e entrar.',
+                highlight: false
               }
             ].map((item, i) => (
               <FadeIn key={i} delay={i * 0.15} className="relative z-10 pl-20">
-                <div className="bg-white p-6 rounded-2xl shadow-sm border border-brand-100">
-                  <div className="absolute left-3 w-11 h-11 bg-brand-100 rounded-xl flex items-center justify-center">
-                    <item.icon className="w-5 h-5 text-brand-600" />
+                <div className={`p-6 rounded-2xl ${
+                  item.highlight
+                    ? 'bg-white shadow-lg border-2 border-brand-300'
+                    : 'bg-white shadow-sm border border-brand-100'
+                }`}>
+                  <div className={`absolute left-3 w-11 h-11 rounded-xl flex items-center justify-center ${
+                    item.highlight ? 'bg-brand-600' : 'bg-brand-100'
+                  }`}>
+                    <item.icon className={`w-5 h-5 ${item.highlight ? 'text-white' : 'text-brand-600'}`} />
                   </div>
                   <span className="text-xs font-bold text-brand-400 uppercase tracking-widest">Passo {item.step}</span>
                   <h3 className="text-lg font-serif text-brand-800 mt-1 mb-2">{item.title}</h3>
@@ -240,8 +281,71 @@ const TerapiaOnlinePage = () => {
         </div>
       </section>
 
-      {/* 3. PROVA SOCIAL E SEGURANÇA — Trust Bar */}
+      {/* 3. VOCÊ NUNCA ESTÁ SOZINHO */}
       <section className="py-24 px-4 bg-white">
+        <div className="max-w-5xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-16 items-center">
+            <FadeIn>
+              <h2 className="text-3xl md:text-4xl font-serif text-brand-800 mb-8 leading-tight">
+                Do primeiro "Oi" até depois da sua sessão, <span className="text-brand-400">você não está sozinho.</span>
+              </h2>
+              <div className="space-y-5 text-brand-900/70 leading-relaxed">
+                <p>
+                  Sabemos que dar o primeiro passo já exige coragem — por isso, você não vai lidar com telas, formulários ou robôs sozinho.
+                </p>
+                <p>
+                  Desde a nossa primeira conversa no WhatsApp, alguém da nossa equipe está com você: para tirar dúvidas, ajustar horários se algo mudar, e te acompanhar mesmo depois que a sessão começar com seu terapeuta.
+                </p>
+                <p className="font-medium text-brand-800">
+                  Aqui, cuidar de você é o trabalho de uma equipe inteira — não só de um sistema.
+                </p>
+              </div>
+            </FadeIn>
+
+            {/* Mapa visual da jornada */}
+            <FadeIn delay={0.2}>
+              <div className="bg-brand-50 p-8 rounded-3xl">
+                <div className="flex items-center justify-between gap-4">
+                  {/* Recepção */}
+                  <div className="text-center flex-1">
+                    <div className="w-16 h-16 bg-brand-100 rounded-2xl flex items-center justify-center mx-auto mb-3">
+                      <MessageCircle className="w-7 h-7 text-brand-600" />
+                    </div>
+                    <p className="text-sm font-bold text-brand-800">Recepção</p>
+                    <p className="text-xs text-brand-500 mt-1">Equipe de acolhimento</p>
+                  </div>
+                  <ArrowRight className="w-5 h-5 text-brand-300 flex-shrink-0" />
+                  {/* Terapeuta */}
+                  <div className="text-center flex-1">
+                    <div className="w-16 h-16 bg-brand-600 rounded-2xl flex items-center justify-center mx-auto mb-3">
+                      <Video className="w-7 h-7 text-white" />
+                    </div>
+                    <p className="text-sm font-bold text-brand-800">Terapeuta</p>
+                    <p className="text-xs text-brand-500 mt-1">Sua sessão</p>
+                  </div>
+                  <ArrowRight className="w-5 h-5 text-brand-300 flex-shrink-0" />
+                  {/* Recepção novamente */}
+                  <div className="text-center flex-1">
+                    <div className="w-16 h-16 bg-brand-100 rounded-2xl flex items-center justify-center mx-auto mb-3">
+                      <Heart className="w-7 h-7 text-brand-600" />
+                    </div>
+                    <p className="text-sm font-bold text-brand-800">Acompanhamento</p>
+                    <p className="text-xs text-brand-500 mt-1">Continuidade do cuidado</p>
+                  </div>
+                </div>
+                <div className="mt-8 pt-6 border-t border-brand-200 text-center">
+                  <p className="text-sm text-brand-900/60 italic">
+                    Um ciclo de cuidado completo — do início ao depois.
+                  </p>
+                </div>
+              </div>
+            </FadeIn>
+          </div>
+        </div>
+      </section>
+
+      {/* 4. PROVA SOCIAL E SEGURANÇA — Trust Bar */}
+      <section className="py-24 px-4 bg-brand-50">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <FadeIn>
@@ -254,7 +358,7 @@ const TerapiaOnlinePage = () => {
 
           <div className="grid md:grid-cols-2 gap-8 mb-16">
             <FadeIn delay={0.1}>
-              <div className="bg-brand-50 p-8 rounded-3xl h-full">
+              <div className="bg-white p-8 rounded-3xl shadow-sm border border-brand-100 h-full">
                 <div className="w-14 h-14 bg-brand-100 rounded-2xl flex items-center justify-center mb-6">
                   <BadgeCheck className="w-7 h-7 text-brand-600" />
                 </div>
@@ -266,7 +370,7 @@ const TerapiaOnlinePage = () => {
             </FadeIn>
 
             <FadeIn delay={0.2}>
-              <div className="bg-brand-50 p-8 rounded-3xl h-full">
+              <div className="bg-white p-8 rounded-3xl shadow-sm border border-brand-100 h-full">
                 <div className="w-14 h-14 bg-brand-100 rounded-2xl flex items-center justify-center mb-6">
                   <Lock className="w-7 h-7 text-brand-600" />
                 </div>
@@ -280,7 +384,7 @@ const TerapiaOnlinePage = () => {
 
           {/* Trust Badges */}
           <FadeIn delay={0.3}>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-12 py-8 border-y border-brand-100">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-12 py-8 border-y border-brand-200">
               {[
                 { icon: BadgeCheck, text: 'Psicólogos verificados (CRP ativo)' },
                 { icon: Lock, text: 'Criptografia ponta a ponta' },
@@ -296,7 +400,7 @@ const TerapiaOnlinePage = () => {
         </div>
       </section>
 
-      {/* 4. PARA QUEM É — Conexão com Dores */}
+      {/* 5. PARA QUEM É — Conexão com Dores */}
       <section className="py-24 px-4 bg-[#f0f5f1]">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
@@ -350,72 +454,8 @@ const TerapiaOnlinePage = () => {
         </div>
       </section>
 
-      {/* 5. JORNADA DETALHADA — Storytelling Visual */}
-      <section className="py-24 px-4 bg-white">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <FadeIn>
-              <h2 className="text-3xl md:text-5xl font-serif text-brand-800 mb-4">
-                Sua jornada até a sessão
-              </h2>
-              <p className="text-brand-900/60 max-w-xl mx-auto">
-                Do primeiro clique ao alívio de estar conversando com quem entende — tudo em poucos minutos.
-              </p>
-            </FadeIn>
-          </div>
-
-          <div className="grid md:grid-cols-4 gap-6">
-            {[
-              {
-                step: '01',
-                icon: Search,
-                title: 'Navegue',
-                desc: 'Explore perfis de psicólogos especializados e encontre quem faz sentido para você.',
-                color: 'bg-brand-50'
-              },
-              {
-                step: '02',
-                icon: CalendarCheck,
-                title: 'Agende',
-                desc: 'Veja horários reais em tempo real e escolha o melhor para a sua rotina.',
-                color: 'bg-brand-100'
-              },
-              {
-                step: '03',
-                icon: CreditCard,
-                title: 'Confirme',
-                desc: 'Pague com Pix ou cartão em ambiente seguro e receba seu link de acesso.',
-                color: 'bg-brand-50'
-              },
-              {
-                step: '04',
-                icon: MonitorPlay,
-                title: 'Conecte-se',
-                desc: 'No dia e horário marcados, é só clicar no link e entrar na sessão. Simples assim.',
-                color: 'bg-brand-100'
-              }
-            ].map((item, i) => (
-              <FadeIn key={i} delay={i * 0.15}>
-                <div className={`${item.color} p-8 rounded-3xl h-full relative overflow-hidden`}>
-                  <span className="absolute top-4 right-4 text-5xl font-serif font-bold text-brand-200/40">
-                    {item.step}
-                  </span>
-                  <div className="relative z-10">
-                    <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center mb-6 shadow-sm">
-                      <item.icon className="w-6 h-6 text-brand-600" />
-                    </div>
-                    <h3 className="text-xl font-serif text-brand-800 mb-3">{item.title}</h3>
-                    <p className="text-brand-900/60 text-sm leading-relaxed">{item.desc}</p>
-                  </div>
-                </div>
-              </FadeIn>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* 6. FAQ */}
-      <section className="py-24 px-4 bg-brand-50">
+      <section className="py-24 px-4 bg-white">
         <div className="max-w-3xl mx-auto">
           <FadeIn>
             <div className="text-center mb-16">
@@ -424,13 +464,18 @@ const TerapiaOnlinePage = () => {
             </div>
             <div className="space-y-4">
               {faqs.map((faq, i) => (
-                <div key={i} className="bg-white border border-brand-100 rounded-2xl overflow-hidden transition-all">
+                <div key={i} className="bg-brand-50 border border-brand-100 rounded-2xl overflow-hidden transition-all">
                   <button
                     onClick={() => setOpenFaq(openFaq === i ? null : i)}
-                    className="w-full px-8 py-6 flex items-center justify-between text-left hover:bg-brand-50/50 transition-colors group"
+                    className="w-full px-8 py-6 flex items-center justify-between text-left hover:bg-brand-100/50 transition-colors group"
                   >
                     <span className="font-bold text-brand-900 group-hover:text-brand-800 flex items-center gap-4">
-                      <HelpCircle className="w-5 h-5 text-brand-400 flex-shrink-0" /> {faq.q}
+                      {faq.isSecurity ? (
+                        <Lock className="w-5 h-5 text-brand-600 flex-shrink-0" />
+                      ) : (
+                        <HelpCircle className="w-5 h-5 text-brand-400 flex-shrink-0" />
+                      )}
+                      {faq.q}
                     </span>
                     <ChevronDown className={`w-5 h-5 text-brand-300 transition-transform duration-300 flex-shrink-0 ml-4 ${openFaq === i ? 'rotate-180' : ''}`} />
                   </button>
@@ -457,26 +502,18 @@ const TerapiaOnlinePage = () => {
               Sua mente merece esse cuidado.
             </h2>
             <p className="text-xl text-brand-200/80 mb-12 max-w-2xl mx-auto font-light leading-relaxed">
-              Encontre o psicólogo certo para você e agende sua primeira sessão em menos de 2 minutos. Sem burocracia, sem espera.
+              Fale com nossa equipe e encontre o psicólogo certo para você — sem burocracia, sem espera.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <a
-                href="#horarios"
-                className="inline-flex items-center justify-center px-10 py-5 text-lg font-bold text-brand-900 bg-white rounded-full hover:bg-brand-50 transition-all shadow-xl hover:shadow-2xl transform hover:-translate-y-1"
-                onClick={() => trackEvent('cta_final_ver_horarios')}
-              >
-                <CalendarCheck className="w-5 h-5 mr-3" />
-                Ver Horários Disponíveis
-              </a>
               <a
                 href={TERAPIA_WHATSAPP_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center px-10 py-5 text-lg font-bold text-white bg-[#25D366] rounded-full hover:bg-[#128C7E] transition-all shadow-xl hover:shadow-2xl transform hover:-translate-y-1"
-                onClick={() => trackEvent('whatsapp_click_terapia')}
+                onClick={() => trackEvent('whatsapp_click_terapia_final')}
               >
-                <WhatsAppIcon className="w-5 h-5 mr-3" />
-                Falar no WhatsApp
+                <WhatsAppIcon className="w-6 h-6 mr-3" />
+                Falar com Nossa Equipe no WhatsApp
               </a>
             </div>
 
@@ -492,7 +529,7 @@ const TerapiaOnlinePage = () => {
                 <Star className="w-5 h-5" /> Avaliado por Pacientes
               </div>
               <div className="flex flex-col items-center gap-2">
-                <Video className="w-5 h-5" /> Sem App para Baixar
+                <Users className="w-5 h-5" /> Equipe Humana
               </div>
             </div>
           </FadeIn>
