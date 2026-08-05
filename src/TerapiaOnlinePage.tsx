@@ -577,16 +577,16 @@ const TerapiaOnlinePage = () => {
           {/* Trust Badges — Full width below grid */}
           <FadeIn delay={0.5}>
             <div className="mt-16 pt-12 border-t border-white/10 grid grid-cols-2 md:grid-cols-4 gap-6 text-xs font-bold text-brand-200/50 uppercase tracking-widest">
-              <div className="flex flex-col items-center gap-2">
+              <div className="flex flex-col items-center text-center gap-2">
                 <BadgeCheck className="w-5 h-5" /> CRP Verificado
               </div>
-              <div className="flex flex-col items-center gap-2">
+              <div className="flex flex-col items-center text-center gap-2">
                 <Lock className="w-5 h-5" /> Criptografia Total
               </div>
-              <div className="flex flex-col items-center gap-2">
+              <div className="flex flex-col items-center text-center gap-2">
                 <Star className="w-5 h-5" /> Avaliado por Pacientes
               </div>
-              <div className="flex flex-col items-center gap-2">
+              <div className="flex flex-col items-center text-center gap-2">
                 <Users className="w-5 h-5" /> Equipe Humana
               </div>
             </div>
