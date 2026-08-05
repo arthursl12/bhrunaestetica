@@ -30,7 +30,7 @@ const navItems: NavItem[] = [
     name: 'Atendimento Remoto',
     path: '#',
     children: [
-      { name: 'Nutricionista', path: '/' },
+      { name: 'Nutricionista', path: '/nutrionline' },
       { name: 'Terapia', path: '/terapiaonline' },
     ]
   }
