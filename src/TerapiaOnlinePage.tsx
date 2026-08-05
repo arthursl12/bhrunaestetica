@@ -67,22 +67,27 @@ const TerapiaOnlinePage = () => {
       <Navbar />
 
       {/* 1. HERO SECTION — Acolhimento + WhatsApp */}
-      <section className="relative min-h-[90vh] flex items-center bg-white overflow-hidden">
-        <div className="max-w-7xl mx-auto w-full flex flex-col md:flex-row items-center">
+      <section className="relative min-h-[90vh] flex items-center overflow-hidden">
+        {/* Imagem full-screen */}
+        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: 'url(/terapia1.jpeg)' }} />
+        {/* Overlay escuro para legibilidade */}
+        <div className="absolute inset-0 bg-gradient-to-r from-brand-900/80 via-brand-800/60 to-brand-900/80" />
+
+        <div className="relative z-10 max-w-7xl mx-auto w-full flex flex-col md:flex-row items-center">
           {/* Left — Emotional Layer */}
-          <div className="w-full md:w-[55%] p-6 md:p-12 lg:p-16 z-20">
+          <div className="w-full md:w-[55%] p-6 md:p-12 lg:p-16">
             <FadeIn>
-              <span className="inline-block px-4 py-1.5 mb-6 text-xs font-bold tracking-widest text-brand-600 uppercase bg-brand-100 rounded-full">
+              <span className="inline-block px-4 py-1.5 mb-6 text-xs font-bold tracking-widest text-brand-200 uppercase bg-white/20 rounded-full">
                 Terapia Online
               </span>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif text-brand-800 mb-6 leading-tight">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif text-white mb-6 leading-tight">
                 Você não precisa procurar <br />
-                <span className="text-brand-400">sozinho.</span>
+                <span className="text-brand-200">sozinho.</span>
               </h1>
-              <p className="text-xl md:text-2xl font-serif text-brand-700 mb-6 leading-relaxed">
+              <p className="text-xl md:text-2xl font-serif text-brand-100 mb-6 leading-relaxed">
                 A gente encontra o psicólogo certo para você.
               </p>
-              <p className="text-lg text-brand-900/70 mb-10 leading-relaxed font-light max-w-xl">
+              <p className="text-lg text-brand-100/90 mb-10 leading-relaxed font-light max-w-xl">
                 Fale com nossa equipe pelo WhatsApp e, em poucos minutos, encontramos o terapeuta ideal e o melhor horário para a sua rotina. Sem plataforma, sem formulário, sem decisão difícil.
               </p>
               <div className="space-y-4">
@@ -96,32 +101,32 @@ const TerapiaOnlinePage = () => {
                   <WhatsAppIcon className="w-6 h-6 mr-3" />
                   Falar com Nossa Equipe no WhatsApp
                 </a>
-                <div className="flex items-center gap-2 text-sm text-brand-900/50 font-light">
-                  <Lock className="w-4 h-4 text-brand-400" />
+                <div className="flex items-center gap-2 text-sm text-brand-100/80 font-light">
+                  <Lock className="w-4 h-4 text-brand-200" />
                   Atendimento humano, acolhedor e 100% confidencial.
                 </div>
                 {/* Prova de pessoa real */}
                 <div className="flex items-center gap-3 pt-2">
                   <div className="flex -space-x-2">
-                    <div className="w-9 h-9 rounded-full bg-brand-200 border-2 border-white flex items-center justify-center">
-                      <span className="text-xs font-bold text-brand-700">A</span>
+                    <div className="w-9 h-9 rounded-full bg-white/30 border-2 border-white/50 flex items-center justify-center">
+                      <span className="text-xs font-bold text-white">A</span>
                     </div>
-                    <div className="w-9 h-9 rounded-full bg-brand-300 border-2 border-white flex items-center justify-center">
-                      <span className="text-xs font-bold text-brand-700">M</span>
+                    <div className="w-9 h-9 rounded-full bg-white/30 border-2 border-white/50 flex items-center justify-center">
+                      <span className="text-xs font-bold text-white">M</span>
                     </div>
                   </div>
-                  <p className="text-xs text-brand-900/50">
-                    Fale com a <strong className="text-brand-700">Ana</strong> ou outra pessoa da nossa equipe
+                  <p className="text-xs text-brand-100/80">
+                    Fale com a <strong className="text-white">Ana</strong> ou outra pessoa da nossa equipe
                   </p>
                 </div>
               </div>
             </FadeIn>
           </div>
 
-          {/* Right — Mini-mockup de conversa WhatsApp */}
+          {/* Right — Mini-mockup de conversa WhatsApp (card flutuante) */}
           <div className="w-full md:w-[45%] relative h-[400px] md:h-[90vh] flex items-center justify-center p-6">
             <FadeIn delay={0.3} className="w-full max-w-sm">
-              <div className="bg-[#e5ddd5] rounded-3xl shadow-2xl overflow-hidden">
+              <div className="bg-white/95 backdrop-blur-sm rounded-3xl shadow-2xl border border-white/20 overflow-hidden">
                 {/* WhatsApp-style header */}
                 <div className="bg-[#075e54] px-6 py-4 flex items-center gap-3">
                   <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
