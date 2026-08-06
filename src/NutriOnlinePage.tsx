@@ -23,7 +23,8 @@ import {
   Zap,
   RefreshCw,
   Utensils,
-  Stethoscope
+  Stethoscope,
+  Bell
 } from 'lucide-react';
 import {
   Footer,
@@ -37,41 +38,41 @@ import { WHATSAPP_LINK } from './components/Shared';
 import TeamCarousel from './components/TeamCarousel';
 import { nutricionistas } from './data/nutricionistas';
 
-const NUTRI_WHATSAPP_LINK = `${WHATSAPP_LINK}?text=Olá!%20Tenho%20interesse%20na%20consulta%20nutricional%20online.%20Gostaria%20de%20agendar%20minha%20primeira%20consulta.`;
+const NUTRI_WHATSAPP_LINK = `${WHATSAPP_LINK}?text=Olá!%20Tenho%20interesse%20na%20consulta%20nutricional%20online.%20Gostaria%20de%20falar%20com%20alguém%20da%20equipe.`;
 
 const NutriOnlinePage = () => {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   const faqs = [
     {
-      q: "E se eu precisar remarcar minha consulta?",
-      a: "Sem problema. Você pode reagendar com até 24h de antecedência direto pelo app, sem precisar ligar ou justificar nada pra ninguém.",
+      q: "Por que preciso pagar antes de ter a consulta confirmada?",
+      a: "O pagamento antecipado é o que garante sua vaga na agenda do nutricionista escolhido — sem ele, o horário fica sujeito a disponibilidade até você concluir a reserva. É simples, seguro e feito por um link oficial, sem risco.",
       isSecurity: false
     },
     {
-      q: "Como recebo meu plano alimentar depois da consulta?",
-      a: "Tudo direto no seu celular. Seu nutricionista monta o plano e envia pelo app — você acessa quando quiser, de onde estiver.",
+      q: "Vou realmente falar com uma pessoa no WhatsApp, ou é um robô?",
+      a: "Uma pessoa de verdade da nossa equipe. Ela vai entender seu momento, tirar suas dúvidas e te ajudar a escolher o nutricionista e o horário mais adequados — nada de respostas automáticas genéricas.",
       isSecurity: false
     },
     {
-      q: "Preciso baixar algum aplicativo pra fazer a consulta?",
-      a: "Não. A videochamada acontece direto pelo navegador, com 1 clique. Simples assim.",
+      q: "Como recebo o link da minha consulta no dia marcado?",
+      a: "Você não precisa fazer nada. Pouco antes do horário, nosso sistema envia automaticamente o link da videochamada pra você, direto no WhatsApp ou e-mail cadastrado.",
       isSecurity: false
     },
     {
-      q: "E se eu não gostar do nutricionista que escolhi?",
-      a: "Você pode trocar de profissional quando quiser. O objetivo aqui é que você se sinta confortável e acompanhado — não preso a nada.",
+      q: "E se eu precisar remarcar depois de já ter pago?",
+      a: "Sem problema — é só falar com a nossa equipe pelo WhatsApp e a gente reorganiza seu horário com a maior flexibilidade possível.",
       isSecurity: false
     },
     {
-      q: "Os nutricionistas são realmente qualificados?",
-      a: "Sim. Todos têm registro ativo no CRN e passam por verificação de formação antes de entrar na plataforma.",
+      q: "Depois da consulta, eu fico sem suporte até a próxima?",
+      a: "Não. Você continua com acompanhamento tanto do seu nutricionista quanto da nossa recepção sempre que precisar — dúvidas sobre o plano, ajustes ou orientações não esperam até a próxima consulta.",
+      isSecurity: false
+    },
+    {
+      q: "É seguro pagar antes de falar com o nutricionista diretamente?",
+      a: "Sim. O pagamento é feito por um link seguro após a triagem com nossa equipe, que já confirma o profissional e o horário certos pra você — o valor só garante o que já foi combinado na conversa.",
       isSecurity: true
-    },
-    {
-      q: "Vou precisar seguir uma dieta super restrita?",
-      a: "Não trabalhamos com restrição extrema nem promessas milagrosas. O foco é um plano alimentar sustentável, que funciona na sua rotina real — sem sofrimento.",
-      isSecurity: false
     }
   ];
 
@@ -93,27 +94,29 @@ const NutriOnlinePage = () => {
                 Nutrição Online
               </span>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif text-white mb-6 leading-tight">
-                Nutrição que cabe na sua rotina, <br />
-                <span className="text-brand-200">sem dietas malucas.</span>
+                Nutrição real, com gente de verdade <br />
+                <span className="text-brand-200">te acompanhando do primeiro "oi".</span>
               </h1>
               <p className="text-lg text-brand-100/90 mb-10 leading-relaxed font-light">
-                Agende sua consulta em tempo real, converse com um nutricionista de verdade por videochamada e receba seu plano alimentar direto no celular. Sem ligação, sem espera, sem burocracia no WhatsApp.
+                Fale agora com nossa equipe pelo WhatsApp, conte um pouco do seu momento e a gente te ajuda a encontrar o nutricionista e o horário ideais. Sem formulário, sem robô, sem enrolação.
               </p>
               <div className="space-y-4">
                 <a
-                  href="#horarios"
-                  className="inline-flex items-center justify-center w-full md:w-auto px-10 py-5 text-lg font-bold text-center text-white bg-[#c4764d] rounded-full hover:bg-[#994c35] transition-all shadow-xl hover:shadow-2xl transform hover:-translate-y-1"
-                  onClick={() => trackEvent('cta_hero_ver_horarios_nutri')}
+                  href={NUTRI_WHATSAPP_LINK}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-3 w-full md:w-auto px-10 py-5 text-lg font-bold text-center text-white bg-[#25D366] rounded-full hover:bg-[#128C7E] transition-all shadow-xl hover:shadow-2xl transform hover:-translate-y-1"
+                  onClick={() => trackEvent('cta_hero_whatsapp_nutri')}
                 >
-                  <CalendarCheck className="w-5 h-5 mr-3 self-center" />
-                  Ver horários disponíveis agora
+                  <WhatsAppIcon className="w-6 h-6" />
+                  Falar com a gente no WhatsApp
                 </a>
                 <p className="text-sm text-brand-100/80 font-light text-center md:text-left">
-                  Escolha o dia e o horário que funcionam pra você. Em menos de 2 minutos sua consulta está marcada.
+                  Em poucos minutos alguém da nossa equipe te responde pessoalmente — sem letra miúda, sem venda forçada.
                 </p>
                 <div className="flex items-center gap-2 text-sm text-brand-100/70 font-light">
                   <CheckCircle2 className="w-4 h-4 text-brand-200 flex-shrink-0" />
-                  Nutricionistas com CRN ativo · Consulta 100% online · Cancelamento flexível
+                  Atendimento humano · Pagamento seguro · Nutricionistas com CRN ativo
                 </div>
               </div>
             </FadeIn>
@@ -127,103 +130,109 @@ const NutriOnlinePage = () => {
           <div className="text-center mb-16">
             <FadeIn>
               <h2 className="text-3xl md:text-5xl font-serif text-brand-800 mb-4">
-                Cuidar da sua alimentação <br className="hidden md:block" />
-                nunca foi tão simples.
+                Do primeiro contato à sua consulta, <br className="hidden md:block" />
+                você nunca fica sozinho(a).
               </h2>
               <p className="text-brand-900/60 max-w-2xl mx-auto leading-relaxed mt-4">
-                Sem intermediário, sem espera por resposta, sem "vou verificar a agenda e te retorno". Aqui, você tem o controle — do jeito que deveria ser.
+                A gente cuida da logística, da confirmação e dos lembretes — você só precisa focar em você.
               </p>
             </FadeIn>
           </div>
 
-          {/* Desktop — Horizontal Steps */}
-          <div className="hidden md:grid md:grid-cols-3 gap-8 relative">
-            <div className="absolute top-16 left-[20%] right-[20%] h-0.5 bg-brand-200 z-0" />
+          {/* Desktop — 4 Steps Horizontal */}
+          <div className="hidden md:grid md:grid-cols-4 gap-6 relative">
+            <div className="absolute top-16 left-[12%] right-[12%] h-0.5 bg-brand-200 z-0" />
 
             {[
               {
                 step: '01',
-                icon: Users,
-                title: 'Escolha',
-                desc: 'Veja o perfil, a especialidade e a abordagem de cada profissional. Tem nutricionista para emagrecimento saudável, saúde digestiva, performance esportiva e reeducação alimentar — você escolhe quem combina com o seu objetivo.',
-                highlight: true
+                icon: MessageCircle,
+                title: 'Acolhimento',
+                desc: 'Chama no WhatsApp e conta como você está e o que está buscando. Nossa equipe entende seu momento e já te indica o nutricionista com o perfil mais adequado pra você.',
+                human: true
               },
               {
                 step: '02',
-                icon: CalendarCheck,
-                title: 'Agende',
-                desc: 'Veja a agenda real do nutricionista, em tempo real. Escolha o horário que encaixa na sua rotina, pague online e pronto — sua consulta está confirmada na hora, sem trocar uma única mensagem com ninguém.',
-                highlight: false
+                icon: CreditCard,
+                title: 'Confirmação',
+                desc: 'Depois de definido o melhor dia e horário com a equipe, você faz o pagamento antecipado direto pelo link seguro — isso garante sua vaga na agenda do nutricionista.',
+                human: false
               },
               {
                 step: '03',
-                icon: Video,
-                title: 'Mude',
-                desc: 'No dia marcado, entre na videochamada com 1 clique — direto do navegador, sem baixar aplicativo. Depois da consulta, acompanhe seu plano alimentar, evolução e orientações direto no app, no seu tempo.',
-                highlight: false
+                icon: Bell,
+                title: 'Lembrete',
+                desc: 'Pouco antes do horário marcado, você recebe automaticamente o link da videochamada — sem precisar caçar e-mail antigo ou perguntar de novo pra ninguém.',
+                human: false
+              },
+              {
+                step: '04',
+                icon: Heart,
+                title: 'Acompanhamento',
+                desc: 'Seu cuidado não termina quando a chamada acaba. Você continua com suporte do seu nutricionista e da nossa recepção — pra tirar dúvidas, reagendar ou ajustar.',
+                human: true
               }
             ].map((item, i) => (
-              <FadeIn key={i} delay={i * 0.2} className="relative z-10">
-                <div className={`p-8 rounded-3xl text-center h-full ${
-                  item.highlight
-                    ? 'bg-white shadow-lg border-2 border-brand-300'
-                    : 'bg-white shadow-sm border border-brand-100'
-                }`}>
-                  <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6 relative ${
-                    item.highlight ? 'bg-brand-600' : 'bg-brand-100'
+              <FadeIn key={i} delay={i * 0.15} className="relative z-10">
+                <div className="bg-white p-6 rounded-3xl shadow-sm border border-brand-100 text-center h-full">
+                  <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-5 relative ${
+                    item.human ? 'bg-brand-600' : 'bg-[#c4764d]'
                   }`}>
-                    <item.icon className={`w-7 h-7 ${item.highlight ? 'text-white' : 'text-brand-600'}`} />
-                    <span className={`absolute -top-2 -right-2 w-7 h-7 text-xs font-bold rounded-full flex items-center justify-center ${
-                      item.highlight ? 'bg-brand-800 text-white' : 'bg-brand-600 text-white'
+                    <item.icon className="w-6 h-6 text-white" />
+                    <span className={`absolute -top-2 -right-2 w-6 h-6 text-xs font-bold rounded-full flex items-center justify-center ${
+                      item.human ? 'bg-brand-800 text-white' : 'bg-[#994c35] text-white'
                     }`}>
                       {item.step}
                     </span>
                   </div>
-                  <h3 className="text-xl font-serif text-brand-800 mb-4">{item.title}</h3>
+                  <h3 className="text-lg font-serif text-brand-800 mb-3">{item.title}</h3>
                   <p className="text-brand-900/60 text-sm leading-relaxed">{item.desc}</p>
                 </div>
               </FadeIn>
             ))}
           </div>
 
-          {/* Mobile — Stacked Steps */}
+          {/* Mobile — 4 Stacked Steps */}
           <div className="md:hidden space-y-6 relative">
             <div className="absolute top-0 bottom-0 left-8 w-0.5 bg-brand-200" />
             {[
               {
                 step: '01',
-                icon: Users,
-                title: 'Escolha',
-                desc: 'Veja o perfil e especialidade de cada nutricionista. Você escolhe quem combina com o seu objetivo.',
-                highlight: true
+                icon: MessageCircle,
+                title: 'Acolhimento',
+                desc: 'Chama no WhatsApp e conte o que está buscando. Nossa equipe indica o nutricionista ideal.',
+                human: true
               },
               {
                 step: '02',
-                icon: CalendarCheck,
-                title: 'Agende',
-                desc: 'Veja a agenda em tempo real, escolha o horário e confirme — sem mensagens.',
-                highlight: false
+                icon: CreditCard,
+                title: 'Confirmação',
+                desc: 'Faça o pagamento seguro para garantir sua vaga na agenda do nutricionista.',
+                human: false
               },
               {
                 step: '03',
-                icon: Video,
-                title: 'Mude',
-                desc: 'Entre na videochamada com 1 clique e acompanhe seu plano no app.',
-                highlight: false
+                icon: Bell,
+                title: 'Lembrete',
+                desc: 'Receba o link da videochamada automaticamente antes do horário.',
+                human: false
+              },
+              {
+                step: '04',
+                icon: Heart,
+                title: 'Acompanhamento',
+                desc: 'Continue com suporte do nutricionista e da recepção depois da consulta.',
+                human: true
               }
             ].map((item, i) => (
-              <FadeIn key={i} delay={i * 0.15} className="relative z-10 pl-20">
-                <div className={`p-6 rounded-2xl ${
-                  item.highlight
-                    ? 'bg-white shadow-lg border-2 border-brand-300'
-                    : 'bg-white shadow-sm border border-brand-100'
-                }`}>
+              <FadeIn key={i} delay={i * 0.1} className="relative z-10 pl-20">
+                <div className="bg-white p-5 rounded-2xl shadow-sm border border-brand-100">
                   <div className={`absolute left-3 w-11 h-11 rounded-xl flex items-center justify-center ${
-                    item.highlight ? 'bg-brand-600' : 'bg-brand-100'
+                    item.human ? 'bg-brand-600' : 'bg-[#c4764d]'
                   }`}>
-                    <item.icon className={`w-5 h-5 ${item.highlight ? 'text-white' : 'text-brand-600'}`} />
+                    <item.icon className="w-5 h-5 text-white" />
                   </div>
-                  <span className="text-xs font-bold text-brand-400 uppercase tracking-widest">Passo {item.step}</span>
+                  <span className="text-xs font-bold text-brand-400 uppercase tracking-widest">Etapa {item.step}</span>
                   <h3 className="text-lg font-serif text-brand-800 mt-1 mb-2">{item.title}</h3>
                   <p className="text-brand-900/60 text-sm leading-relaxed">{item.desc}</p>
                 </div>
@@ -234,11 +243,14 @@ const NutriOnlinePage = () => {
           <FadeIn delay={0.4}>
             <div className="mt-12 text-center">
               <a
-                href="#horarios"
-                className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white bg-[#c4764d] rounded-full hover:bg-[#994c35] transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1"
-                onClick={() => trackEvent('cta_como_funciona_nutri')}
+                href={NUTRI_WHATSAPP_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-3 px-8 py-4 text-lg font-bold text-white bg-[#25D366] rounded-full hover:bg-[#128C7E] transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                onClick={() => trackEvent('cta_como_funciona_whatsapp_nutri')}
               >
-                Quero agendar minha primeira consulta
+                <WhatsAppIcon className="w-5 h-5" />
+                Quero começar agora pelo WhatsApp
               </a>
             </div>
           </FadeIn>
@@ -405,11 +417,14 @@ const NutriOnlinePage = () => {
           <FadeIn delay={0.5}>
             <div className="mt-12 text-center">
               <a
-                href="#horarios"
-                className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white bg-[#c4764d] rounded-full hover:bg-[#994c35] transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1"
-                onClick={() => trackEvent('cta_para_quem_nutri')}
+                href={NUTRI_WHATSAPP_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-3 px-8 py-4 text-lg font-bold text-white bg-[#25D366] rounded-full hover:bg-[#128C7E] transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                onClick={() => trackEvent('cta_para_quem_whatsapp_nutri')}
               >
-                Encontrar o nutricionista ideal pra mim
+                <WhatsAppIcon className="w-5 h-5" />
+                Falar com a gente no WhatsApp
               </a>
             </div>
           </FadeIn>
@@ -515,19 +530,21 @@ const NutriOnlinePage = () => {
             <div className="md:pr-4">
               <FadeIn>
                 <h2 className="text-4xl md:text-5xl font-serif mb-6 leading-tight text-left">
-                  Sua próxima consulta está a 2 cliques de distância.
+                  Sua saúde merece gente de verdade cuidando de você.
                 </h2>
                 <p className="text-xl text-brand-200/80 mb-10 max-w-lg font-light leading-relaxed text-left">
-                  Chega de adiar o seu cuidado por burocracia. Veja os horários disponíveis agora e comece sua reeducação alimentar sem culpa, sem terrorismo nutricional e sem complicação.
+                  Chega de adiar. Fale com nossa equipe agora e comece sua reeducação alimentar sem culpa, sem terrorismo nutricional e sem complicação.
                 </p>
                 <div className="flex flex-col sm:flex-row justify-start gap-4">
                   <a
-                    href="#horarios"
-                    className="inline-flex items-center justify-center px-10 py-5 text-lg font-bold text-white bg-[#c4764d] rounded-full hover:bg-[#994c35] transition-all shadow-xl hover:shadow-2xl transform hover:-translate-y-1"
-                    onClick={() => trackEvent('cta_final_nutri')}
+                    href={NUTRI_WHATSAPP_LINK}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-3 px-10 py-5 text-lg font-bold text-white bg-[#25D366] rounded-full hover:bg-[#128C7E] transition-all shadow-xl hover:shadow-2xl transform hover:-translate-y-1"
+                    onClick={() => trackEvent('cta_final_whatsapp_nutri')}
                   >
-                    <CalendarCheck className="w-5 h-5 mr-3 self-center" />
-                    Ver horários disponíveis
+                    <WhatsAppIcon className="w-6 h-6" />
+                    Falar com a gente no WhatsApp
                   </a>
                 </div>
               </FadeIn>
