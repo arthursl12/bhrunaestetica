@@ -76,7 +76,7 @@ const NutriOnlinePage = () => {
     }
   ];
 
-  const SHOW_NUTRI_TEAM_SECTION = true;
+  const SHOW_NUTRI_TEAM_SECTION = false;
 
   return (
     <div className="min-h-screen font-sans text-brand-900 bg-brand-50 selection:bg-brand-200 selection:text-brand-900 pt-16">
