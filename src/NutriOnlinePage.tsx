@@ -84,7 +84,7 @@ const NutriOnlinePage = () => {
 
       {/* 1. HERO SECTION */}
       <section className="relative min-h-[90vh] flex items-center overflow-hidden">
-        <div className="absolute inset-0 bg-cover bg-[75%_center] md:bg-center" style={{ backgroundImage: 'url(/terapia1.jpeg)' }} />
+        <div className="absolute inset-0 bg-cover bg-[75%_center] md:bg-center" style={{ backgroundImage: 'url(/nutri1.jpeg)' }} />
         <div className="absolute inset-0 bg-gradient-to-r from-brand-900/80 via-brand-800/60 to-brand-900/80" />
 
         <div className="relative z-10 max-w-7xl mx-auto w-full px-6 md:px-12 lg:px-16">
