@@ -106,7 +106,7 @@ const NutriOnlinePage = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-3 w-full md:w-auto px-10 py-5 text-lg font-bold text-center text-white bg-[#25D366] rounded-full hover:bg-[#128C7E] transition-all shadow-xl hover:shadow-2xl transform hover:-translate-y-1"
-                  onClick={() => trackEvent('cta_hero_whatsapp_nutri')}
+                  onClick={() => trackEvent('whatsapp_click')}
                 >
                   <WhatsAppIcon className="w-6 h-6" />
                   Falar com a gente no WhatsApp
@@ -247,7 +247,7 @@ const NutriOnlinePage = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-3 px-8 py-4 text-lg font-bold text-white bg-[#25D366] rounded-full hover:bg-[#128C7E] transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1"
-                onClick={() => trackEvent('cta_como_funciona_whatsapp_nutri')}
+                onClick={() => trackEvent('whatsapp_click')}
               >
                 <WhatsAppIcon className="w-5 h-5" />
                 Quero começar agora pelo WhatsApp
@@ -420,7 +420,7 @@ const NutriOnlinePage = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-3 px-8 py-4 text-lg font-bold text-white bg-[#25D366] rounded-full hover:bg-[#128C7E] transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1"
-                onClick={() => trackEvent('cta_para_quem_whatsapp_nutri')}
+                onClick={() => trackEvent('whatsapp_click')}
               >
                 <WhatsAppIcon className="w-5 h-5" />
                 Falar com a gente no WhatsApp
@@ -466,7 +466,7 @@ const NutriOnlinePage = () => {
                 href={`${WHATSAPP_LINK}?text=${encodeURIComponent('Oi! Vi o time de nutricionistas no site e gostaria de ajuda para encontrar quem combina comigo 😊')}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={() => trackEvent('whatsapp_click_nutri_team_fallback')}
+                onClick={() => trackEvent('whatsapp_click')}
                 className="inline-flex items-center justify-center px-10 py-4 text-lg font-bold text-[#c4764d] border-2 border-[#c4764d] rounded-full hover:bg-[#c4764d] hover:text-white transition-all shadow-lg"
               >
                 <WhatsAppIcon className="w-5 h-5 mr-3" />
@@ -540,7 +540,7 @@ const NutriOnlinePage = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center justify-center gap-3 px-10 py-5 text-lg font-bold text-white bg-[#25D366] rounded-full hover:bg-[#128C7E] transition-all shadow-xl hover:shadow-2xl transform hover:-translate-y-1"
-                    onClick={() => trackEvent('cta_final_whatsapp_nutri')}
+                    onClick={() => trackEvent('whatsapp_click')}
                   >
                     <WhatsAppIcon className="w-6 h-6" />
                     Falar com a gente no WhatsApp

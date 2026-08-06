@@ -100,7 +100,7 @@ const TerapiaOnlinePage = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                    className="inline-flex items-center justify-center gap-3 w-full md:w-auto px-10 py-5 text-lg font-bold text-center text-white bg-[#25D366] rounded-full hover:bg-[#128C7E] transition-all shadow-xl hover:shadow-2xl transform hover:-translate-y-1"
-                  onClick={() => trackEvent('whatsapp_click_terapia_hero')}
+                  onClick={() => trackEvent('whatsapp_click')}
                 >
                   <WhatsAppIcon className="w-6 h-6" />
                   Falar com Nossa Equipe no WhatsApp
@@ -439,7 +439,7 @@ const TerapiaOnlinePage = () => {
                 href={`${WHATSAPP_LINK}?text=${encodeURIComponent('Oi! Vi o time de psicólogos no site e gostaria de ajuda para encontrar quem combina comigo 😊')}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={() => trackEvent('whatsapp_click_team_fallback')}
+                onClick={() => trackEvent('whatsapp_click')}
                 className="inline-flex items-center justify-center px-10 py-4 text-lg font-bold text-[#25D366] border-2 border-[#25D366] rounded-full hover:bg-[#25D366] hover:text-white transition-all shadow-lg"
               >
                 <WhatsAppIcon className="w-5 h-5 mr-3" />
@@ -513,7 +513,7 @@ const TerapiaOnlinePage = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center justify-center px-10 py-5 text-lg font-bold text-white bg-[#25D366] rounded-full hover:bg-[#128C7E] transition-all shadow-xl hover:shadow-2xl transform hover:-translate-y-1"
-                    onClick={() => trackEvent('whatsapp_click_terapia_final')}
+                    onClick={() => trackEvent('whatsapp_click')}
                   >
 <WhatsAppIcon className="w-6 h-6 mr-3 self-center" />
                     Falar com Nossa Equipe no WhatsApp
