@@ -330,7 +330,6 @@ const NutriOnlinePage = () => {
                 <p className="text-lg md:text-xl font-serif text-brand-800 italic leading-relaxed mb-6">
                   "Depois de anos tentando dietas malucas, finalmente encontrei uma nutricionista que me ouviu e montou um plano que eu realmente consigo seguir."
                 </p>
-                <p className="text-sm text-brand-500">— espaço reservado para depoimento de paciente real</p>
               </div>
             </div>
           </FadeIn>
