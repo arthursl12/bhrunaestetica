@@ -235,7 +235,7 @@ const DrenagemLinfaticaPage = () => {
       </div>
 
       {/* 2. BLOCO DE IDENTIFICAÇÃO — As Dores da Persona */}
-      <section className="py-24 px-4 bg-brand-50">
+      <section id="dores" className="py-24 px-4 bg-brand-50">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <FadeIn>
@@ -265,7 +265,7 @@ const DrenagemLinfaticaPage = () => {
       </section>
 
       {/* 3. SEÇÃO DE SOLUÇÃO — O Método Bhruna Estética */}
-      <section className="py-24 px-4 bg-white">
+      <section id="metodo" className="py-24 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
           {/* 3A — Como Funciona */}
           <div className="grid lg:grid-cols-2 gap-16 items-center mb-24">
@@ -417,7 +417,7 @@ const DrenagemLinfaticaPage = () => {
       </section>
 
       {/* 4. GRADE DE VARIAÇÕES E TÉCNICAS COMPLEMENTARES */}
-      <section className="py-24 px-4 bg-brand-50">
+      <section id="tecnicas" className="py-24 px-4 bg-brand-50">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <FadeIn>
@@ -457,7 +457,7 @@ const DrenagemLinfaticaPage = () => {
       </section>
 
       {/* 5. SEÇÃO ESPECIAL — Gestantes e Pós-Parto */}
-      <section className="py-24 px-4 bg-[#fcf5f3]">
+      <section id="gestantes" className="py-24 px-4 bg-[#fcf5f3]">
         <div className="max-w-6xl mx-auto bg-white rounded-[3rem] overflow-hidden shadow-xl border border-brand-100/50">
           <div className="flex flex-col md:flex-row items-center">
             <div className="w-full md:w-1/2 p-8 md:p-16">
@@ -520,7 +520,7 @@ const DrenagemLinfaticaPage = () => {
       </section>
 
       {/* 6. PROVA SOCIAL E RESULTADOS */}
-      <section className="py-24 px-4 bg-white">
+      <section id="depoimentos" className="py-24 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <FadeIn>
@@ -549,7 +549,7 @@ const DrenagemLinfaticaPage = () => {
       </section>
 
       {/* 7. FAQ — QUEBRA DE OBJEÇÕES */}
-      <section className="py-24 px-4 bg-brand-50">
+      <section id="faq" className="py-24 px-4 bg-brand-50">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-16">
             <FadeIn>

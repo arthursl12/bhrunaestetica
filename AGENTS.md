@@ -44,6 +44,7 @@ React 19 + TypeScript + Vite 6 SPA for a Brazilian aesthetics/wellness business.
 - **WhatsApp link**: Constant `WHATSAPP_LINK` in `Shared.tsx` (`https://wa.me/553191422212`)
 - **WhatsApp tracking**: All WhatsApp click events across the site must use the unified event name `'whatsapp_click'` (e.g., `trackEvent('whatsapp_click')`). Do not use page-specific or section-specific event names for WhatsApp links.
 - **Images**: Stored in `public/` (referenced as `/filename.ext`)
+- **Hash-based section linking**: Sections use `id` attributes for deep-linking (e.g., `/drenagem#gestantes`). The `ScrollToTop` component in `App.tsx` reads `location.hash` and scrolls to the target element. When adding new sections, give them a meaningful `id` to enable direct linking.
 
 ## Development Notes
 - No test suite configured
