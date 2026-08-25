@@ -65,7 +65,7 @@ const TerapiaOnlinePage = () => {
     }
   ];
 
-  const SHOW_TEAM_SECTION = false; // Toggle to false to hide, true to show
+  const SHOW_TEAM_SECTION = true; // Toggle to false to hide, true to show
 
   return (
     <div className="min-h-screen font-sans text-brand-900 bg-brand-50 selection:bg-brand-200 selection:text-brand-900 pt-16">

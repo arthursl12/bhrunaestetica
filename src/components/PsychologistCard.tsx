@@ -37,10 +37,10 @@ const PsychologistCard: React.FC<PsychologistCardProps> = ({ psychologist }) => 
         </span>
         
         {/* CRP */}
-        <p className="text-xs text-brand-400 mb-3">{psychologist.crp}</p>
+        {psychologist.crp && <p className="text-xs text-brand-400 mb-3">{psychologist.crp}</p>}
         
-        {/* Bio - truncate at 4 lines */}
-        <p className="text-brand-900/70 text-sm leading-relaxed flex-1 line-clamp-5 mb-4">
+        {/* Bio - truncate at 7 lines */}
+        <p className="text-brand-900/70 text-sm leading-relaxed flex-1 line-clamp-7 mb-4">
           {psychologist.bio}
         </p>
         

@@ -4,13 +4,24 @@ export interface Nutricionista {
   firstName: string;
   gender: 'f' | 'm';
   specialty: string;
-  crn: string;
+  crp: string;
   bio: string;
   photo: string;
   whatsappText: string;
 }
 
 export const nutricionistas: Nutricionista[] = [
+  {
+    id: 'isadora',
+    name: 'Dra. Isadora Luiza',
+    firstName: 'Isadora',
+    gender: 'f',
+    specialty: 'Composição Corporal e Longevidade',
+    crp: 'CRN 36416',
+    bio: 'Nutrição não é dieta — é entender o corpo e criar hábitos que funcionam. Com mais de 1.000 atendimentos, Isadora monta planos personalizados para composição corporal, hipertrofia e longevidade, respeitando sua rotina e objetivos.',
+    photo: '/team/isadora.jpeg',
+    whatsappText: 'Oi! Vi o perfil da Isadora Luiza no site e gostaria de saber mais sobre agendar com ela 😊'
+  },
   {
     id: 'ana',
     name: 'Ana Carolina Souza',

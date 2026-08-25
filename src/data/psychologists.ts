@@ -12,6 +12,28 @@ export interface Psychologist {
 
 export const psychologists: Psychologist[] = [
   {
+    id: 'jaqueline',
+    name: 'Dra. Jaqueline Monteiro',
+    firstName: 'Jaqueline',
+    gender: 'f',
+    specialty: 'Neuropsicologia e Autoconhecimento',
+    crp: 'CRP 04/85252',
+    bio: 'Escuta clínica e Neuropsicologia unidas para acolher ansiedade, autoestima, relacionamentos e autoconhecimento. Mestranda em Neuropsicologia, ela oferece um atendimento individualizado, ético e respeitoso à singularidade de cada pessoa.',
+    photo: '/team/jaqueline.jpeg',
+    whatsappText: 'Oi! Vi o perfil da Jaqueline Monteiro no site e gostaria de saber mais sobre agendar com ela 😊'
+  },
+  {
+    id: 'renata',
+    name: 'Dra. Renata Conceição Costa',
+    firstName: 'Renata',
+    gender: 'f',
+    specialty: 'Psicologia e ABA',
+    crp: '',
+    bio: 'Psicóloga e Pedagóloga com experiência em ABA, geriatria, transtornos alimentares e preparação bariátrica. Atua com empatia em clínica, escola e domicílio — cuidando de crianças, adultos e idosos com competência e acolhimento.',
+    photo: '/team/renata.jpeg',
+    whatsappText: 'Oi! Vi o perfil da Renata Conceição Costa no site e gostaria de saber mais sobre agendar com ela 😊'
+  },
+  {
     id: 'camila',
     name: 'Dra. Camila Rocha',
     firstName: 'Camila',
