@@ -13,7 +13,7 @@ const PsychologistCard: React.FC<PsychologistCardProps> = ({ psychologist }) => 
   const whatsappUrl = `${WHATSAPP_LINK}?text=${encodeURIComponent(psychologist.whatsappText)}`;
 
   return (
-    <div className="bg-white rounded-3xl shadow-sm border border-brand-100 flex flex-col overflow-hidden">
+    <div className="bg-white rounded-3xl shadow-sm border border-brand-100 flex flex-col overflow-hidden h-full">
       {/* Photo - ~52% */}
       <div className="relative aspect-[3/2] min-h-[280px] w-full bg-brand-100 shrink-0">
         <img 
