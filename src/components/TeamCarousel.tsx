@@ -46,7 +46,7 @@ const TeamCarousel: React.FC<TeamCarouselProps> = ({ psychologists }) => {
     <div className="relative">
       {/* Carousel viewport */}
       <div className="overflow-hidden" ref={emblaRef}>
-        <div className="flex gap-6">
+        <div className={`flex gap-6 ${psychologists.length <= 4 ? 'justify-center' : ''}`}>
           {psychologists.map((psychologist) => (
             <div 
               key={psychologist.id}
