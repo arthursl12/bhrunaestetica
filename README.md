@@ -1,10 +1,14 @@
 # Multi-Service Lead-Generation Site for a Wellness Business
 
+[![License: MIT](https://img.shields.io/github/license/arthursl12/bhrunaestetica)](LICENSE)
+[![Vercel deploy](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fapi.github.com%2Frepos%2Farthursl12%2Fbhrunaestetica%2Fcommits%2Fmain%2Fstatus&query=%24.state&label=Vercel%20deploy&color=blue)](https://vercel.com/arthurs-projects-975bc37f/bhrunaestetica)
+[![Live site](https://img.shields.io/badge/live%20site-open-brightgreen)](https://www.bhrunaestetica.com.br/)
+
 A multi-page React site for a real aesthetics and wellness business in Belo Horizonte, Brazil. It presents ten different services to different audiences and turns visits into WhatsApp conversations, with click tracking that stays comparable across every page.
 
 > Client project, in Portuguese for a local audience. Actively maintained, with a few engineering gaps listed under [Current limitations](#current-limitations).
 
-[Run locally](#running-locally) · [Architecture](#architecture) · [Engineering decisions](#engineering-decisions)
+[Live site](https://www.bhrunaestetica.com.br/) · [Run locally](#running-locally) · [Architecture](#architecture) · [Engineering decisions](#engineering-decisions)
 
 <!-- TODO: add a short GIF of the home → service page → WhatsApp flow here (docs/demo/). -->
 
