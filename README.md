@@ -10,7 +10,9 @@ A multi-page React site for a real aesthetics and wellness business in Belo Hori
 
 [Live site](https://www.bhrunaestetica.com.br/) · [Run locally](#running-locally) · [Architecture](#architecture) · [Engineering decisions](#engineering-decisions)
 
-<!-- TODO: add a short GIF of the home → service page → WhatsApp flow here (docs/demo/). -->
+![Demo of the site: home page, service page and WhatsApp call to action](docs/demo/demo.gif)
+
+▶️ [Full-quality demo video](docs/demo/demo.mp4) (mp4, 6 MB)
 
 ## Problem
 
